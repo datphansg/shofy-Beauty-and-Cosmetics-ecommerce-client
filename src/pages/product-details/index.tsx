@@ -11,8 +11,7 @@ import ProductDetailsArea from '@/components/product-details/product-details-are
 import PrdDetailsLoader from '@/components/loader/prd-details-loader';
 
 const ProductDetailsPage = ({ query }) => {
-  const { data: product, isLoading, isError } = useGetProductQuery(query.id);
-  console.log(product);
+  const { data: product, isLoading, isError } = useGetProductQuery("6431364df5a812bd37e765ac");
   // decide what to render
   let content = null;
   if (isLoading) {
@@ -24,14 +23,14 @@ const ProductDetailsPage = ({ query }) => {
   if (!isLoading && !isError && product) {
     content = (
       <>
-        {/* <ProductDetailsBreadcrumb category={product.category.name} title={product.title} /> */}
-        <ProductDetailsArea productItem={product?.data?.product} />
+        <ProductDetailsBreadcrumb category={product.category.name} title={product.title} />
+        <ProductDetailsArea productItem={product} />
       </>
     );
   }
   return (
     <Wrapper>
-      <SEO pageTitle="Product Details" />
+      {/* <SEO pageTitle="Product Details" /> */}
       <HeaderTwo style_2={true} />
       {content}
       <Footer primary_style={true} />

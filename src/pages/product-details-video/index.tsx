@@ -10,8 +10,8 @@ import ProductDetailsBreadcrumb from '@/components/breadcrumb/product-details-br
 import ProductDetailsArea from '@/components/product-details/product-details-area';
 import PrdDetailsLoader from '@/components/loader/prd-details-loader';
 
-const ProductDetailsPage = ({ query }) => {
-  const { data: product, isLoading, isError } = useGetProductQuery("641e887d05f9ee1717e1348a");
+const ProductDetailsPageWithVideo = () => {
+  const { data: product, isLoading, isError } = useGetProductQuery("641e887d05f9ee1717e13496");
   // decide what to render
   let content = null;
   if (isLoading) {
@@ -30,7 +30,7 @@ const ProductDetailsPage = ({ query }) => {
   }
   return (
     <Wrapper>
-      <SEO pageTitle="Product Details" />
+      {/* <SEO pageTitle="Product Details" /> */}
       <HeaderTwo style_2={true} />
       {content}
       <Footer primary_style={true} />
@@ -38,14 +38,5 @@ const ProductDetailsPage = ({ query }) => {
   );
 };
 
-export default ProductDetailsPage;
+export default ProductDetailsPageWithVideo;
 
-export const getServerSideProps = async (context) => {
-  const { query } = context;
-
-  return {
-    props: {
-      query,
-    },
-  };
-};

@@ -170,7 +170,7 @@ const SingleOrder = ({ params }) => {
   return (
     <>
       <Wrapper>
-        <SEO pageTitle={"Order Details"} />
+        {/* <SEO pageTitle={"Order Details"} /> */}
         <HeaderTwo style_2={true} />
         {/* content */}
         {content}

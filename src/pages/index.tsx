@@ -13,6 +13,24 @@ import FeatureAreaTwo from '@/components/features/feature-area-2';
 import InstagramAreaThree from '@/components/instagram/instagram-area-3';
 import Footer from '@/layout/footers/footer';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "My Next.js 14 App",
+  description: "A description of my app",
+  openGraph: {
+    title: "My App",
+    description: "A description for social media",
+    images: [
+      {
+        url: "https://example.com/og-image.jpg",
+        width: 800,
+        height: 600,
+        alt: "My App",
+      },
+    ],
+  },
+};
 export default function Home() {
   return (
     <Wrapper>

@@ -3,20 +3,19 @@ import SEO from "@/components/seo";
 import HeaderTwo from "@/layout/headers/header-2";
 import Wrapper from "@/layout/wrapper";
 import Footer from "@/layout/footers/footer";
-import BlogDetailsArea from "@/components/blog-details/blog-details-area";
-import blogData from "@/data/blog-data";
+import BlogBreadcrumb from "@/components/breadcrumb/blog-breadcrumb";
+import BlogPostboxArea from "@/components/blog/blog-postox/blog-postbox-area";
 
-const BlogDetailsPage = () => {
+const BlogPostBoxPage = () => {
   return (
     <Wrapper>
-      <SEO pageTitle="Blog Details" />
+      {/* <SEO pageTitle="Blog" /> */}
       <HeaderTwo style_2={true} />
-      <BlogDetailsArea blog={blogData[4]} />
+      <BlogBreadcrumb/>
+      <BlogPostboxArea/>
       <Footer primary_style={true} />
     </Wrapper>
   );
 };
 
-export default BlogDetailsPage;
-
-
+export default BlogPostBoxPage;

@@ -6,16 +6,16 @@ import Footer from "@/layout/footers/footer";
 import SectionTitle from "@/components/blog/blog-grid/section-title";
 import BlogGridArea from "@/components/blog/blog-grid/blog-grid-area";
 
-const BlogListPage = () => {
+const BlogGridPage = () => {
   return (
     <Wrapper>
-      <SEO pageTitle="Blog List" />
+      {/* <SEO pageTitle="Blog Grid" /> */}
       <HeaderTwo style_2={true} />
       <SectionTitle/>
-      <BlogGridArea list_area={true} />
+      <BlogGridArea/>
       <Footer primary_style={true} />
     </Wrapper>
   );
 };
 
-export default BlogListPage;
+export default BlogGridPage;

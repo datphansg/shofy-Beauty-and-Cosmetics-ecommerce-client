@@ -9,7 +9,7 @@ import BlogDetailsAreaTwo from "@/components/blog-details/blog-details-area-2";
 const BlogDetailsPageTwo = () => {
   return (
     <Wrapper>
-      <SEO pageTitle="Blog Details" />
+       {/*  <SEO pageTitle="Blog Details" /> */} 
       <HeaderTwo style_2={true} />
       <BlogDetailsAreaTwo blog={blogData[4]} />
       <Footer primary_style={true} />
