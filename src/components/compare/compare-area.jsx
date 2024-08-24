@@ -60,7 +60,7 @@ const CompareArea = () => {
                       </tr>
                       {/* Description */}
                       <tr>
-                        <th>Description</th>
+                        <th>Mô tả</th>
                         {compareItems.map(item => (
                           <td key={item._id}>
                             <div className="tp-compare-desc">
@@ -78,7 +78,7 @@ const CompareArea = () => {
                         {compareItems.map(item => (
                           <td key={item._id}>
                             <div className="tp-compare-price">
-                              <span>${item.price.toFixed(2)}</span>
+                              <span>${item.price.market.toLocaleString('vi-VN')}</span>
                             </div>
                           </td>
                         ))}

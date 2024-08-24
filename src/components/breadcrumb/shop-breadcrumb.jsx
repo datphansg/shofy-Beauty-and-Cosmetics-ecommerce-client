@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShopBreadcrumb = ({title,subtitle}) => {
+const ShopBreadcrumb = ({name,subtitle}) => {
   return (
     <>
       <section className="breadcrumb__area include-bg pt-100 pb-50">
@@ -8,9 +8,9 @@ const ShopBreadcrumb = ({title,subtitle}) => {
           <div className="row">
             <div className="col-xxl-12">
               <div className="breadcrumb__content p-relative z-index-1">
-                <h3 className="breadcrumb__title">{title}</h3>
+                <h3 className="breadcrumb__title">{name}</h3>
                 <div className="breadcrumb__list">
-                  <span><a href="#">Home</a></span>
+                  <span><a href="#">Trang chủ</a></span>
                   <span>{subtitle}</span>
                 </div>
               </div>

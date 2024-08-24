@@ -121,23 +121,7 @@ const ShopRightArea = ({
 
               <div className="col-xl-3 col-lg-4">
                 <div className="tp-shop-sidebar mr-10">
-                  {/* filter */}
-                  <PriceFilter
-                    priceFilterValues={priceFilterValues}
-                    maxPrice={maxPrice}
-                  />
-                  {/* status */}
-                  <StatusFilter setCurrPage={setCurrPage} shop_right={right_side} />
-                  {/* categories */}
-                  <CategoryFilter setCurrPage={setCurrPage} shop_right={right_side} />
-                  {/* color */}
-                  <ColorFilter setCurrPage={setCurrPage} shop_right={right_side} />
-                  {/* product rating */}
-                  <TopRatedProducts />
-                  {/* brand */}
-                  <ProductBrand setCurrPage={setCurrPage} shop_right={right_side} />
-                  {/* reset filter */}
-                  <ResetButton shop_right={right_side} />
+                 
                 </div>
               </div>
 

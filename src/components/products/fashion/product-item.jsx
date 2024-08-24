@@ -11,7 +11,7 @@ import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 import { add_to_compare } from "@/redux/features/compareSlice";
 
 const ProductItem = ({ product, style_2 = false }) => {
-  const { _id, img, category, title, reviews, price, discount, tags, status } = product || {};
+  const { _id, shareImages, category, name, reviews, price, discount, tags, status } = product || {};
   const [ratingVal, setRatingVal] = useState(0);
   const { cart_products } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
@@ -50,7 +50,7 @@ const ProductItem = ({ product, style_2 = false }) => {
       <div className="tp-product-thumb-2 p-relative z-index-1 fix">
         <Link href={`/product-details/${_id}`}>
           <Image
-            src={img}
+            src={shareImages[0]}
             alt="product img"
             width={284}
             height={302}
@@ -110,16 +110,16 @@ const ProductItem = ({ product, style_2 = false }) => {
         </div>
       </div>
       <div className="tp-product-content-2 pt-15">
-        <div className="tp-product-tag-2">
+        {/* <div className="tp-product-tag-2">
           {tags.map((t, i) => (
             <a key={i} href="#">
               {t}
               {i < tags.length - 1 && ","}
             </a>
           ))}
-        </div>
+        </div> */}
         <h3 className="tp-product-title-2">
-          <Link href={`/product-details/${_id}`}>{title}</Link>
+          <Link href={`/product-details/${_id}`}>{name}</Link>
         </h3>
         <div className="tp-product-rating-icon tp-product-rating-icon-2">
           <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />
@@ -128,7 +128,7 @@ const ProductItem = ({ product, style_2 = false }) => {
           {discount > 0 ? (
             <>
               <span className="tp-product-price-2 new-price">
-                ${price.toFixed(2)}{" "}
+                {price.market.toLocaleString('vi-VN')}đ{" "}
               </span>
               <span className="tp-product-price-2 old-price">
                 {" "}${(Number(price) - (Number(price) * Number(discount)) / 100).toFixed(2)}
@@ -136,7 +136,7 @@ const ProductItem = ({ product, style_2 = false }) => {
             </>
           ) : (
             <span className="tp-product-price-2 new-price">
-              ${price.toFixed(2)}
+              {price.market.toLocaleString('vi-VN')}đ
             </span>
           )}
         </div>

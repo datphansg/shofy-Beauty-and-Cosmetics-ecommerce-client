@@ -7,7 +7,7 @@ const menu_data = [
   {
     id: 1,
     homes: true,
-    title: 'Home',
+    title: 'Trang chủ',
     link: '/',
     home_pages: [
       {
@@ -35,49 +35,91 @@ const menu_data = [
   {
     id: 2,
     products: true,
-    title: 'Products',
+    title: 'Sản phẩm',
     link: '/shop',
     product_pages: [
       {
-        title: 'Shop Page',
-        link: '/shop',
+        title: 'Thời Trang và Phụ Kiện',
+        link: '/',
         mega_menus: [
-          { title: 'Only Categories', link: '/shop-category' },
-          { title: 'Shop Grid with Sideber', link: '/shop' },
-          { title: 'Product Details', link: '/product-details' },
+          { title: 'Thời Trang Nữ', link: '/shop?category=5fe995384ed0328a42a47947' },
+          { title: 'Thời Trang Trẻ Em', link: '/shop?category=60b73561a7cea4656f7db50f' },
+          { title: 'Túi ví', link: '/shop?category=5fd9b26bbabb26c76c11a2d9' },
+          { title: 'Phụ Kiện và Trang Sức', link: '/shop?category=5ff680f99027bfba4f4a0765' },
+          { title: 'Đồng Hồ', link: '/shop?category=62abede5f0edc750696396ce' },
         ]
       },
       {
-        title: 'Products',
-        link: '/product-details',
+        title: 'Sắc Đẹp và Sức Khỏe',
+        link: '/',
         mega_menus: [
-          { title: 'Product Simple', link: '/product-details' },
-          { title: 'With Video', link: '/product-details-video' },
-          { title: 'With Countdown Timer', link: '/product-details-countdown' },
-          { title: 'Variations Swatches', link: '/product-details-swatches' },
+          { title: 'Sắc Đẹp', link: '/shop?category=5fd9b614babb26c76c11a2dd' },
+          { title: 'Sức Khỏe', link: '/shop?category=60fe732795b348b1b56f45cb' },
         ]
       },
       {
-        title: 'eCommerce',
-        link: '/shop',
+        title: 'Nhà Cửa và Đời Sống',
+        link: '/',
         mega_menus: [
-          { title: 'Shopping Cart', link: '/cart' },
-          { title: 'Compare', link: '/compare' },
-          { title: 'Wishlist', link: '/wishlist' },
-          { title: 'Checkout', link: '/checkout' },
-          { title: 'My account', link: '/profile' },
+          { title: 'Nhà Cửa và Đời Sống', link: '/shop?category=5fd82914babb26c76c11a0f9' },
+          { title: 'Chăm Sóc Nhà Cửa', link: '/shop?category=' },
+          { title: 'Chăm Sóc Thú Cưng', link: '/shop?category=' },
+          { title: 'Thể Thao và Du Lịch', link: '/shop?category=' },
+          { title: 'Ô Tô Xe Máy và Xe Điện', link: '/shop?category=' },
         ]
       },
       {
-        title: 'More Pages',
-        link: '/shop',
+        title: 'Gia Đình và Trẻ Em',
+        link: '/',
         mega_menus: [
-          { title: 'Login', link: '/login' },
-          { title: 'Register', link: '/register' },
-          { title: 'Forgot Password', link: '/forgot' },
-          { title: '404 Error', link: '/404' },
+          { title: 'Mẹ và Bé', link: '/shop?category=' },
+          { title: 'Đồ Chơi', link: '/shop?category=' },
+          { title: 'Văn Phòng Phẩm Online', link: '/shop?category=' },
+          { title: 'Sách', link: '/shop?category=' },
+          { title: 'Thiết Bị Điện Gia Dụng', link: '/shop?category=' },
+          { title: 'Voucher và Dịch vụ', link: '/shop?category=' },
         ]
-      },
+      }
+      // {
+      //   title: 'Shop Page',
+      //   link: '/shop',
+      //   mega_menus: [
+      //     { title: 'Only Categories', link: '/shop-category' },
+      //     { title: 'Shop Grid with Sideber', link: '/shop' },
+      //     { title: 'Product Details', link: '/product-details' },
+      //   ]
+      // },
+      // {
+      //   title: 'Products',
+      //   link: '/product-details',
+      //   mega_menus: [
+      //     { title: 'Product Simple', link: '/product-details' },
+      //     { title: 'With Video', link: '/product-details-video' },
+      //     { title: 'With Countdown Timer', link: '/product-details-countdown' },
+      //     { title: 'Variations Swatches', link: '/product-details-swatches' },
+      //   ]
+      // },
+      // {
+      //   title: 'eCommerce',
+      //   link: '/shop',
+      //   mega_menus: [
+      //     { title: 'Shopping Cart', link: '/cart' },
+      //     { title: 'Compare', link: '/compare' },
+      //     { title: 'Wishlist', link: '/wishlist' },
+      //     { title: 'Checkout', link: '/checkout' },
+      //     { title: 'My account', link: '/profile' },
+      //   ]
+      // },
+      // {
+      //   title: 'More Pages',
+      //   link: '/shop',
+      //   mega_menus: [
+      //     { title: 'Login', link: '/login' },
+      //     { title: 'Register', link: '/register' },
+      //     { title: 'Forgot Password', link: '/forgot' },
+      //     { title: '404 Error', link: '/404' },
+      //   ]
+      // },
     ]
   },
   {
@@ -88,7 +130,7 @@ const menu_data = [
     sub_menus: [
       { title: 'Shop', link: '/shop' },
       { title: 'Right Sidebar', link: '/shop-right-sidebar' },
-      { title: 'Hidden Sidebar', link: '/shop-hidden-sidebar' },
+      { title: 'Hidden Sidebar', link: '/shop-hidden-sidebar' },     
     ],
   },
   {
@@ -159,7 +201,7 @@ export const mobile_menu = [
       { title: 'Shop', link: '/shop' },
       { title: 'Right Sidebar', link: '/shop-right-sidebar' },
       { title: 'Hidden Sidebar', link: '/shop-hidden-sidebar' },
-      { title: 'Only Categories', link: '/shop-category' },
+      { title: 'Danh mục sản phẩm', link: '/shop-category' },
       { title: 'Product Simple', link: '/product-details' },
       { title: 'With Video', link: '/product-details-video' },
       { title: 'With Countdown Timer', link: '/product-details-countdown' },

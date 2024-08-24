@@ -7,7 +7,7 @@ import banner_2 from "@assets/img/product/banner/product-banner-2.jpg";
 
 
 // banner item
-function BannerItem({ sm = false, bg, title }) {
+function BannerItem({ sm = false, bg, name }) {
   return (
     <div
       className={`tp-banner-item ${
@@ -21,7 +21,7 @@ function BannerItem({ sm = false, bg, title }) {
       <div className="tp-banner-content">
         {!sm && <span>Sale 20% off all store</span>}
         <h3 className="tp-banner-title">
-          <Link href="/shop">{title}</Link>
+          <Link href="/shop">{name}</Link>
         </h3>
         {sm && <p>Sale 35% off</p>}
         <div className="tp-banner-btn">

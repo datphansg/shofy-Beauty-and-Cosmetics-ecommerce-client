@@ -22,7 +22,7 @@ const BestSellerProducts = () => {
     content = <ErrorMsg msg="There was an error" />;
   }
   if (!isLoading && !isError && products?.data?.length === 0) {
-    content = <ErrorMsg msg="No Products found!" />;
+    content = <ErrorMsg msg="No Products found 6!" />;
   }
   if (!isLoading && !isError && products?.data?.length > 0) {
     const product_items = products.data.slice(0, 4);

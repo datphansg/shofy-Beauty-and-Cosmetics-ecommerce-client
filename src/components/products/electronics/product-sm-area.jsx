@@ -20,7 +20,7 @@ const ProductSmArea = () => {
     content = <ErrorMsg msg="There was an error" />;
   }
   if (!isLoading && !isError && products?.data?.length === 0) {
-    content = <ErrorMsg msg="No Products found!" />;
+    content = <ErrorMsg msg="No Products found 5!" />;
   }
   if (!isLoading && !isError && products?.data?.length > 0) {
     const discount_prd = products.data.filter(p => p.discount > 0).slice(0, 3);

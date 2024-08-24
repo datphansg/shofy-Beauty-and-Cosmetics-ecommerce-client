@@ -9,7 +9,7 @@ import { add_cart_product } from "@/redux/features/cartSlice";
 import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 
 const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
-  const { _id, img, title, discount, price, tags,status } = product || {};
+  const { _id, img, name, discount, price, tags,status } = product || {};
   const { cart_products } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
   const isAddedToCart = cart_products.some((prd) => prd._id === _id);
@@ -57,7 +57,7 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
                 disabled={status === 'out-of-stock'}
               >
                 <Cart />
-                <span className="tp-product-tooltip">Add to Cart</span>
+                <span className="tp-product-tooltip">Add to Cart 1</span>
               </button>
             )}
             <button
@@ -92,7 +92,7 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
               className="tp-product-add-cart-btn-large"
               disabled={status === 'out-of-stock'}
             >
-              Add To Cart
+              Thêm vào giỏ hàng
             </button>
           )}
         </div>
@@ -102,10 +102,10 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
           <span>{tags[1]}</span>
         </div>
         <h3 className="tp-product-title-3">
-          <Link href={`/product-details/${_id}`}>{title}</Link>
+          <Link href={`/product-details/${_id}`}>{name}</Link>
         </h3>
         <div className="tp-product-price-wrapper-3">
-          <span className="tp-product-price-3">${price.toFixed(2)}</span>
+          {/* <span className="tp-product-price-3">{price.market.toLocaleString('vi-VN')}đ</span> */}
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import ReviewForm from '../forms/review-form';
 import ReviewItem from './review-item';
 
 const DetailsTabNav = ({ product }) => {
-  const {_id, description, additionalInformation, reviews } = product || {};
+  const {_id, desc, additionalInformation, reviews } = product || {};
   const activeRef = useRef(null)
   const marker = useRef(null);
   // handleActive
@@ -45,9 +45,9 @@ const DetailsTabNav = ({ product }) => {
       <div className="tp-product-details-tab-nav tp-tab">
         <nav>
           <div className="nav nav-tabs justify-content-center p-relative tp-product-tab" id="navPresentationTab" role="tablist">
-            <NavItem active={true} linkRef={activeRef} id="desc" title="Description" />
+            <NavItem active={true} linkRef={activeRef} id="desc" title="Mô tả" />
             <NavItem id="additional" title="Additional information" />
-            <NavItem id="review" title={`Reviews (${reviews.length})`} />
+            {/* <NavItem id="review" title={`Reviews (${reviews.length})`} /> */}
 
             <span ref={marker} id="productTabMarker" className="tp-product-details-tab-line"></span>
           </div>
@@ -62,7 +62,7 @@ const DetailsTabNav = ({ product }) => {
                     <div className="row align-items-center">
                       <div className="col-lg-12">
                         <div className="tp-product-details-desc-content">
-                          <p>{description}</p>
+                          <div dangerouslySetInnerHTML={{ __html: desc.toString() }} />
                         </div>
                       </div>
                     </div>
@@ -99,7 +99,7 @@ const DetailsTabNav = ({ product }) => {
                   <div className="tp-product-details-review-statics">
 
                     {/* reviews */}
-                    <div className="tp-product-details-review-list pr-110">
+                    {/* <div className="tp-product-details-review-list pr-110">
                       <h3 className="tp-product-details-review-title">Rating & Review</h3>
                       {reviews.length === 0 && <h3 className="tp-product-details-review-title">
                         There are no reviews yet.
@@ -108,7 +108,7 @@ const DetailsTabNav = ({ product }) => {
                       {reviews.length > 0 && reviews.map(item => (
                         <ReviewItem key={item._id} review={item} />
                       ))}
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="col-lg-6">

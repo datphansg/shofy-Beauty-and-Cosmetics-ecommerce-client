@@ -11,7 +11,7 @@ import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 import { add_to_compare } from "@/redux/features/compareSlice";
 
 const ShopListItem = ({ product }) => {
-  const { _id, img, category, title, reviews, price, discount, tags, description } = product || {};
+  const { _id, shareImages, category, name, reviews, price, discount, tags, shareDesc } = product || {};
   const dispatch = useDispatch()
   const [ratingVal, setRatingVal] = useState(0);
   useEffect(() => {
@@ -43,7 +43,7 @@ const ShopListItem = ({ product }) => {
     <div className="tp-product-list-item d-md-flex">
       <div className="tp-product-list-thumb p-relative fix">
         <Link href={`/product-details/${_id}`}>
-          <Image src={img} alt="product img" width={350} height={310} />
+          <Image src={shareImages[0]} alt="product img" width={350} height={310} />
         </Link>
 
         {/* <!-- product action --> */}
@@ -84,16 +84,16 @@ const ShopListItem = ({ product }) => {
       </div>
       <div className="tp-product-list-content">
         <div className="tp-product-content-2 pt-15">
-          <div className="tp-product-tag-2">
+          {/* <div className="tp-product-tag-2">
             {tags?.map((t, i) => <a key={i} href="#">{t}</a>)}
-          </div>
+          </div> */}
           <h3 className="tp-product-title-2">
-            <Link href={`/product-details/${_id}`}>{title}</Link>
+            <Link href={`/product-details/${_id}`}>{name} aaaaa</Link>
           </h3>
           <div className="tp-product-rating-icon tp-product-rating-icon-2">
             <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />
           </div>
-          <div className="tp-product-price-wrapper-2">
+          {/* <div className="tp-product-price-wrapper-2">
             {discount > 0 ? (
               <>
                 <span className="tp-product-price-2 new-price">${price}</span>
@@ -102,15 +102,18 @@ const ShopListItem = ({ product }) => {
                 </span>
               </>
             ) : (
-              <span className="tp-product-price-2 new-price">${price}</span>
+              <span className="tp-product-price-2 new-price">${price.market}</span>
             )}
+          </div> */}
+          <div className="tp-product-price-wrapper-2">
+             <span className="tp-product-price-2 new-price">{price.market.toLocaleString('vi-VN')}đ</span>
           </div>
           <p>
-            {description.substring(0, 100)}
+            {shareDesc.substring(0,100)}...
           </p>
           <div className="tp-product-list-add-to-cart">
             <button onClick={() => handleAddProduct(product)} className="tp-product-list-add-to-cart-btn">
-              Add To Cart
+              Thêm vào giỏ hàng
             </button>
           </div>
         </div>

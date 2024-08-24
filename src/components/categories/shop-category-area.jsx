@@ -6,6 +6,7 @@ import ShopCategoryLoader from "../loader/shop/shop-category-loader";
 
 const ShopCategoryArea = () => {
   const { data: categories, isLoading, isError } = useGetShowCategoryQuery();
+  console.log(categories);
   const router = useRouter();
   // handle category route
   const handleCategoryRoute = (title) => {
@@ -27,11 +28,11 @@ const ShopCategoryArea = () => {
   if (!isLoading && isError) {
     content = <ErrorMsg msg="There was an error" />;
   }
-  if (!isLoading && !isError && categories?.result?.length === 0) {
+  if (!isLoading && !isError && categories?.data?.news?.length === 0) {
     content = <ErrorMsg msg="No Category found!" />;
   }
-  if (!isLoading && !isError && categories?.result?.length > 0) {
-    const category_items = categories.result;
+  if (!isLoading && !isError && categories?.data?.news?.length > 0) {
+    const category_items = categories.data?.news;
     content = category_items.map((item) => (
       <div key={item._id} className="col-lg-3 col-sm-6">
         <div
@@ -41,12 +42,12 @@ const ShopCategoryArea = () => {
           <div className="tp-category-main-content">
             <h3
               className="tp-category-main-title pb-1"
-              onClick={() => handleCategoryRoute(item.parent)}
+              onClick={() => handleCategoryRoute(item.action.value)}
             >
-              <a className="cursor-pointer">{item.parent}</a>
+              <a className="cursor-pointer">{item.title}</a>
             </h3>
             <span className="tp-category-main-item">
-              {item.products.length} Products
+              {/* {item.products.length} Products */}
             </span>
           </div>
         </div>

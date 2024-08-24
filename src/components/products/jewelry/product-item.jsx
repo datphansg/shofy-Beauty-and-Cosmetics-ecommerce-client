@@ -9,7 +9,7 @@ import { add_cart_product } from "@/redux/features/cartSlice";
 import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 
 const ProductItem = ({ product }) => {
-  const { _id, img, title, price, tags,status } = product || {};
+  const { _id, shareImages, name, price, tags,status } = product || {};
   const { cart_products } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
   const isAddedToCart = cart_products.some((prd) => prd._id === _id);
@@ -30,7 +30,7 @@ const ProductItem = ({ product }) => {
     <div className="tp-product-item-4 p-relative mb-40">
       <div className="tp-product-thumb-4 p-relative fix">
         <Link href={`/product-details/${_id}`}>
-          <Image src={img} alt="product img" width={284} height={352} />
+          <Image src={shareImages[0]} alt="product img" width={284} height={352} />
         </Link>
         <div className="tp-product-badge">
           {status === 'out-of-stock' && <span className="product-hot">out-stock</span>}
@@ -43,7 +43,7 @@ const ProductItem = ({ product }) => {
                 className={`tp-product-action-btn-3 ${isAddedToCart ? 'active' : ''} tp-product-add-cart-btn text-center`}
               >
                 <Cart />
-                <span className="tp-product-tooltip">View Cart</span>
+                <span className="tp-product-tooltip">View Cart 1</span>
               </Link>
             ) : (
               <button
@@ -53,7 +53,7 @@ const ProductItem = ({ product }) => {
                 disabled={status === 'out-of-stock'}
               >
                 <Cart />
-                <span className="tp-product-tooltip">Add to Cart</span>
+                <span className="tp-product-tooltip">Add to Cart 3</span>
               </button>
             )}
             <button
@@ -78,7 +78,7 @@ const ProductItem = ({ product }) => {
       </div>
       <div className="tp-product-content-4">
         <h3 className="tp-product-title-4">
-          <Link href={`/product-details/${_id}`}>{title}</Link>
+          <Link href={`/product-details/${_id}`}>{name}</Link>
         </h3>
         <div className="tp-product-info-4">
           <p>{tags[0]}</p>
@@ -86,7 +86,7 @@ const ProductItem = ({ product }) => {
 
         <div className="tp-product-price-inner-4">
           <div className="tp-product-price-wrapper-4">
-            <span className="tp-product-price-4">${price.toFixed(2)}</span>
+            <span className="tp-product-price-4">{price.market.toLocaleString('vi-VN')}đ</span>
           </div>
           <div className="tp-product-price-add-to-cart">
             {isAddedToCart ? <Link href="/cart" className="tp-product-add-to-cart-4">

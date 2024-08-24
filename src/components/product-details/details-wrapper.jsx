@@ -13,7 +13,7 @@ import { add_to_compare } from '@/redux/features/compareSlice';
 import { handleModalClose } from '@/redux/features/productModalSlice';
 
 const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBottom = false }) => {
-  const { sku, img, title, imageURLs, category, description, discount, price, status, reviews, tags, offerDate } = productItem || {};
+  const { sku, img, name, imageURLs, category, desc , discount, price, status, reviews, tags, offerDate, shareDesc } = productItem || {};
   const [ratingVal, setRatingVal] = useState(0);
   const [textMore, setTextMore] = useState(false);
   const dispatch = useDispatch()
@@ -47,9 +47,9 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
   return (
     <div className="tp-product-details-wrapper">
       <div className="tp-product-details-category">
-        <span>{category.name}</span>
+        {/* <span>{category.name}</span> */}
       </div>
-      <h3 className="tp-product-details-title">{title}</h3>
+      <h3 className="tp-product-details-title">{name}</h3>
 
       {/* inventory details */}
       <div className="tp-product-details-inventory d-flex align-items-center mb-10">
@@ -65,10 +65,7 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
           </div>
         </div>
       </div>
-      <p>{textMore ? description : `${description.substring(0, 100)}...`}
-        <span onClick={() => setTextMore(!textMore)}>{textMore ? 'See less' : 'See more'}</span>
-      </p>
-
+      <p>{shareDesc}</p>
       {/* price */}
       <div className="tp-product-details-price-wrapper mb-20">
         {discount > 0 ? (
@@ -79,12 +76,13 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
             </span>
           </>
         ) : (
-          <span className="tp-product-details-price new-price">${price.toFixed(2)}</span>
+          <span className="tp-product-details-price new-price">{price.market.toLocaleString('vi-VN')}đ</span>
         )}
       </div>
 
       {/* variations */}
-      {imageURLs.some(item => item?.color && item?.color?.name) && <div className="tp-product-details-variation">
+      {/* {imageURLs.some(item => item?.color && item?.color?.name) && 
+      <div className="tp-product-details-variation">
         <div className="tp-product-details-variation-item">
           <h4 className="tp-product-details-variation-title">Color :</h4>
           <div className="tp-product-details-variation-list">
@@ -104,7 +102,7 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
             ))}
           </div>
         </div>
-      </div>}
+      </div>} */}
 
       {/* if ProductDetailsCountdown true start */}
       {offerDate?.endDate && <ProductDetailsCountdown offerExpiryTime={offerDate?.endDate} />}
@@ -112,17 +110,17 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
 
       {/* actions */}
       <div className="tp-product-details-action-wrapper">
-        <h3 className="tp-product-details-action-title">Quantity</h3>
+        <h3 className="tp-product-details-action-title">Số lượng</h3>
         <div className="tp-product-details-action-item-wrapper d-sm-flex align-items-center">
           {/* product quantity */}
           <ProductQuantity />
           {/* product quantity */}
           <div className="tp-product-details-add-to-cart mb-15 w-100">
-            <button onClick={() => handleAddProduct(productItem)} disabled={status === 'out-of-stock'} className="tp-product-details-add-to-cart-btn w-100">Add To Cart</button>
+            <button onClick={() => handleAddProduct(productItem)} disabled={status === 'out-of-stock'} className="tp-product-details-add-to-cart-btn w-100">Thêm vào giỏ hàng</button>
           </div>
         </div>
         <Link href="/cart" onClick={() => dispatch(handleModalClose())}>
-          <button className="tp-product-details-buy-now-btn w-100">Buy Now</button>
+          <button className="tp-product-details-buy-now-btn w-100">Mua ngay</button>
         </Link>
       </div>
       {/* product-details-action-sm start */}
@@ -142,7 +140,7 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
       </div>
       {/* product-details-action-sm end */}
 
-      {detailsBottom && <DetailsBottomInfo category={category?.name} sku={sku} tag={tags[0]} />}
+      {/* {detailsBottom && <DetailsBottomInfo category={category?.name} sku={sku} tag={tags[0]} />} */}
     </div>
   );
 };

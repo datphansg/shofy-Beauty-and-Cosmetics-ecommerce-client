@@ -6,17 +6,19 @@ import DetailsTabNav from "./details-tab-nav";
 import RelatedProducts from "./related-products";
 
 const ProductDetailsArea = ({ productItem }) => {
-  const { _id, img, imageURLs, videoId,status } = productItem || {};
-  const [activeImg, setActiveImg] = useState(img);
+  console.log(productItem);
+  const { _id, shareImages, videoId ,status } = productItem || {};
+  const [activeImg, setActiveImg] = useState(shareImages[0]);
   const dispatch = useDispatch();
   // active image change when img change
   useEffect(() => {
-    setActiveImg(img);
-  }, [img]);
+    setActiveImg(shareImages[0]);
+  }, 5);
 
   // handle image active
   const handleImageActive = (item) => {
-    setActiveImg(item.img);
+    console.log('images',item);
+    setActiveImg(item);
   };
   return (
     <section className="tp-product-details-area">
@@ -28,7 +30,7 @@ const ProductDetailsArea = ({ productItem }) => {
               <DetailsThumbWrapper
                 activeImg={activeImg}
                 handleImageActive={handleImageActive}
-                imageURLs={imageURLs}
+                imageURLs={shareImages}
                 imgWidth={580}
                 imgHeight={670}
                 videoId={videoId}

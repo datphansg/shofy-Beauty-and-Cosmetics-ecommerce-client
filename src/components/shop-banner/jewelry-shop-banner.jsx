@@ -8,7 +8,7 @@ import banner_bg_3 from '@assets/img/banner/4/banner-3.jpg';
 import banner_bg_4 from '@assets/img/banner/4/banner-4.jpg';
 
 // BannerItem
-function BannerItem({ cls, bg_clr, bg, content, title,isBtn=false}) {
+function BannerItem({ cls, bg_clr, bg, content, name,isBtn=false}) {
   return (
     <div className={`tp-banner-item-4 tp-banner-height-4 fix p-relative z-index-1 ${cls}`} 
     data-bg-color={`#${bg_clr}`}>
@@ -17,7 +17,7 @@ function BannerItem({ cls, bg_clr, bg, content, title,isBtn=false}) {
       <div className="tp-banner-content-4">
         <span>{content}</span>
         <h3 className="tp-banner-title-4">
-          <Link href="/shop">{title}</Link>
+          <Link href="/shop">{name}</Link>
         </h3>
         {isBtn && <div className="tp-banner-btn-4">
           <Link href="/shop" className="tp-btn tp-btn-border">

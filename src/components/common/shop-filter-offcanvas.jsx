@@ -41,25 +41,6 @@ const ShopFilterOffCanvas = ({
               {" "}Close
             </button>
           </div>
-          <div className="tp-shop-sidebar">
-            {/* filter */}
-            <PriceFilter
-              priceFilterValues={priceFilterValues}
-              maxPrice={maxPrice}
-            />
-            {/* status */}
-            <StatusFilter setCurrPage={setCurrPage} shop_right={right_side} />
-            {/* categories */}
-            <CategoryFilter setCurrPage={setCurrPage} shop_right={right_side} />
-            {/* color */}
-            <ColorFilter setCurrPage={setCurrPage} shop_right={right_side} />
-            {/* product rating */}
-            <TopRatedProducts />
-            {/* brand */}
-            <ProductBrand setCurrPage={setCurrPage} shop_right={right_side} />
-            {/* reset filter */}
-            <ResetButton shop_right={right_side} />
-          </div>
         </div>
       </div>
 

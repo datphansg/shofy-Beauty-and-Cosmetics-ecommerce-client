@@ -7,7 +7,7 @@ import { Close, Minus, Plus } from "@/svg";
 import { add_cart_product, quantityDecrement, remove_product } from "@/redux/features/cartSlice";
 
 const CartItem = ({product}) => {
-  const {_id, img,title,price, orderQuantity = 0 } = product || {};
+  const {_id, img,name,price, orderQuantity = 0 } = product || {};
 
   const dispatch = useDispatch();
 
@@ -35,7 +35,7 @@ const CartItem = ({product}) => {
       </td>
       {/* title */}
       <td className="tp-cart-title">
-        <Link href={`/product-details/${_id}`}>{title}</Link>
+        <Link href={`/product-details/${_id}`}>{name}</Link>
       </td>
       {/* price */}
       <td className="tp-cart-price">

@@ -9,7 +9,7 @@ import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 import { notifyError } from "@/utils/toast";
 
 const ProductSliderItem = ({ product }) => {
-  const { _id, title, price, img,status } = product || {};
+  const { _id, name, price, img,status } = product || {};
   const { cart_products } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
   const isAddedToCart = cart_products.some((prd) => prd._id === _id);
@@ -56,7 +56,7 @@ const ProductSliderItem = ({ product }) => {
               className={`tp-product-action-btn-3 ${isAddedToCart ? 'active' : ''} tp-product-add-cart-btn`}
             >
               <Cart />
-              <span className="tp-product-tooltip">Add to Cart</span>
+              <span className="tp-product-tooltip">Add to Cart 4</span>
             </button>
           )}
           <button
@@ -79,10 +79,10 @@ const ProductSliderItem = ({ product }) => {
       </div>
       <div className="tp-category-content-4">
         <h3 className="tp-category-title-4">
-          <Link href={`/product-details/${_id}`}>{title}</Link>
+          <Link href={`/product-details/${_id}`}>{name}</Link>
         </h3>
         <div className="tp-category-price-wrapper-4">
-          <span className="tp-category-price-4">${price.toFixed(2)}</span>
+          <span className="tp-category-price-4">{price.market.toLocaleString('vi-VN')}đ</span>
           <div className="tp-category-add-to-cart">
             {isAddedToCart ? (
               <Link href="/cart" className="tp-category-add-to-cart-4">

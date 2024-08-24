@@ -1,7 +1,7 @@
 import React from "react";
 
 const CommonBreadcrumb = ({
-  title,
+  name,
   subtitle,
   center = false,
   bg_clr = false,
@@ -17,10 +17,10 @@ const CommonBreadcrumb = ({
         <div className="row">
           <div className="col-xxl-12">
             <div className="breadcrumb__content p-relative z-index-1">
-              <h3 className="breadcrumb__title">{title}</h3>
+              <h3 className="breadcrumb__title">{name}</h3>
               <div className="breadcrumb__list">
                 <span>
-                  <a href="#">Home</a>
+                  <a href="#">Trang chủ</a>
                 </span>
                 <span>{subtitle}</span>
               </div>

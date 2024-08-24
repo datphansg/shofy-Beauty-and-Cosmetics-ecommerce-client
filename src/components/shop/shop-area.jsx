@@ -23,7 +23,6 @@ const ShopArea = ({ all_products, products, otherProps }) => {
     setPageStart(startPage);
     setCountOfPage(pageCount);
   };
-
   // max price
   const maxPrice = all_products.reduce((max, product) => {
     return product.price > max ? product.price : max;
@@ -35,23 +34,7 @@ const ShopArea = ({ all_products, products, otherProps }) => {
           <div className="row">
             <div className="col-xl-3 col-lg-4">
               <div className="tp-shop-sidebar mr-10">
-                {/* filter */}
-                <PriceFilter
-                  priceFilterValues={priceFilterValues}
-                  maxPrice={maxPrice}
-                />
-                {/* status */}
-                <StatusFilter setCurrPage={setCurrPage} />
-                {/* categories */}
-                <CategoryFilter setCurrPage={setCurrPage} />
-                {/* color */}
-                <ColorFilter setCurrPage={setCurrPage} />
-                {/* product rating */}
-                <TopRatedProducts />
-                {/* brand */}
-                <ProductBrand setCurrPage={setCurrPage} />
-                {/* reset filter */}
-                <ResetButton/>
+               
               </div>
             </div>
             <div className="col-xl-9 col-lg-8">
@@ -76,7 +59,8 @@ const ShopArea = ({ all_products, products, otherProps }) => {
                     </div>
                   </div>
                 </div>
-                {products.length === 0 && <h2>No products found</h2>}
+                
+                {products.length === 0 && <h2>No products found 12</h2>}
                 {products.length > 0 && (
                   <div className="tp-shop-items-wrapper tp-shop-item-primary">
                     <div className="tab-content" id="productTabContent">
@@ -127,7 +111,7 @@ const ShopArea = ({ all_products, products, otherProps }) => {
                     <div className="tp-pagination">
                       <Pagination
                         items={products}
-                        countOfPage={12}
+                        countOfPage={20}
                         paginatedData={paginatedData}
                         currPage={currPage}
                         setCurrPage={setCurrPage}

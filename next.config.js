@@ -2,7 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['i.ibb.co','lh3.googleusercontent.com','res.cloudinary.com'],
+    protocol: 'https',
+    domains: ['i.ibb.co','lh3.googleusercontent.com','res.cloudinary.com','media.sellycdn.net'],
   },
 }
 

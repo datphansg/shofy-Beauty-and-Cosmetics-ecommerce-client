@@ -29,7 +29,7 @@ const TopRatedProducts = () => {
       <div key={item._id} className="tp-shop-widget-product-item d-flex align-items-center">
         <div className="tp-shop-widget-product-thumb">
           <Link href={`/product-details/${item._id}`}>
-            <Image src={item.img} alt="product img" width={70} height={70} />
+            <Image src={item} alt="product img" width={70} height={70} />
           </Link>
         </div>
         <div className="tp-shop-widget-product-content">
@@ -45,7 +45,7 @@ const TopRatedProducts = () => {
             <Link href={`/product-details/${item._id}`}>{item.title.substring(0,20)}...</Link>
           </h4>
           <div className="tp-shop-widget-product-price-wrapper">
-            <span className="tp-shop-widget-product-price">${item.price.toFixed(2)}</span>
+            <span className="tp-shop-widget-product-price">${item.price.market.toLocaleString('vi-VN')}</span>
           </div>
         </div>
       </div>

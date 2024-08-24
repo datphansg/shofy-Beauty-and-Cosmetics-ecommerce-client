@@ -51,20 +51,20 @@ const WeeksFeatured = () => {
     content = <ErrorMsg msg="There was an error" />;
   }
   if (!isLoading && !isError && products?.data?.length === 0) {
-    content = <ErrorMsg msg="No Products found!" />;
+    content = <ErrorMsg msg="No Products found 9!" />;
   }
   if (!isLoading && !isError && products?.data?.length > 0) {
     const product_items = products.data;
     content = (
       <Swiper {...slider_setting} modules={[Navigation]} className="tp-featured-slider-active swiper-container">
         {product_items.map((item) => {
-          const {_id, img, title, price, discount, reviews } = item || {};
+          const {_id, img, name, price, discount, reviews } = item || {};
           return (
             <SwiperSlide key={item._id} className="tp-featured-item white-bg p-relative z-index-1">
               <div className="tp-featured-thumb include-bg" style={{ backgroundImage: `url(${img})` }} data-background="assets/img/product/slider/product-slider-1.jpg"></div>
               <div className="tp-featured-content">
                 <h3 className="tp-featured-title">
-                  <Link href={`/product-details/${_id}`}>{title}</Link>
+                  <Link href={`/product-details/${_id}`}>{name}</Link>
                 </h3>
                 <div className="tp-featured-price-wrapper">
                   {discount > 0 ? (

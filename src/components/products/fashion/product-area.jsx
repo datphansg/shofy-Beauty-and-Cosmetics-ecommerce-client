@@ -29,7 +29,7 @@ const ProductArea = () => {
     content = <ErrorMsg msg="There was an error" />;
   }
   if (!isLoading && !isError && products?.data?.length === 0) {
-    content = <ErrorMsg msg="No Products found!" />;
+    content = <ErrorMsg msg="No Products found 7!" />;
   }
   if (!isLoading && !isError && products?.data?.length > 0) {
     let product_items = products.data;

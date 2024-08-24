@@ -5,13 +5,20 @@ import HeaderTwo from "@/layout/headers/header-2";
 import ShopBreadcrumb from "@/components/breadcrumb/shop-breadcrumb";
 import ShopArea from "@/components/shop/shop-area";
 import { useGetAllProductsQuery } from "@/redux/features/productApi";
+import { useGetProductByCatogoriesQuery } from '@/redux/features/productApi';
 import ErrorMsg from "@/components/common/error-msg";
 import Footer from "@/layout/footers/footer";
 import ShopFilterOffCanvas from "@/components/common/shop-filter-offcanvas";
 import ShopLoader from "@/components/loader/shop/shop-loader";
+import { skipToken } from "@reduxjs/toolkit/dist/query";
 
 const ShopPage = ({ query }) => {
   const { data: products, isError, isLoading } = useGetAllProductsQuery();
+  const categoryId = query.category || null;
+  
+  const { data : productsByCategories } = useGetProductByCatogoriesQuery(
+    categoryId, 0
+  );
   const [priceValue, setPriceValue] = useState([0, 0]);
   const [selectValue, setSelectValue] = useState("");
   const [currPage, setCurrPage] = useState(1);
@@ -55,38 +62,48 @@ const ShopPage = ({ query }) => {
   if (!isLoading && isError) {
     content = <div className="pb-80 text-center"><ErrorMsg msg="There was an error" /></div>;
   }
-  if (!isLoading && !isError && products?.data?.length === 0) {
+  if (!isLoading && !isError && products?.data?.products?.length === 0) {
     content = <ErrorMsg msg="No Products found!" />;
   }
-  if (!isLoading && !isError && products?.data?.length > 0) {
+  if (!isLoading && !isError && products?.data?.products?.length > 0) {
     // products
-    let product_items = products.data;
+    
+    let product_items = null;
+    // category filter
+    if (query.category &&  productsByCategories?.data?.products.length > 0) {
+      product_items = productsByCategories.data.products;
+      console.log(productsByCategories.data);
+    }
+    else
+    {
+      product_items = products.data.products;
+    }
     // select short filtering
     if (selectValue) {
       if (selectValue === "Default Sorting") {
-        product_items = products.data;
+        product_items = products.data.products;
       } else if (selectValue === "Low to High") {
-        product_items = products.data
+        product_items = products.data.products
           .slice()
-          .sort((a, b) => Number(a.price) - Number(b.price));
+          .sort((a, b) => Number(a.price.market) - Number(b.price.market));
       } else if (selectValue === "High to Low") {
-        product_items = products.data
+        product_items = products.data.products
           .slice()
-          .sort((a, b) => Number(b.price) - Number(a.price));
+          .sort((a, b) => Number(b.price.market) - Number(a.price.market));
       } else if (selectValue === "New Added") {
-        product_items = products.data
+        product_items = products.data.products
           .slice()
           .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       } else if (selectValue === "On Sale") {
-        product_items = products.data.filter((p) => p.discount > 0);
+        product_items = products.data.products.filter((p) => p.discount > 0);
       } else {
-        product_items = products.data;
+        product_items = products.data.products;
       }
     }
     // price filter
-    product_items = product_items.filter(
-      (p) => p.price >= priceValue[0] && p.price <= priceValue[1]
-    );
+    // product_items = product_items.filter(
+    //   (p) => p.price.market >= priceValue[0] && p.price.market <= priceValue[1]
+    // );
 
     // status filter
     if (query.status) {
@@ -97,14 +114,7 @@ const ShopPage = ({ query }) => {
       }
     }
 
-    // category filter
-    if (query.category) {
-      product_items = product_items.filter(
-        (p) =>
-          p.parent.toLowerCase().replace("&", "").split(" ").join("-") ===
-          query.category
-      );
-    }
+    
 
     // category filter
     if (query.subCategory) {
@@ -140,16 +150,16 @@ const ShopPage = ({ query }) => {
           query.brand
       );
     }
-
+    
     content = (
       <>
         <ShopArea
-          all_products={products.data}
+          all_products={products.data.products}
           products={product_items}
           otherProps={otherProps}
         />
         <ShopFilterOffCanvas
-          all_products={products.data}
+          all_products={products.data.products}
           otherProps={otherProps}
         />
       </>
@@ -159,7 +169,7 @@ const ShopPage = ({ query }) => {
     <Wrapper>
       <SEO pageTitle="Shop" />
       <HeaderTwo style_2={true} />
-      <ShopBreadcrumb title="Shop Grid" subtitle="Shop Grid" />
+      <ShopBreadcrumb title="Cửa hàng" subtitle="Cửa hàng" />
       {content}
       <Footer primary_style={true} />
     </Wrapper>

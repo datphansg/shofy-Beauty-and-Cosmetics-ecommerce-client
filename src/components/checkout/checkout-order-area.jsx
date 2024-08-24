@@ -39,7 +39,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
               <p>
                 {item.title} <span> x {item.orderQuantity}</span>
               </p>
-              <span>${item.price.toFixed(2)}</span>
+              <span>${item.price.market.toLocaleString('vi-VN')}</span>
             </li>
           ))}
 

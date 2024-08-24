@@ -12,8 +12,7 @@ import { add_cart_product } from "@/redux/features/cartSlice";
 import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 
 const ProductItem = ({ product, offer_style = false }) => {
-  const { _id, img, category, title, reviews, price, discount,status,offerDate } = product || {};
-  console.log(status)
+  const { _id, img, category, name, reviews, price, discount,status,offerDate } = product || {};
   const { cart_products } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
   const isAddedToCart = cart_products.some((prd) => prd._id === _id);
@@ -81,7 +80,7 @@ const ProductItem = ({ product, offer_style = false }) => {
                 >
                   <Cart />
 
-                  <span className="tp-product-tooltip">Add to Cart</span>
+                  <span className="tp-product-tooltip">Add to Cart 2</span>
                 </button>
               )}
               <button
@@ -111,7 +110,7 @@ const ProductItem = ({ product, offer_style = false }) => {
             <a href="#">{category?.name}</a>
           </div>
           <h3 className="tp-product-title">
-            <Link href={`/product-details/${_id}`}>{title}</Link>
+            <Link href={`/product-details/${_id}`}>{name}</Link>
           </h3>
           <div className="tp-product-rating d-flex align-items-center">
             <div className="tp-product-rating-icon">
@@ -122,11 +121,11 @@ const ProductItem = ({ product, offer_style = false }) => {
                 readonly={true}
               />
             </div>
-            <div className="tp-product-rating-text">
+            {/* <div className="tp-product-rating-text">
               <span>
                 ({reviews && reviews.length > 0 ? reviews.length : 0} Review)
               </span>
-            </div>
+            </div> */}
           </div>
           <div className="tp-product-price-wrapper">
             {discount > 0 ? (

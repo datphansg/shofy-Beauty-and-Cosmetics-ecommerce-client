@@ -8,9 +8,10 @@ import {add_cart_product,quantityDecrement} from "@/redux/features/cartSlice";
 import { remove_wishlist_product } from "@/redux/features/wishlist-slice";
 
 const WishlistItem = ({ product }) => {
-  const { _id, img, title, price } = product || {};
+  const { _id, img, name, price } = product || {};
   const { cart_products } = useSelector((state) => state.cart);
   const isAddToCart = cart_products.find((item) => item._id === _id);
+  console.log('name', name);
   const dispatch = useDispatch();
   // handle add product
   const handleAddProduct = (prd) => {
@@ -33,10 +34,10 @@ const WishlistItem = ({ product }) => {
         </Link>
       </td>
       <td className="tp-cart-title">
-        <Link href={`/product-details/${_id}`}>{title}</Link>
+        <Link href={`/product-details/${_id}`}>{name}</Link>
       </td>
       <td className="tp-cart-price">
-        <span>${price.toFixed(2)}</span>
+        <span>{price.market.toLocaleString('vi-VN')}đ</span>
       </td>
       <td className="tp-cart-quantity">
         <div className="tp-product-quantity mt-10 mb-10">
@@ -67,7 +68,7 @@ const WishlistItem = ({ product }) => {
           type="button"
           className="tp-btn tp-btn-2 tp-btn-blue"
         >
-          Add To Cart
+          Thêm vào giỏ hàng
         </button>
       </td>
 
