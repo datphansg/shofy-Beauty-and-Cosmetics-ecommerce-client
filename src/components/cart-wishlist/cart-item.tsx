@@ -5,9 +5,9 @@ import Link from "next/link";
 // internal
 import { Close, Minus, Plus } from "@/svg";
 import { add_cart_product, quantityDecrement, remove_product } from "@/redux/features/cartSlice";
-
+import slugify from 'slugify';
 const CartItem = ({product}) => {
-  const {_id, img,name,price, orderQuantity = 0 } = product || {};
+  const {_id, img,name,price, orderQuantity = 0, shareImages } = product || {};
 
   const dispatch = useDispatch();
 
@@ -29,13 +29,13 @@ const CartItem = ({product}) => {
     <tr>
       {/* img */}
       <td className="tp-cart-img">
-        <Link href={`/product-details/${_id}`}>
-          <Image src={img} alt="product img" width={70} height={100} />
+        <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>
+        {shareImages && shareImages[0] && <Image src={shareImages[0]} alt="product img" width={70} height={100} />}
         </Link>
       </td>
       {/* title */}
       <td className="tp-cart-title">
-        <Link href={`/product-details/${_id}`}>{name}</Link>
+        <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
       </td>
       {/* price */}
       <td className="tp-cart-price">

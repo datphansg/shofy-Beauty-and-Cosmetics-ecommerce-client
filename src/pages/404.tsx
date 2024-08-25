@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 // internal
-import SEO from "@/components/seo";
+
 import HeaderTwo from "@/layout/headers/header-2";
 import Footer from "@/layout/footers/footer";
 import Wrapper from "@/layout/wrapper";

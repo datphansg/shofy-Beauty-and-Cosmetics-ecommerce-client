@@ -9,20 +9,20 @@ import { handleProductModal } from "@/redux/features/productModalSlice";
 import { add_cart_product } from "@/redux/features/cartSlice";
 import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 import { add_to_compare } from "@/redux/features/compareSlice";
-
+import slugify from 'slugify';
 const ShopListItem = ({ product }) => {
   const { _id, shareImages, category, name, reviews, price, discount, tags, shareDesc } = product || {};
   const dispatch = useDispatch()
   const [ratingVal, setRatingVal] = useState(0);
   useEffect(() => {
-    if (reviews && reviews.length > 0) {
-      const rating =
-        reviews.reduce((acc, review) => acc + review.rating, 0) /
-        reviews.length;
-      setRatingVal(rating);
-    } else {
-      setRatingVal(0);
-    }
+    // if (reviews && reviews.length > 0) {
+    //   const rating =
+    //     reviews.reduce((acc, review) => acc + review.rating, 0) /
+    //     reviews.length;
+    //   setRatingVal(rating);
+    // } else {
+    //   setRatingVal(0);
+    // }
   }, [reviews]);
 
   // handle add product
@@ -42,8 +42,8 @@ const ShopListItem = ({ product }) => {
   return (
     <div className="tp-product-list-item d-md-flex">
       <div className="tp-product-list-thumb p-relative fix">
-        <Link href={`/product-details/${_id}`}>
-          <Image src={shareImages[0]} alt="product img" width={350} height={310} />
+        <Link href={`product-details/slugify(name || "default-name", { lower: true })/${_id}`}>
+        { shareImages && shareImages[0] && <Image src={shareImages[0]} alt="product img" width={350} height={310} /> }
         </Link>
 
         {/* <!-- product action --> */}
@@ -88,11 +88,11 @@ const ShopListItem = ({ product }) => {
             {tags?.map((t, i) => <a key={i} href="#">{t}</a>)}
           </div> */}
           <h3 className="tp-product-title-2">
-            <Link href={`/product-details/${_id}`}>{name} aaaaa</Link>
+            <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
           </h3>
-          <div className="tp-product-rating-icon tp-product-rating-icon-2">
+          {/* <div className="tp-product-rating-icon tp-product-rating-icon-2">
             <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />
-          </div>
+          </div> */}
           {/* <div className="tp-product-price-wrapper-2">
             {discount > 0 ? (
               <>

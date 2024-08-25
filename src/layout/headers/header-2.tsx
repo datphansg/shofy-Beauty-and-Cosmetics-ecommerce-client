@@ -38,10 +38,10 @@ const HeaderTwo = ({ style_2 = false }) => {
                       </a>
                     </div>
                     <div className="tp-header-info-item">
-                      <a href="tel:402-763-282-46">
+                      <a href="tel:0933 686 604">
                         <span>
                           <PhoneTwo />
-                        </span> +(966) 595 035 008
+                        </span> 0933 686 604
                       </a>
                     </div>
                   </div>

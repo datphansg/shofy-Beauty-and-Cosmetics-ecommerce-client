@@ -2,26 +2,26 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Rating } from "react-simple-star-rating";
-
+import slugify from 'slugify';
 const ProductSmItem = ({ product }) => {
   const {_id, img, category, name,price, reviews } = product || {};
   const [ratingVal, setRatingVal] = useState(0);
 
   useEffect(() => {
-    if (reviews && reviews.length > 0) {
-      const rating =
-        reviews.reduce((acc, review) => acc + review.rating, 0) /
-        reviews.length;
-      setRatingVal(rating);
-    } else {
-      setRatingVal(0);
-    }
+    // if (reviews && reviews.length > 0) {
+    //   const rating =
+    //     reviews.reduce((acc, review) => acc + review.rating, 0) /
+    //     reviews.length;
+    //   setRatingVal(rating);
+    // } else {
+    //   setRatingVal(0);
+    // }
   }, [reviews]);
 
   return (
     <div className="tp-product-sm-item d-flex align-items-center">
       <div className="tp-product-thumb mr-25 fix">
-        <Link href={`/product-details/${_id}`}>
+        <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>
           <Image
             src={img}
             alt="product img"
@@ -35,12 +35,12 @@ const ProductSmItem = ({ product }) => {
           <a href="#">{category?.name}</a>
         </div>
         <h3 className="tp-product-title">
-          <Link href={`/product-details/${_id}`}>{name}</Link>
+          <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
         </h3>
         <div className="tp-product-rating d-sm-flex align-items-center">
-          <div className="tp-product-rating-icon">
+          {/* <div className="tp-product-rating-icon">
             <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />
-          </div>
+          </div> */}
           {/* <div className="tp-product-rating-text">
           ({reviews && reviews.length > 0 ? reviews.length : 0} Review)
           </div> */}

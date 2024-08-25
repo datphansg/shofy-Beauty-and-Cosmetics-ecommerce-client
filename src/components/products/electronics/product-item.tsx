@@ -10,7 +10,7 @@ import Timer from "@/components/common/timer";
 import { handleProductModal } from "@/redux/features/productModalSlice";
 import { add_cart_product } from "@/redux/features/cartSlice";
 import { add_to_wishlist } from "@/redux/features/wishlist-slice";
-
+import slugify from 'slugify';
 const ProductItem = ({ product, offer_style = false }) => {
   const { _id, img, category, name, reviews, price, discount,status,offerDate } = product || {};
   const { cart_products } = useSelector((state) => state.cart);
@@ -46,7 +46,7 @@ const ProductItem = ({ product, offer_style = false }) => {
           } tp-product-item transition-3`}
       >
         <div className="tp-product-thumb p-relative fix">
-          <Link href={`/product-details/${_id}`}>
+          <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>
             <Image
               src={img}
               width="0"
@@ -110,17 +110,17 @@ const ProductItem = ({ product, offer_style = false }) => {
             <a href="#">{category?.name}</a>
           </div>
           <h3 className="tp-product-title">
-            <Link href={`/product-details/${_id}`}>{name}</Link>
+            <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
           </h3>
           <div className="tp-product-rating d-flex align-items-center">
-            <div className="tp-product-rating-icon">
+            {/* <div className="tp-product-rating-icon">
               <Rating
                 allowFraction
                 size={16}
                 initialValue={ratingVal}
                 readonly={true}
               />
-            </div>
+            </div> */}
             {/* <div className="tp-product-rating-text">
               <span>
                 ({reviews && reviews.length > 0 ? reviews.length : 0} Review)

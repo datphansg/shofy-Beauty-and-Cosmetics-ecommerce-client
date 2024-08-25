@@ -7,7 +7,7 @@ import { AddCart, Cart, QuickView, Wishlist } from "@/svg";
 import { handleProductModal } from "@/redux/features/productModalSlice";
 import { add_cart_product } from "@/redux/features/cartSlice";
 import { add_to_wishlist } from "@/redux/features/wishlist-slice";
-
+import slugify from 'slugify';
 const ProductItem = ({ product }) => {
   const { _id, shareImages, name, price, tags,status } = product || {};
   const { cart_products } = useSelector((state) => state.cart);
@@ -29,8 +29,8 @@ const ProductItem = ({ product }) => {
   return (
     <div className="tp-product-item-4 p-relative mb-40">
       <div className="tp-product-thumb-4 p-relative fix">
-        <Link href={`/product-details/${_id}`}>
-          <Image src={shareImages[0]} alt="product img" width={284} height={352} />
+        <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>
+        {shareImages && shareImages[0] && <Image src={shareImages[0]} alt="product img" width={284} height={352} /> }
         </Link>
         <div className="tp-product-badge">
           {status === 'out-of-stock' && <span className="product-hot">out-stock</span>}
@@ -78,7 +78,7 @@ const ProductItem = ({ product }) => {
       </div>
       <div className="tp-product-content-4">
         <h3 className="tp-product-title-4">
-          <Link href={`/product-details/${_id}`}>{name}</Link>
+          <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
         </h3>
         <div className="tp-product-info-4">
           <p>{tags[0]}</p>

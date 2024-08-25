@@ -55,12 +55,12 @@ const ReviewForm = ({product_id}) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="tp-product-details-review-form-rating d-flex align-items-center">
+      {/* <div className="tp-product-details-review-form-rating d-flex align-items-center">
         <p>Your Rating :</p>
         <div className="tp-product-details-review-form-rating-icon d-flex align-items-center">
           <Rating onClick={handleRating} allowFraction size={16} initialValue={rating} />
         </div>
-      </div>
+      </div> */}
       <div className="tp-product-details-review-input-wrapper">
         <div className="tp-product-details-review-input-box">
           <div className="tp-product-details-review-input">

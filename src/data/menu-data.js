@@ -40,44 +40,44 @@ const menu_data = [
     product_pages: [
       {
         title: 'Thời Trang và Phụ Kiện',
-        link: '/',
+        link: '/category',
         mega_menus: [
-          { title: 'Thời Trang Nữ', link: '/shop?category=5fe995384ed0328a42a47947' },
-          { title: 'Thời Trang Trẻ Em', link: '/shop?category=60b73561a7cea4656f7db50f' },
-          { title: 'Túi ví', link: '/shop?category=5fd9b26bbabb26c76c11a2d9' },
-          { title: 'Phụ Kiện và Trang Sức', link: '/shop?category=5ff680f99027bfba4f4a0765' },
-          { title: 'Đồng Hồ', link: '/shop?category=62abede5f0edc750696396ce' },
+          { title: 'Thời Trang Nữ', link: '/category/thoi-trang-nu/5fe995384ed0328a42a47947' },
+          { title: 'Thời Trang Trẻ Em', link: '/category/thoi-trang-tre-em/60b73561a7cea4656f7db50f' },
+          { title: 'Túi ví', link: '/category/tui-vi/5fd9b26bbabb26c76c11a2d9' },
+          { title: 'Phụ Kiện và Trang Sức', link: '/category/phu-kien-va-trang-suc/5ff680f99027bfba4f4a0765' },
+          { title: 'Đồng Hồ', link: '/category/dong-ho/62abede5f0edc750696396ce' },
         ]
       },
       {
         title: 'Sắc Đẹp và Sức Khỏe',
-        link: '/',
+        link: '/category',
         mega_menus: [
-          { title: 'Sắc Đẹp', link: '/shop?category=5fd9b614babb26c76c11a2dd' },
-          { title: 'Sức Khỏe', link: '/shop?category=60fe732795b348b1b56f45cb' },
+          { title: 'Sắc Đẹp', link: '/category/sac-dep/5fd9b614babb26c76c11a2dd' },
+          { title: 'Sức Khỏe', link: '/category/suc-khoe/60fe732795b348b1b56f45cb' },
         ]
       },
       {
         title: 'Nhà Cửa và Đời Sống',
-        link: '/',
+        link: '/category',
         mega_menus: [
-          { title: 'Nhà Cửa và Đời Sống', link: '/shop?category=5fd82914babb26c76c11a0f9' },
-          { title: 'Chăm Sóc Nhà Cửa', link: '/shop?category=' },
-          { title: 'Chăm Sóc Thú Cưng', link: '/shop?category=' },
-          { title: 'Thể Thao và Du Lịch', link: '/shop?category=' },
-          { title: 'Ô Tô Xe Máy và Xe Điện', link: '/shop?category=' },
+          { title: 'Nhà Cửa và Đời Sống', link: '/category/nha-cua-va-doi-song/5fd82914babb26c76c11a0f9' },
+          { title: 'Chăm Sóc Nhà Cửa', link: '/category/cham-soc-nha-cua/62abed9ff0edc750696395bc' },
+          { title: 'Chăm Sóc Thú Cưng', link: '/category/cham-soc-thu-cung/60ac9eb9b7817a0cfa55be7a' },
+          { title: 'Thể Thao và Du Lịch', link: '/category/the-thao-va-du-lich/6246b0d3175d71c1822c127b' },
+          { title: 'Ô Tô Xe Máy và Xe Điện', link: '/category/o-to-xe-may-va-xe-dien/60912867ca803f755722bdfa' },
         ]
       },
       {
         title: 'Gia Đình và Trẻ Em',
-        link: '/',
+        link: '/category',
         mega_menus: [
-          { title: 'Mẹ và Bé', link: '/shop?category=' },
-          { title: 'Đồ Chơi', link: '/shop?category=' },
-          { title: 'Văn Phòng Phẩm Online', link: '/shop?category=' },
-          { title: 'Sách', link: '/shop?category=' },
-          { title: 'Thiết Bị Điện Gia Dụng', link: '/shop?category=' },
-          { title: 'Voucher và Dịch vụ', link: '/shop?category=' },
+          { title: 'Mẹ và Bé', link: '/category/me-va-be/5fd9b4cdbabb26c76c11a2db' },
+          { title: 'Đồ Chơi', link: '/category/do-choi/5fd9b86bbabb26c76c11a2e1' },
+          { title: 'Văn Phòng Phẩm Online', link: '/category/van-phong-pham-online/62abf1739788e8c74c2b2816' },
+          { title: 'Sách', link: '/category/sach/5fd9b576babb26c76c11a2dc' },
+          { title: 'Thiết Bị Điện Gia Dụng', link: '/category/thiet-bi-dien-gia-dung/5fd9b691babb26c76c11a2de' },
+          { title: 'Voucher và Dịch vụ', link: '/category/voucher-va-dich-vu/60bd8b4bd31d9f059f8a496a' },
         ]
       }
       // {

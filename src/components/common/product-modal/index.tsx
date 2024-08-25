@@ -6,7 +6,7 @@ import { handleModalClose } from "@/redux/features/productModalSlice";
 import DetailsThumbWrapper from "@/components/product-details/details-thumb-wrapper";
 import DetailsWrapper from "@/components/product-details/details-wrapper";
 import { initialOrderQuantity } from "@/redux/features/cartSlice";
-
+import slugify from 'slugify';
 const customStyles = {
   content: {
     top: "50%",

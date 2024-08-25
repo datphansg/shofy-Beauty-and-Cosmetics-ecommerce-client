@@ -12,7 +12,7 @@ import { useGetPopularProductByTypeQuery } from "@/redux/features/productApi";
 import { add_cart_product } from "@/redux/features/cartSlice";
 import { HomeTwoPopularPrdLoader } from "@/components/loader";
 import { notifyError } from "@/utils/toast";
-
+import slugify from 'slugify';
 // slider setting
 const slider_setting = {
   slidesPerView: 5,
@@ -85,14 +85,14 @@ const PopularProducts = () => {
             className="tp-category-item-2 p-relative z-index-1 text-center"
           >
             <div className="tp-category-thumb-2">
-              <Link href={`/product-details/${item._id}`}>
+              <Link href={`/product-details/${slugify(item.name, { lower: true })}/${item._id}`}>
                 <Image src={item.img} alt="product-img" width={224} height={260} />
               </Link>
             </div>
             <div className="tp-category-content-2">
               <span>From ${item.price}</span>
               <h3 className="tp-category-title-2">
-                <Link href={`/product-details/${item._id}`}>{item.title.substring(0, 15)}</Link>
+                <Link href={`/product-details/${slugify(item.name, { lower: true })}/${item._id}`}>{item.title.substring(0, 15)}</Link>
               </h3>
               <div className="tp-category-btn-2">
                 {cart_products.some((prd) => prd._id === item._id) ? (

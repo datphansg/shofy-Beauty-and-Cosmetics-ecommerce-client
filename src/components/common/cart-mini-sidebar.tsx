@@ -7,7 +7,7 @@ import useCartInfo from '@/hooks/use-cart-info';
 import RenderCartProgress from './render-cart-progress';
 import empty_cart_img from '@assets/img/product/cartmini/empty-cart.png';
 import { closeCartMini, remove_product } from '@/redux/features/cartSlice';
-
+import slugify from 'slugify';
 const CartMiniSidebar = () => {
   const { cart_products, cartMiniOpen } = useSelector((state) => state.cart);
   const { total } = useCartInfo();
@@ -44,13 +44,13 @@ const handleCloseCartMini = () => {
               {cart_products.map((item) => (
                 <div key={item._id} className="cartmini__widget-item">
                   <div className="cartmini__thumb">
-                    <Link href={`/product-details/${item._id}`}>
-                      <Image src={item} width={70} height={60} alt="product img" />
+                    <Link href={`/product-details/${slugify(item.name, { lower: true })}/${item._id}`}>
+                      {/* <Image src={item.shareImages[0]} width={70} height={60} alt="product img" /> */}
                     </Link>
                   </div>
                   <div className="cartmini__content">
                     <h5 className="cartmini__title">
-                      <Link href={`/product-details/${item._id}`}>{item.title}</Link>
+                      <Link href={`/product-details/${slugify(item.name, { lower: true })}/${item._id}`}>{item.title}</Link>
                     </h5>
                     {/* <div className="cartmini__price-wrapper">
                       {item.discount > 0 ? <span className="cartmini__price">${(Number(item.price) - (Number(item.price) * Number(item.discount)) / 100).toFixed(2)}</span> : <span className="cartmini__price">${item.price.market.toLocaleString('vi-VN')}</span>}

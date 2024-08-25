@@ -43,7 +43,7 @@ const BannerArea = () => {
           <div className="col-xl-8 col-lg-7">
             <BannerItem
               bg={banner_1}
-              title={
+              name={
                 <>
                   Smartphone <br /> BLU G91 Pro 2022
                 </>
@@ -54,7 +54,7 @@ const BannerArea = () => {
             <BannerItem
               sm={true}
               bg={banner_2}
-              title={
+              name={
                 <>
                   HyperX Cloud II <br /> Wireless
                 </>

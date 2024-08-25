@@ -4,7 +4,7 @@ import Image from "next/image";
 import dayjs from "dayjs";
 import ReactToPrint from "react-to-print";
 // internal
-import SEO from "@/components/seo";
+
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/headers/header-2";
 import Footer from "@/layout/footers/footer";

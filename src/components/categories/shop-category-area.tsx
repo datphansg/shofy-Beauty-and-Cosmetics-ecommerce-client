@@ -3,15 +3,15 @@ import ErrorMsg from "../common/error-msg";
 import { useGetShowCategoryQuery } from "@/redux/features/categoryApi";
 import { useRouter } from "next/router";
 import ShopCategoryLoader from "../loader/shop/shop-category-loader";
-
+import slugify from 'slugify';
 const ShopCategoryArea = () => {
   const { data: categories, isLoading, isError } = useGetShowCategoryQuery();
   console.log(categories);
   const router = useRouter();
   // handle category route
-  const handleCategoryRoute = (title) => {
+  const handleCategoryRoute = (name,id) => {
     router.push(
-      `/shop?category=${title
+      `/category/slugify(name || "default-name", { lower: true })/${id
         .toLowerCase()
         .replace("&", "")
         .split(" ")
@@ -42,7 +42,7 @@ const ShopCategoryArea = () => {
           <div className="tp-category-main-content">
             <h3
               className="tp-category-main-title pb-1"
-              onClick={() => handleCategoryRoute(item.action.value)}
+              onClick={() => handleCategoryRoute(item.title, item.action.value)}
             >
               <a className="cursor-pointer">{item.title}</a>
             </h3>

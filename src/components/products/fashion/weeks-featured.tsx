@@ -8,6 +8,7 @@ import { useGetProductTypeQuery } from '@/redux/features/productApi';
 import { ArrowRightLong, NextLongArr, PrevLongArr, TextShapeLine } from '@/svg';
 import ErrorMsg from '@/components/common/error-msg';
 import { HomeTwoFeaturedPrdLoader } from '@/components/loader';
+import slugify from 'slugify';
 
 // slider setting 
 const slider_setting = {
@@ -64,7 +65,7 @@ const WeeksFeatured = () => {
               <div className="tp-featured-thumb include-bg" style={{ backgroundImage: `url(${img})` }} data-background="assets/img/product/slider/product-slider-1.jpg"></div>
               <div className="tp-featured-content">
                 <h3 className="tp-featured-title">
-                  <Link href={`/product-details/${_id}`}>{name}</Link>
+                  <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
                 </h3>
                 <div className="tp-featured-price-wrapper">
                   {discount > 0 ? (
@@ -78,11 +79,11 @@ const WeeksFeatured = () => {
                     <span className="tp-featured-price new-price">${price}</span>
                   )}
                 </div>
-                <div className="tp-product-rating-icon tp-product-rating-icon-2">
+                {/* <div className="tp-product-rating-icon tp-product-rating-icon-2">
                   <Rating allowFraction size={16} initialValue={reviews && reviews.length > 0 ? reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length : 0} readonly={true} />
-                </div>
+                </div> */}
                 <div className="tp-featured-btn">
-                  <Link href={`/product-details/${_id}`} className="tp-btn tp-btn-border tp-btn-border-sm">Shop Now
+                  <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`} className="tp-btn tp-btn-border tp-btn-border-sm">Shop Now
                     {" "}<ArrowRightLong />
                   </Link>
                 </div>

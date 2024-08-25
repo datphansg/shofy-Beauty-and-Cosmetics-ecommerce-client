@@ -14,9 +14,9 @@ const ReviewItem = ({ review }) => {
         </a>
       </div>
       <div className="tp-product-details-review-avater-content">
-        <div className="tp-product-details-review-avater-rating d-flex align-items-center">
+        {/* <div className="tp-product-details-review-avater-rating d-flex align-items-center">
           <Rating allowFraction size={16} initialValue={rating} readonly={true} />
-        </div>
+        </div> */}
         <h3 className="tp-product-details-review-avater-title">{userId?.name}</h3>
         <span className="tp-product-details-review-avater-meta">
           {dayjs(createdAt).format("MMMM D, YYYY")}

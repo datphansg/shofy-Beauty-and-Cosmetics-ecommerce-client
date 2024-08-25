@@ -6,7 +6,7 @@ import { Rating } from "react-simple-star-rating";
 // internal
 import { add_cart_product } from "@/redux/features/cartSlice";
 import { remove_compare_product } from "@/redux/features/compareSlice";
-
+import slugify from 'slugify';
 const CompareArea = () => {
   const { compareItems } = useSelector((state) => state.compare);
   const dispatch = useDispatch();
@@ -50,7 +50,7 @@ const CompareArea = () => {
                                 height={176}
                               />
                               <h4 className="tp-compare-product-title">
-                                <Link href={`/product-details/${item._id}`}>
+                                <Link href={`/product-details/${slugify(item.name, { lower: true })}/${item._id}`}>
                                   {item.title}
                                 </Link>
                               </h4>
@@ -97,7 +97,7 @@ const CompareArea = () => {
                         ))}
                       </tr>
                       {/* Rating */}
-                      <tr>
+                      {/* <tr>
                         <th>Rating</th>
                         {compareItems.map(item => (
                           <td key={item._id}>
@@ -111,7 +111,7 @@ const CompareArea = () => {
                             </div>
                           </td>
                         ))}
-                      </tr>
+                      </tr> */}
                       {/* Remove */}
                       <tr>
                         <th>Remove</th>

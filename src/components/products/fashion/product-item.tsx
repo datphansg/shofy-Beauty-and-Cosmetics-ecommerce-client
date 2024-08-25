@@ -9,6 +9,7 @@ import { handleProductModal } from "@/redux/features/productModalSlice";
 import { add_cart_product } from "@/redux/features/cartSlice";
 import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 import { add_to_compare } from "@/redux/features/compareSlice";
+import slugify from 'slugify';
 
 const ProductItem = ({ product, style_2 = false }) => {
   const { _id, shareImages, category, name, reviews, price, discount, tags, status } = product || {};
@@ -20,14 +21,14 @@ const ProductItem = ({ product, style_2 = false }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (reviews && reviews.length > 0) {
-      const rating =
-        reviews.reduce((acc, review) => acc + review.rating, 0) /
-        reviews.length;
-      setRatingVal(rating);
-    } else {
-      setRatingVal(0);
-    }
+    // if (reviews && reviews.length > 0) {
+    //   const rating =
+    //     reviews.reduce((acc, review) => acc + review.rating, 0) /
+    //     reviews.length;
+    //   setRatingVal(rating);
+    // } else {
+    //   setRatingVal(0);
+    // }
   }, [reviews]);
 
   // handle add product
@@ -48,7 +49,7 @@ const ProductItem = ({ product, style_2 = false }) => {
   return (
     <div className={`tp-product-item-2 ${style_2 ? "" : "mb-40"}`}>
       <div className="tp-product-thumb-2 p-relative z-index-1 fix">
-        <Link href={`/product-details/${_id}`}>
+        <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>
           <Image
             src={shareImages[0]}
             alt="product img"
@@ -119,11 +120,11 @@ const ProductItem = ({ product, style_2 = false }) => {
           ))}
         </div> */}
         <h3 className="tp-product-title-2">
-          <Link href={`/product-details/${_id}`}>{name}</Link>
+          <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
         </h3>
-        <div className="tp-product-rating-icon tp-product-rating-icon-2">
+        {/* <div className="tp-product-rating-icon tp-product-rating-icon-2">
           <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />
-        </div>
+        </div> */}
         <div className="tp-product-price-wrapper-2">
           {discount > 0 ? (
             <>

@@ -14,7 +14,10 @@ export const categoryApi = apiSlice.injectEndpoints({
       query: () => `https://app-api.selly.vn/news?type=home_menu`
     }),
     getProductTypeCategory: builder.query({
-      query: (type) => `https://shofy-backend.vercel.app/api/category/show/${type}`
+      query: (type) => ``
+    }),
+    getCategory: builder.query({
+      query: (type) => `https://app-api.selly.vn/product-categories/${type}`
     }),
   }),
 });
@@ -23,4 +26,5 @@ export const {
  useAddCategoryMutation,
  useGetProductTypeCategoryQuery,
  useGetShowCategoryQuery,
+ useGetCategoryQuery
 } = categoryApi;

@@ -48,11 +48,12 @@ const RelatedProducts = ({id}) => {
   if (!isLoading && isError) {
     content = <ErrorMsg msg="There was an error" />;
   }
-  if (!isLoading && !isError && products?.data?.length === 0) {
+  if (!isLoading && !isError && products?.data?.products?.length === 0) {
     content = <ErrorMsg msg="No Products found!" />;
   }
-  if (!isLoading && !isError && products?.data?.length > 0) {
-    const product_items = products.data;
+  if (!isLoading && !isError && products?.data?.products?.length > 0) {
+    const product_items = products.data.products;
+    console.log('product_items', product_items);
     content = (
       <Swiper
         {...slider_setting}

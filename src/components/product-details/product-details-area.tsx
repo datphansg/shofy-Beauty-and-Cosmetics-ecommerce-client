@@ -6,7 +6,6 @@ import DetailsTabNav from "./details-tab-nav";
 import RelatedProducts from "./related-products";
 
 const ProductDetailsArea = ({ productItem }) => {
-  console.log(productItem);
   const { _id, shareImages, videoId ,status } = productItem || {};
   const [activeImg, setActiveImg] = useState(shareImages[0]);
   const dispatch = useDispatch();
@@ -69,8 +68,7 @@ const ProductDetailsArea = ({ productItem }) => {
         <div className="container">
           <div className="row">
             <div className="tp-section-title-wrapper-6 text-center mb-40">
-              <span className="tp-section-title-pre-6">Next day Products</span>
-              <h3 className="tp-section-title-6">Related Products</h3>
+              <h3 className="tp-section-title-6">Sản phẩm tương tự</h3>
             </div>
           </div>
           <div className="row">

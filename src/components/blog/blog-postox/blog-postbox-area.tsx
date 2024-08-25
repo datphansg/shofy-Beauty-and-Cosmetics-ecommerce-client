@@ -33,7 +33,6 @@ const BlogPostboxArea = () => {
                 <div className="tp-blog-pagination mt-50">
                   <div className="tp-pagination">
                     <Pagination
-                      items={blog_items}
                       countOfPage={4}
                       paginatedData={paginatedData}
                       currPage={currPage}

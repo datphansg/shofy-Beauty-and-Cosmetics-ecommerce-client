@@ -40,9 +40,9 @@ const FashionTestimonial = () => {
                     <Swiper {...slider_setting} modules={[Navigation, Pagination]} className="tp-testimonial-slider-active swiper-container">
                       {fashion_testi_data.map(item => (
                         <SwiperSlide key={item.id} className="tp-testimonial-item text-center mb-20">
-                          <div className="tp-testimonial-rating">
+                          {/* <div className="tp-testimonial-rating">
                             <span><Rating fillColor='#821F40' readonly={true} allowFraction size={20} initialValue={item.review}/></span>
-                          </div>
+                          </div> */}
                           <div className="tp-testimonial-content">
                             <p>{item.desc}</p>
                           </div> 

@@ -1,4 +1,4 @@
-import SEO from "@/components/seo";
+
 import Wrapper from "@/layout/wrapper";
 import HeaderThree from '@/layout/headers/header-3';
 import BeautyBanner from '@/components/banner/beauty-banner';
@@ -34,7 +34,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <Wrapper>
-      <SEO pageTitle='Home'/>
       <HeaderThree/>
       <BeautyBanner/>
       <BeautyCategory/>

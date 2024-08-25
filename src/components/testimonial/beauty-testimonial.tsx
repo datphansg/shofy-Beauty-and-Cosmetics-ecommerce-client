@@ -55,9 +55,9 @@ const BeautyTestimonial = () => {
                       <div className="tp-testimonial-shape-3">
                         <Image className="tp-testimonial-shape-3-quote" src={quote} alt="quote img" />
                       </div>
-                      <div className="tp-testimonial-rating tp-testimonial-rating-3">
+                      {/* <div className="tp-testimonial-rating tp-testimonial-rating-3">
                         <Rating fillColor='#010F1C' readonly={true} allowFraction size={20} initialValue={item.review} />
-                      </div>
+                      </div> */}
                       <div className="tp-testimonial-content-3">
                         <p>{item.desc}</p>
                       </div>

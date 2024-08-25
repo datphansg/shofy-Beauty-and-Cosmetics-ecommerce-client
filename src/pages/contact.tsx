@@ -1,5 +1,5 @@
 import React from "react";
-import SEO from "@/components/seo";
+
 import HeaderTwo from "@/layout/headers/header-2";
 import Wrapper from "@/layout/wrapper";
 import Footer from "@/layout/footers/footer";
@@ -10,7 +10,6 @@ import ContactMap from "@/components/contact/contact-map";
 const ContactPage = () => {
   return (
     <Wrapper>
-      <SEO pageTitle="Contact" />
       <HeaderTwo style_2={true} />
       <ContactBreadcrumb />
       <ContactArea/>

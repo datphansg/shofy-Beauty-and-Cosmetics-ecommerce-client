@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 // internal
-import SEO from "@/components/seo";
+
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/headers/header-2";
 import Footer from "@/layout/footers/footer";

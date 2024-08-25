@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Pagination from "@/ui/Pagination";
 import ProductItem from "../products/fashion/product-item";
 import CategoryFilter from "./shop-filter/category-filter";
@@ -11,22 +11,25 @@ import ShopListItem from "./shop-list-item";
 import ShopTopLeft from "./shop-top-left";
 import ShopTopRight from "./shop-top-right";
 import ResetButton from "./shop-filter/reset-button";
-
-const ShopArea = ({ all_products, products, otherProps }) => {
+import { useGetProductByCatogoriesQuery } from '@/redux/features/productApi';
+const ShopArea = ({ CategoryId, all_products, products, otherProps }) => {
   const {priceFilterValues,selectHandleFilter,currPage,setCurrPage} = otherProps;
   const [filteredRows, setFilteredRows] = useState(products);
   const [pageStart, setPageStart] = useState(0);
   const [countOfPage, setCountOfPage] = useState(12);
-
-  const paginatedData = (items, startPage, pageCount) => {
-    setFilteredRows(items);
-    setPageStart(startPage);
-    setCountOfPage(pageCount);
+  const paginatedData = (currPage) => {
+    console.log('Current Page', currPage);
+    setCurrPage(currPage);
+    // setPageStart(startPage);
+    // setCountOfPage(pageCount);
   };
   // max price
-  const maxPrice = all_products.reduce((max, product) => {
-    return product.price > max ? product.price : max;
-  }, 0);
+  // const maxPrice = all_products.reduce((max, product) => {
+  //   return product.price > max ? product.price : max;
+  // }, 0);
+  // useEffect(() => {
+
+  // }, [products]);
   return (
     <>
       <section className="tp-shop-area pb-120">
@@ -34,14 +37,14 @@ const ShopArea = ({ all_products, products, otherProps }) => {
           <div className="row">
             <div className="col-xl-3 col-lg-4">
               <div className="tp-shop-sidebar mr-10">
-               
+
               </div>
             </div>
             <div className="col-xl-9 col-lg-8">
               <div className="tp-shop-main-wrapper">
                 <div className="tp-shop-top mb-45">
                   <div className="row">
-                    <div className="col-xl-6">
+                    {/* <div className="col-xl-6">
                       <ShopTopLeft
                         showing={
                           products.length === 0
@@ -53,13 +56,13 @@ const ShopArea = ({ all_products, products, otherProps }) => {
                         }
                         total={all_products.length}
                       />
-                    </div>
+                    </div> */}
                     <div className="col-xl-6">
                       <ShopTopRight selectHandleFilter={selectHandleFilter} />
                     </div>
                   </div>
                 </div>
-                
+
                 {products.length === 0 && <h2>No products found 12</h2>}
                 {products.length > 0 && (
                   <div className="tp-shop-items-wrapper tp-shop-item-primary">
@@ -69,11 +72,9 @@ const ShopArea = ({ all_products, products, otherProps }) => {
                         id="grid-tab-pane"
                         role="tabpanel"
                         aria-labelledby="grid-tab"
-                        tabIndex="0"
                       >
                         <div className="row">
-                          {filteredRows
-                            .slice(pageStart, pageStart + countOfPage)
+                          {products
                             .map((item) => (
                               <div
                                 key={item._id}
@@ -89,7 +90,6 @@ const ShopArea = ({ all_products, products, otherProps }) => {
                         id="list-tab-pane"
                         role="tabpanel"
                         aria-labelledby="list-tab"
-                        tabIndex="0"
                       >
                         <div className="tp-shop-list-wrapper tp-shop-item-primary mb-70">
                           <div className="row">
@@ -110,7 +110,7 @@ const ShopArea = ({ all_products, products, otherProps }) => {
                   <div className="tp-shop-pagination mt-20">
                     <div className="tp-pagination">
                       <Pagination
-                        items={products}
+                        totalItems={all_products?.data?.total}
                         countOfPage={20}
                         paginatedData={paginatedData}
                         currPage={currPage}

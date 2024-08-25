@@ -19,14 +19,14 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (reviews && reviews.length > 0) {
-      const rating =
-        reviews.reduce((acc, review) => acc + review.rating, 0) /
-        reviews.length;
-      setRatingVal(rating);
-    } else {
-      setRatingVal(0);
-    }
+    // if (reviews && reviews.length > 0) {
+    //   const rating =
+    //     reviews.reduce((acc, review) => acc + review.rating, 0) /
+    //     reviews.length;
+    //   setRatingVal(rating);
+    // } else {
+    //   setRatingVal(0);
+    // }
   }, [reviews]);
 
   // handle add product
@@ -52,19 +52,11 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
       <h3 className="tp-product-details-title">{name}</h3>
 
       {/* inventory details */}
-      <div className="tp-product-details-inventory d-flex align-items-center mb-10">
+      {/* <div className="tp-product-details-inventory d-flex align-items-center mb-10">
         <div className="tp-product-details-stock mb-10">
           <span>{status}</span>
         </div>
-        <div className="tp-product-details-rating-wrapper d-flex align-items-center mb-10">
-          <div className="tp-product-details-rating">
-            <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />
-          </div>
-          <div className="tp-product-details-reviews">
-            <span>({reviews && reviews.length > 0 ? reviews.length : 0} Review)</span>
-          </div>
-        </div>
-      </div>
+      </div> */}
       <p>{shareDesc}</p>
       {/* price */}
       <div className="tp-product-details-price-wrapper mb-20">

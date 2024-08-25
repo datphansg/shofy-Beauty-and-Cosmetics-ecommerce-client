@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SEO from "@/components/seo";
+
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/headers/header-2";
 import ShopBreadcrumb from "@/components/breadcrumb/shop-breadcrumb";
@@ -91,9 +91,9 @@ const ShopPage = ({ query }) => {
           .slice()
           .sort((a, b) => Number(b.price.market) - Number(a.price.market));
       } else if (selectValue === "New Added") {
-        product_items = products.data.products
-          .slice()
-          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        // product_items = products.data.products
+        //   .slice()
+        //   .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       } else if (selectValue === "On Sale") {
         product_items = products.data.products.filter((p) => p.discount > 0);
       } else {
@@ -154,7 +154,7 @@ const ShopPage = ({ query }) => {
     content = (
       <>
         <ShopArea
-          all_products={products.data.products}
+          all_products={products}
           products={product_items}
           otherProps={otherProps}
         />
@@ -169,7 +169,7 @@ const ShopPage = ({ query }) => {
     <Wrapper>
       <SEO pageTitle="Shop" />
       <HeaderTwo style_2={true} />
-      <ShopBreadcrumb title="Cửa hàng" subtitle="Cửa hàng" />
+      <ShopBreadcrumb name="Cửa hàng" subtitle="Cửa hàng" />
       {content}
       <Footer primary_style={true} />
     </Wrapper>

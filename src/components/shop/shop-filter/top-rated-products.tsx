@@ -6,7 +6,7 @@ import Link from 'next/link';
 import ErrorMsg from '@/components/common/error-msg';
 import { useGetTopRatedProductsQuery } from '@/redux/features/productApi';
 import ShopTopRatedLoader from '@/components/loader/shop/top-rated-prd-loader';
-
+import slugify from 'slugify';
 const TopRatedProducts = () => {
   const { data: products, isError, isLoading } = useGetTopRatedProductsQuery();
   // decide what to render
@@ -28,21 +28,21 @@ const TopRatedProducts = () => {
     content = product_items.map((item) => (
       <div key={item._id} className="tp-shop-widget-product-item d-flex align-items-center">
         <div className="tp-shop-widget-product-thumb">
-          <Link href={`/product-details/${item._id}`}>
+          <Link href={`/product-details/${slugify(item.name, { lower: true })}/${item._id}`}>
             <Image src={item} alt="product img" width={70} height={70} />
           </Link>
         </div>
         <div className="tp-shop-widget-product-content">
           <div className="tp-shop-widget-product-rating-wrapper d-flex align-items-center">
-            <div className="tp-shop-widget-product-rating">
+            {/* <div className="tp-shop-widget-product-rating">
               <Rating allowFraction size={16} initialValue={item.rating} readonly={true} />
-            </div>
+            </div> */}
             <div className="tp-shop-widget-product-rating-number">
               <span>({item.rating})</span>
             </div>
           </div>
           <h4 className="tp-shop-widget-product-title">
-            <Link href={`/product-details/${item._id}`}>{item.title.substring(0,20)}...</Link>
+            <Link href={`/product-details/${slugify(item.name, { lower: true })}/${item._id}`}>{item.title.substring(0,20)}...</Link>
           </h4>
           <div className="tp-shop-widget-product-price-wrapper">
             <span className="tp-shop-widget-product-price">${item.price.market.toLocaleString('vi-VN')}</span>

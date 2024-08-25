@@ -8,8 +8,9 @@ export const productApi = apiSlice.injectEndpoints({
       providesTags:['Products']
     }),
     getProductByCatogories: builder.query({
-      query: (categoryId,page) => `https://app-api.selly.vn/products?limit=20&page=${page}&sort=top_sale&city=&category=${categoryId}`,
-      providesTags:['ProductsByCategories']
+      query: ({ categoryId, page }) =>
+        `https://app-api.selly.vn/products?limit=20&page=1&sort=top_sale&city=&category=${categoryId}&nextTokenPage=${page}`,
+      providesTags: ['ProductsByCategories'],
     }),
     getProductType: builder.query({
       query: ({ type, query }) => `https://shofy-backend.vercel.app/api/product/${type}?${query}`,
@@ -37,7 +38,7 @@ export const productApi = apiSlice.injectEndpoints({
     }),
     // get related products
     getRelatedProducts: builder.query({
-      query: (id) => `https://shofy-backend.vercel.app/api/product/related-product/${id}`,
+      query: (id) => `https://app-api.selly.vn/products/${id}/related`,
       providesTags: (result, error, arg) => [
         { type: "RelatedProducts", id: arg },
       ],

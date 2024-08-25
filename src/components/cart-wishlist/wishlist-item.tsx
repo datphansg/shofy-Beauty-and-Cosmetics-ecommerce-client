@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Close, Minus, Plus } from "@/svg";
 import {add_cart_product,quantityDecrement} from "@/redux/features/cartSlice";
 import { remove_wishlist_product } from "@/redux/features/wishlist-slice";
-
+import slugify from 'slugify';
 const WishlistItem = ({ product }) => {
   const { _id, img, name, price } = product || {};
   const { cart_products } = useSelector((state) => state.cart);
@@ -29,12 +29,12 @@ const WishlistItem = ({ product }) => {
   return (
     <tr>
       <td className="tp-cart-img">
-        <Link href={`/product-details/${_id}`}>
+        <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>
           <Image src={img} alt="product img" width={70} height={100} />
         </Link>
       </td>
       <td className="tp-cart-title">
-        <Link href={`/product-details/${_id}`}>{name}</Link>
+        <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
       </td>
       <td className="tp-cart-price">
         <span>{price.market.toLocaleString('vi-VN')}đ</span>

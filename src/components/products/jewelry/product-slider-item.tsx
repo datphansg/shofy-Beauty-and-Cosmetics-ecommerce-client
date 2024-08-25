@@ -7,7 +7,7 @@ import { handleProductModal } from "@/redux/features/productModalSlice";
 import { add_cart_product } from "@/redux/features/cartSlice";
 import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 import { notifyError } from "@/utils/toast";
-
+import slugify from 'slugify';
 const ProductSliderItem = ({ product }) => {
   const { _id, name, price, img,status } = product || {};
   const { cart_products } = useSelector((state) => state.cart);
@@ -79,7 +79,7 @@ const ProductSliderItem = ({ product }) => {
       </div>
       <div className="tp-category-content-4">
         <h3 className="tp-category-title-4">
-          <Link href={`/product-details/${_id}`}>{name}</Link>
+          <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
         </h3>
         <div className="tp-category-price-wrapper-4">
           <span className="tp-category-price-4">{price.market.toLocaleString('vi-VN')}đ</span>
