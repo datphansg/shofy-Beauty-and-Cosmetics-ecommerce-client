@@ -14,15 +14,15 @@ const ProductBrand = ({setCurrPage,shop_right=false}) => {
   const dispatch = useDispatch();
   // handle brand route 
   const handleBrandRoute = (brand) => {
-    setCurrPage(1);
-    router.push(
-      `/${shop_right?'shop-right-sidebar':'shop'}?brand=${brand
-        .toLowerCase()
-        .replace("&", "")
-        .split(" ")
-        .join("-")}`
-    )
-    dispatch(handleFilterSidebarClose());
+    // setCurrPage(1);
+    // router.push(
+    //   `/${shop_right?'shop-right-sidebar':'shop'}?brand=${brand
+    //     .toLowerCase()
+    //     .replace("&", "")
+    //     .split(" ")
+    //     .join("-")}`
+    // )
+    // dispatch(handleFilterSidebarClose());
   }
   // decide what to render
   let content = null;

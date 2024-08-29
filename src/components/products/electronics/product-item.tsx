@@ -46,7 +46,7 @@ const ProductItem = ({ product, offer_style = false }) => {
           } tp-product-item transition-3`}
       >
         <div className="tp-product-thumb p-relative fix">
-          <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>
+          <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`}>
             <Image
               src={img}
               width="0"
@@ -69,7 +69,7 @@ const ProductItem = ({ product, offer_style = false }) => {
                   href="/cart"
                   className={`tp-product-action-btn ${isAddedToCart ? 'active' : ''} tp-product-add-cart-btn`}
                 >
-                  <Cart /> <span className="tp-product-tooltip">View Cart</span>
+                  <Cart /> <span className="tp-product-tooltip">Giỏ hàng</span>
                 </Link>
               ) : (
                 <button
@@ -110,7 +110,7 @@ const ProductItem = ({ product, offer_style = false }) => {
             <a href="#">{category?.name}</a>
           </div>
           <h3 className="tp-product-title">
-            <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
+            <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`}>{name}</Link>
           </h3>
           <div className="tp-product-rating d-flex align-items-center">
             {/* <div className="tp-product-rating-icon">

@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '@/components/seo';
+
 import Wrapper from '@/layout/wrapper';
 import HeaderFour from '@/layout/headers/header-4';
 import JewelryBanner from '@/components/banner/jewelry-banner';
@@ -17,7 +17,6 @@ import FooterTwo from '@/layout/footers/footer-2';
 const HomeFour = () => {
   return (
     <Wrapper>
-      <SEO pageTitle="Home Four" />
       <HeaderFour/>
       <JewelryBanner/>
       <FeatureAreaThree />

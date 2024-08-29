@@ -100,7 +100,7 @@ const PopularProducts = () => {
                     href="/cart"
                     className="tp-btn tp-btn-border cursor-pointer"
                   >
-                    View Cart
+                    Giỏ hàng
                   </Link>
                 ) : (
                   <a

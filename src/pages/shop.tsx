@@ -167,7 +167,6 @@ const ShopPage = ({ query }) => {
   }
   return (
     <Wrapper>
-      <SEO pageTitle="Shop" />
       <HeaderTwo style_2={true} />
       <ShopBreadcrumb name="Cửa hàng" subtitle="Cửa hàng" />
       {content}

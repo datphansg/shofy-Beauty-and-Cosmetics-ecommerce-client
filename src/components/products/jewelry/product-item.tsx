@@ -29,7 +29,7 @@ const ProductItem = ({ product }) => {
   return (
     <div className="tp-product-item-4 p-relative mb-40">
       <div className="tp-product-thumb-4 p-relative fix">
-        <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>
+        <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`}>
         {shareImages && shareImages[0] && <Image src={shareImages[0]} alt="product img" width={284} height={352} /> }
         </Link>
         <div className="tp-product-badge">
@@ -43,7 +43,7 @@ const ProductItem = ({ product }) => {
                 className={`tp-product-action-btn-3 ${isAddedToCart ? 'active' : ''} tp-product-add-cart-btn text-center`}
               >
                 <Cart />
-                <span className="tp-product-tooltip">View Cart 1</span>
+                <span className="tp-product-tooltip">Giỏ hàng 1</span>
               </Link>
             ) : (
               <button
@@ -78,7 +78,7 @@ const ProductItem = ({ product }) => {
       </div>
       <div className="tp-product-content-4">
         <h3 className="tp-product-title-4">
-          <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
+          <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`}>{name}</Link>
         </h3>
         <div className="tp-product-info-4">
           <p>{tags[0]}</p>
@@ -90,7 +90,7 @@ const ProductItem = ({ product }) => {
           </div>
           <div className="tp-product-price-add-to-cart">
             {isAddedToCart ? <Link href="/cart" className="tp-product-add-to-cart-4">
-              <AddCart /> View Cart
+              <AddCart /> Giỏ hàng
             </Link> : <button disabled={status === 'out-of-stock'} onClick={()=> handleAddProduct(product)} className="tp-product-add-to-cart-4">
               <AddCart /> Add to Cart
             </button>}

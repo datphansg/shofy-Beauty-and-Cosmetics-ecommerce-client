@@ -7,7 +7,7 @@ const CheckoutBillingArea = ({ register, errors }) => {
 
   return (
     <div className="tp-checkout-bill-area">
-      <h3 className="tp-checkout-bill-title">Billing Details</h3>
+      <h3 className="tp-checkout-bill-title">Chi tiết hóa đơn</h3>
 
       <div className="tp-checkout-bill-form">
         <div className="tp-checkout-bill-inner">
@@ -15,25 +15,25 @@ const CheckoutBillingArea = ({ register, errors }) => {
             <div className="col-md-6">
               <div className="tp-checkout-input">
                 <label>
-                  First Name <span>*</span>
+                  Họ và tên<span>*</span>
                 </label>
                 <input
                   {...register("firstName", {
-                    required: `firstName is required!`,
+                    required: `Họ Tên không được bỏ trống!`,
                   })}
                   name="firstName"
                   id="firstName"
                   type="text"
-                  placeholder="First Name"
+                  placeholder="Trần Văn A"
                   defaultValue={user?.firstName}
                 />
                 <ErrorMsg msg={errors?.firstName?.message} />
               </div>
             </div>
-            <div className="col-md-6">
+            {/* <div className="col-md-6">
               <div className="tp-checkout-input">
                 <label>
-                  Last Name <span>*</span>
+                  Tên <span>*</span>
                 </label>
                 <input
                   {...register("lastName", {
@@ -46,11 +46,11 @@ const CheckoutBillingArea = ({ register, errors }) => {
                 />
                 <ErrorMsg msg={errors?.lastName?.message} />
               </div>
-            </div>
-            <div className="col-md-12">
+            </div> */}
+            {/* <div className="col-md-12">
               <div className="tp-checkout-input">
                 <label>
-                  Country <span>*</span>
+                  Quốc gia <span>*</span>
                 </label>
                 <input
                   {...register("country", { required: `country is required!` })}
@@ -61,23 +61,23 @@ const CheckoutBillingArea = ({ register, errors }) => {
                 />
                 <ErrorMsg msg={errors?.lastName?.message} />
               </div>
-            </div>
+            </div> */}
             <div className="col-md-12">
               <div className="tp-checkout-input">
-                <label>Street address</label>
+                <label>Địa chỉ</label>
                 <input
-                  {...register("address", { required: `Address is required!` })}
+                  {...register("address", { required: `Địa chỉ không bỏ trống!` })}
                   name="address"
                   id="address"
                   type="text"
-                  placeholder="House number and street name"
+                  placeholder="139 Pastuer, Phường Võ Thị Sáu, Quận 3, Tp. Hồ Chí Minh"
                 />
                 <ErrorMsg msg={errors?.address?.message} />
               </div>
             </div>
-            <div className="col-md-6">
+            {/* <div className="col-md-6">
               <div className="tp-checkout-input">
-                <label>Town / City</label>
+                <label>Tỉnh/ Thành phố</label>
                 <input
                   {...register("city", { required: `City is required!` })}
                   name="city"
@@ -87,8 +87,8 @@ const CheckoutBillingArea = ({ register, errors }) => {
                 />
                  <ErrorMsg msg={errors?.city?.message} />
               </div>
-            </div>
-            <div className="col-md-6">
+            </div> */}
+            {/* <div className="col-md-6">
               <div className="tp-checkout-input">
                 <label>Postcode ZIP</label>
                 <input
@@ -100,25 +100,25 @@ const CheckoutBillingArea = ({ register, errors }) => {
                 />
                 <ErrorMsg msg={errors?.zipCode?.message} />
               </div>
-            </div>
+            </div> */}
             <div className="col-md-12">
               <div className="tp-checkout-input">
                 <label>
-                  Phone <span>*</span>
+                  Điện thoại <span>*</span>
                 </label>
                 <input
                   {...register("contactNo", {
-                    required: `ContactNumber is required!`,
+                    required: `Số điện thoại không bỏ trống!`,
                   })}
                   name="contactNo"
                   id="contactNo"
                   type="text"
-                  placeholder="Phone"
+                  placeholder="Số Điện thoại"
                 />
                 <ErrorMsg msg={errors?.contactNo?.message} />
               </div>
             </div>
-            <div className="col-md-12">
+            {/* <div className="col-md-12">
               <div className="tp-checkout-input">
                 <label>
                   Email address <span>*</span>
@@ -133,7 +133,7 @@ const CheckoutBillingArea = ({ register, errors }) => {
                 />
                 <ErrorMsg msg={errors?.email?.message} />
               </div>
-            </div>
+            </div> 
             <div className="col-md-12">
               <div className="tp-checkout-input">
                 <label>Order notes (optional)</label>
@@ -144,7 +144,7 @@ const CheckoutBillingArea = ({ register, errors }) => {
                   placeholder="Notes about your order, e.g. special notes for delivery."
                 />
               </div>
-            </div>
+            </div>*/}
           </div>
         </div>
       </div>

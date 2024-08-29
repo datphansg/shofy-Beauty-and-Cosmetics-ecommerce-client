@@ -29,17 +29,17 @@ const CartItem = ({product}) => {
     <tr>
       {/* img */}
       <td className="tp-cart-img">
-        <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>
+        <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`}>
         {shareImages && shareImages[0] && <Image src={shareImages[0]} alt="product img" width={70} height={100} />}
         </Link>
       </td>
       {/* title */}
       <td className="tp-cart-title">
-        <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
+        <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`}>{name}</Link>
       </td>
       {/* price */}
       <td className="tp-cart-price">
-        <span>${(price * orderQuantity).toFixed(2)}</span>
+        <span>{(price.market * orderQuantity).toLocaleString('vi-VN')}</span>
       </td>
       {/* quantity */}
       <td className="tp-cart-quantity">
@@ -55,9 +55,9 @@ const CartItem = ({product}) => {
       </td>
       {/* action */}
       <td className="tp-cart-action">
-        <button onClick={()=> handleRemovePrd({title,id:_id})} className="tp-cart-action-btn">
+        <button onClick={()=> handleRemovePrd({name,id:_id})} className="tp-cart-action-btn">
           <Close />
-          <span>{" "}Remove</span>
+          <span>{" "}Xóa</span>
         </button>
       </td>
     </tr>

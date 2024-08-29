@@ -9,9 +9,7 @@ const RenderCartProgress = () => {
     const remainingAmount = freeShippingThreshold - total;
     return (
       <>
-        <p>{`Add $${remainingAmount.toFixed(
-          2
-        )} more to qualify for free shipping`}</p>
+        <p>Miễn phí vận chuyển</p>
         <div className="progress">
           <div
             className="progress-bar progress-bar-striped progress-bar-animated"
@@ -28,7 +26,7 @@ const RenderCartProgress = () => {
   }
   return (
     <>
-      <p> You are eligible for free shipping</p>
+      {/* <p> You are eligible for free shipping</p> */}
       <div className="progress">
         <div
           className="progress-bar progress-bar-striped progress-bar-animated"

@@ -65,7 +65,7 @@ const WeeksFeatured = () => {
               <div className="tp-featured-thumb include-bg" style={{ backgroundImage: `url(${img})` }} data-background="assets/img/product/slider/product-slider-1.jpg"></div>
               <div className="tp-featured-content">
                 <h3 className="tp-featured-title">
-                  <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
+                  <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`}>{name}</Link>
                 </h3>
                 <div className="tp-featured-price-wrapper">
                   {discount > 0 ? (
@@ -83,7 +83,7 @@ const WeeksFeatured = () => {
                   <Rating allowFraction size={16} initialValue={reviews && reviews.length > 0 ? reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length : 0} readonly={true} />
                 </div> */}
                 <div className="tp-featured-btn">
-                  <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`} className="tp-btn tp-btn-border tp-btn-border-sm">Shop Now
+                  <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`} className="tp-btn tp-btn-border tp-btn-border-sm">Shop Now
                     {" "}<ArrowRightLong />
                   </Link>
                 </div>

@@ -29,12 +29,12 @@ const WishlistItem = ({ product }) => {
   return (
     <tr>
       <td className="tp-cart-img">
-        <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>
+        <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`}>
           <Image src={img} alt="product img" width={70} height={100} />
         </Link>
       </td>
       <td className="tp-cart-title">
-        <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
+        <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`}>{name}</Link>
       </td>
       <td className="tp-cart-price">
         <span>{price.market.toLocaleString('vi-VN')}đ</span>
@@ -74,11 +74,11 @@ const WishlistItem = ({ product }) => {
 
       <td className="tp-cart-action">
         <button
-          onClick={() => handleRemovePrd({ title, id: _id })}
+          onClick={() => handleRemovePrd({ name, id: _id })}
           className="tp-cart-action-btn"
         >
           <Close />
-          <span> Remove</span>
+          <span> Xóa</span>
         </button>
       </td>
     </tr>

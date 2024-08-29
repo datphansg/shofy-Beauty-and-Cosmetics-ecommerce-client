@@ -192,6 +192,7 @@ const useCheckoutSubmit = () => {
 
   // submitHandler
   const submitHandler = async (data) => {
+    console.log(data);
     dispatch(set_shipping(data));
     setIsCheckoutSubmit(true);
 
@@ -214,46 +215,46 @@ const useCheckoutSubmit = () => {
       orderNote:data.orderNote,
       user: `${user?._id}`,
     };
-    if (data.payment === 'Card') {
-      if (!stripe || !elements) {
-        return;
-      }
-      const card = elements.getElement(CardElement);
-      if (card == null) {
-        return;
-      }
-      const { error, paymentMethod } = await stripe.createPaymentMethod({
-        type: 'card',
-        card: card,
-      });
-      if (error && !paymentMethod) {
-        setCardError(error.message);
-        setIsCheckoutSubmit(false);
-      } else {
-        setCardError('');
-        const orderData = {
-          ...orderInfo,
-          cardInfo: paymentMethod,
-        };
+    // if (data.payment === 'Card') {
+    //   if (!stripe || !elements) {
+    //     return;
+    //   }
+    //   const card = elements.getElement(CardElement);
+    //   if (card == null) {
+    //     return;
+    //   }
+    //   const { error, paymentMethod } = await stripe.createPaymentMethod({
+    //     type: 'card',
+    //     card: card,
+    //   });
+    //   if (error && !paymentMethod) {
+    //     setCardError(error.message);
+    //     setIsCheckoutSubmit(false);
+    //   } else {
+    //     setCardError('');
+    //     const orderData = {
+    //       ...orderInfo,
+    //       cardInfo: paymentMethod,
+    //     };
 
-       return handlePaymentWithStripe(orderData);
-      }
-    }
-    if (data.payment === 'COD') {
-      saveOrder({
-        ...orderInfo
-      }).then(res => {
-        if(res?.error){
-        }
-        else {
-          localStorage.removeItem("cart_products")
-          localStorage.removeItem("couponInfo");
-          setIsCheckoutSubmit(false)
-          notifySuccess("Your Order Confirmed!");
-          router.push(`/order/${res.data?.order?._id}`);
-        }
-      })
-    }
+    //    return handlePaymentWithStripe(orderData);
+    //   }
+    //}
+    // if (data.payment === 'COD') {
+    //   saveOrder({
+    //     ...orderInfo
+    //   }).then(res => {
+    //     if(res?.error){
+    //     }
+    //     else {
+    //       localStorage.removeItem("cart_products")
+    //       localStorage.removeItem("couponInfo");
+    //       setIsCheckoutSubmit(false)
+    //       notifySuccess("Your Order Confirmed!");
+    //       router.push(`/order/${res.data?.order?._id}`);
+    //     }
+    //   })
+    // }
   };
 
   // handlePaymentWithStripe

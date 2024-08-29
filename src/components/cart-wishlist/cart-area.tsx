@@ -16,7 +16,7 @@ const CartArea = () => {
         <div className="container">
           {cart_products.length === 0 &&
             <div className='text-center pt-50'>
-              <h3>No Cart Items Found</h3>
+              <h3>Không có sản phẩm trong giỏ hàng</h3>
               <Link href="/shop" className="tp-cart-checkout-btn mt-20">Continue Shipping</Link>
             </div>
           }
@@ -25,14 +25,14 @@ const CartArea = () => {
               <div className="col-xl-9 col-lg-8">
                 <div className="tp-cart-list mb-25 mr-30">
                   <div className="cartmini__shipping">
-                    <RenderCartProgress />
+                    {/* <RenderCartProgress /> */}
                   </div>
                   <table className="table">
                     <thead>
                       <tr>
-                        <th colSpan="2" className="tp-cart-header-product">Product</th>
-                        <th className="tp-cart-header-price">Price</th>
-                        <th className="tp-cart-header-quantity">Quantity</th>
+                        <th colSpan="2" className="tp-cart-header-product">Sản phẩm</th>
+                        <th className="tp-cart-header-price">Giá</th>
+                        <th className="tp-cart-header-quantity">Số lượng</th>
                         <th></th>
                       </tr>
                     </thead>

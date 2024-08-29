@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '@/components/seo';
+
 import Wrapper from '@/layout/wrapper';
 import Header from "@/layout/headers/header";
 import ElectronicCategory from "@/components/categories/electronic-category";
@@ -20,7 +20,6 @@ import Footer from "@/layout/footers/footer";
 const HomeThree = () => {
   return (
     <Wrapper>
-      <SEO pageTitle="Home Three" />
       <Header/>
       <HomeHeroSlider/>
       <ElectronicCategory/>

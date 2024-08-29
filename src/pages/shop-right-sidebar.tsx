@@ -141,7 +141,6 @@ const ShopRightSidebarPage = ({ query }) => {
   }
   return (
     <Wrapper>
-      <SEO pageTitle="Shop" />
       <HeaderTwo style_2={true} />
       <ShopBreadcrumb title="Shop Right Sidebar" subtitle="Shop Right Sidebar" />
       {content}

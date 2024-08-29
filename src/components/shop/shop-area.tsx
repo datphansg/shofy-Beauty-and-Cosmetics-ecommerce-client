@@ -13,13 +13,12 @@ import ShopTopRight from "./shop-top-right";
 import ResetButton from "./shop-filter/reset-button";
 import { useGetProductByCatogoriesQuery } from '@/redux/features/productApi';
 const ShopArea = ({ CategoryId, all_products, products, otherProps }) => {
-  const {priceFilterValues,selectHandleFilter,currPage,setCurrPage} = otherProps;
+  const {priceFilterValues,selectHandleFilter,currPage,selectPage} = otherProps;
   const [filteredRows, setFilteredRows] = useState(products);
   const [pageStart, setPageStart] = useState(0);
   const [countOfPage, setCountOfPage] = useState(12);
   const paginatedData = (currPage) => {
-    console.log('Current Page', currPage);
-    setCurrPage(currPage);
+     selectPage(currPage);
     // setPageStart(startPage);
     // setCountOfPage(pageCount);
   };
@@ -35,16 +34,32 @@ const ShopArea = ({ CategoryId, all_products, products, otherProps }) => {
       <section className="tp-shop-area pb-120">
         <div className="container">
           <div className="row">
-            <div className="col-xl-3 col-lg-4">
+          <div className="col-xl-3 col-lg-4">
               <div className="tp-shop-sidebar mr-10">
-
+                {/* filter */}
+                {/* <PriceFilter
+                  priceFilterValues={priceFilterValues}
+                  maxPrice={maxPrice}
+                /> */}
+                {/* status */}
+                {/* <StatusFilter setCurrPage={selectPage} /> */}
+                {/* categories */}
+                {/* <CategoryFilter setCurrPage={selectPage} /> */}
+                {/* color */}
+                {/* <ColorFilter setCurrPage={selectPage} /> */}
+                {/* product rating */}
+                {/* <TopRatedProducts /> */}
+                {/* brand */}
+                {/* <ProductBrand setCurrPage={selectPage} /> */}
+                {/* reset filter */}
+                {/* <ResetButton/> */}
               </div>
             </div>
             <div className="col-xl-9 col-lg-8">
               <div className="tp-shop-main-wrapper">
-                <div className="tp-shop-top mb-45">
+                {/* <div className="tp-shop-top mb-45">
                   <div className="row">
-                    {/* <div className="col-xl-6">
+                    <div className="col-xl-6">
                       <ShopTopLeft
                         showing={
                           products.length === 0
@@ -56,12 +71,12 @@ const ShopArea = ({ CategoryId, all_products, products, otherProps }) => {
                         }
                         total={all_products.length}
                       />
-                    </div> */}
+                    </div>
                     <div className="col-xl-6">
                       <ShopTopRight selectHandleFilter={selectHandleFilter} />
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 {products.length === 0 && <h2>No products found 12</h2>}
                 {products.length > 0 && (
@@ -114,7 +129,7 @@ const ShopArea = ({ CategoryId, all_products, products, otherProps }) => {
                         countOfPage={20}
                         paginatedData={paginatedData}
                         currPage={currPage}
-                        setCurrPage={setCurrPage}
+                        setCurrPage={selectPage}
                       />
                     </div>
                   </div>

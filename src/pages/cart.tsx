@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '@/components/seo';
+
 import HeaderTwo from '@/layout/headers/header-2';
 import Footer from '@/layout/footers/footer';
 import Wrapper from '@/layout/wrapper';
@@ -11,7 +11,7 @@ const CartPage = () => {
     <Wrapper>
       {/* <SEO pageTitle="Cart" /> */}
       <HeaderTwo style_2={true} />
-      <CommonBreadcrumb name="Shopping Cart" subtitle="Shopping Cart" />
+      <CommonBreadcrumb name="Giỏ hàng" subtitle="Giỏ hàng" />
       <CartArea/>
       <Footer primary_style={true} />
     </Wrapper>

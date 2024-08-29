@@ -100,7 +100,6 @@ const ShopHiddenSidebarPage = () => {
   }
   return (
     <Wrapper>
-      <SEO pageTitle="Shop" />
       <HeaderTwo style_2={true} />
       <ShopBreadcrumb title="Shop Hidden Sidebar" subtitle="Shop Hidden Sidebar" />
       {content}

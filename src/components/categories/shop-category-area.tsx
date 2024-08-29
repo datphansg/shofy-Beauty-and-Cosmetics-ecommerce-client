@@ -11,7 +11,7 @@ const ShopCategoryArea = () => {
   // handle category route
   const handleCategoryRoute = (name,id) => {
     router.push(
-      `/category/slugify(name || "default-name", { lower: true })/${id
+      `/category/${slugify(name  || "default-name", { lower: true })/${id
         .toLowerCase()
         .replace("&", "")
         .split(" ")

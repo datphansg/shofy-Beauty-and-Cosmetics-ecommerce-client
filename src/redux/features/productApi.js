@@ -8,8 +8,8 @@ export const productApi = apiSlice.injectEndpoints({
       providesTags:['Products']
     }),
     getProductByCatogories: builder.query({
-      query: ({ categoryId, page }) =>
-        `https://app-api.selly.vn/products?limit=20&page=1&sort=top_sale&city=&category=${categoryId}&nextTokenPage=${page}`,
+      query: ({ categoryId, page, nextTokenPage, pageToken }) =>
+        `https://app-api.selly.vn/products?limit=20&page=${page}&sort=top_sale&city=&category=${categoryId}&nextTokenPage=${nextTokenPage}&total=396&pageToken=${pageToken}==`,
       providesTags: ['ProductsByCategories'],
     }),
     getProductType: builder.query({

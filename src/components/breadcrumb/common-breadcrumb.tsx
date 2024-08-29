@@ -2,6 +2,7 @@ import React from "react";
 
 const CommonBreadcrumb = ({
   name,
+  titlle ="",
   subtitle,
   center = false,
   bg_clr = false,

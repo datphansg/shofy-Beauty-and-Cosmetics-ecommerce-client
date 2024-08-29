@@ -152,9 +152,8 @@ export default function SearchPage({ query }) {
 
   return (
     <Wrapper>
-      <SEO pageTitle="Wishlist" />
       <HeaderTwo style_2={true} />
-      <CommonBreadcrumb title="Search Products" subtitle="Search Products" />
+      <CommonBreadcrumb name="Search Products" subtitle="Search Products" />
       {content}
       <Footer primary_style={true} />
     </Wrapper>

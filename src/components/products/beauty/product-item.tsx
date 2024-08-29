@@ -31,7 +31,7 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
       className={`tp-product-item-3 mb-50 ${primary_style?"tp-product-style-primary":""} ${prdCenter ? "text-center" : ""}`}
     >
       <div className="tp-product-thumb-3 mb-15 fix p-relative z-index-1">
-        <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>
+        <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`}>
         {shareImages && shareImages[0] && <Image src={shareImages[0]} alt="product image" width={282} height={320} />}
         </Link>
 
@@ -48,7 +48,7 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
                 className={`tp-product-action-btn-3 ${isAddedToCart?'active':''} tp-product-add-cart-btn text-center`}
               >
                 <Cart />
-                <span className="tp-product-tooltip">View Cart</span>
+                <span className="tp-product-tooltip">Giỏ hàng</span>
               </Link>
             ) : (
               <button
@@ -102,12 +102,12 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
         <div className="tp-product-tag-3">
           {/* <span>{tags[1]}</span> */}
         </div>
-        {/* <h3 className="tp-product-title-3">
-          <Link href={`/product-details/slugify(name || "default-name", { lower: true })/${_id}`}>{name}</Link>
+        <h3 className="tp-product-title-3">
+          <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`}>{name}</Link>
         </h3> 
-        <div className="tp-product-price-wrapper-3">
+        {/* <div className="tp-product-price-wrapper-3">
           <span className="tp-product-price-3">{price.market.toLocaleString('vi-VN')}đ</span>
-        </div>*/}
+        </div> */}
       </div>
     </div>
   );

@@ -28,7 +28,7 @@ const ShopHiddenSidebarArea = ({
           <div className="row">
             <div className="col-xl-12 col-lg-12">
             <div className="tp-shop-main-wrapper">
-                <div className="tp-shop-top mb-45">
+                {/* <div className="tp-shop-top mb-45">
                   <div className="row">
                     <div className="col-xl-6">
                       <ShopTopLeft
@@ -47,7 +47,7 @@ const ShopHiddenSidebarArea = ({
                       <ShopTopRight selectHandleFilter={selectHandleFilter} />
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {products.length === 0 && <h2>No products found 13</h2>}
                 {products.length > 0 && (
                   <div className="tp-shop-items-wrapper tp-shop-item-primary">

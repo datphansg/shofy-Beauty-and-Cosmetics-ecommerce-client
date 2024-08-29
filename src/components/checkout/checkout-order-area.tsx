@@ -23,14 +23,14 @@ const CheckoutOrderArea = ({ checkoutData }) => {
   const { total } = useCartInfo();
   return (
     <div className="tp-checkout-place white-bg">
-      <h3 className="tp-checkout-place-title">Your Order</h3>
+      <h3 className="tp-checkout-place-title">Đơn hàng</h3>
 
       <div className="tp-order-info-list">
         <ul>
           {/*  header */}
           <li className="tp-order-info-list-header">
-            <h4>Product</h4>
-            <h4>Total</h4>
+            <h4>Sản phẩm</h4>
+            <h4>Thành tiền</h4>
           </li>
 
           {/*  item list */}
@@ -39,12 +39,12 @@ const CheckoutOrderArea = ({ checkoutData }) => {
               <p>
                 {item.title} <span> x {item.orderQuantity}</span>
               </p>
-              <span>${item.price.market.toLocaleString('vi-VN')}</span>
+              <span>{item.price.market.toLocaleString('vi-VN')}</span>
             </li>
           ))}
 
           {/*  shipping */}
-          <li className="tp-order-info-list-shipping">
+          {/* <li className="tp-order-info-list-shipping">
             <span>Shipping</span>
             <div className="tp-order-info-list-shipping-item d-flex flex-column align-items-end">
               <span>
@@ -82,34 +82,35 @@ const CheckoutOrderArea = ({ checkoutData }) => {
                 <ErrorMsg msg={errors?.shippingOption?.message} />
               </span>
             </div>
-          </li>
+          </li> */}
 
            {/*  subtotal */}
            <li className="tp-order-info-list-subtotal">
-            <span>Subtotal</span>
-            <span>${total.toFixed(2)}</span>
+            <span>Thành tiền</span>
+            <span>{total.toLocaleString('vi-VN')}</span>
           </li>
 
            {/*  shipping cost */}
            <li className="tp-order-info-list-subtotal">
-            <span>Shipping Cost</span>
-            <span>${shippingCost.toFixed(2)}</span>
+            <span>Phí vận chuyển</span>
+            <span>0</span>
+            {/* <span>${shippingCost.toFixed(2)}</span> */}
           </li>
 
            {/* discount */}
-           <li className="tp-order-info-list-subtotal">
+           {/* <li className="tp-order-info-list-subtotal">
             <span>Discount</span>
             <span>${discountAmount.toFixed(2)}</span>
-          </li>
+          </li> */}
 
           {/* total */}
           <li className="tp-order-info-list-total">
-            <span>Total</span>
-            <span>${parseFloat(cartTotal).toFixed(2)}</span>
+            <span>Tổng tiền</span>
+            <span>${parseFloat(cartTotal).toLocaleString('vi-VN')}</span>
           </li>
         </ul>
       </div>
-      <div className="tp-checkout-payment">
+      {/* <div className="tp-checkout-payment">
         <div className="tp-checkout-payment-item">
           <input
             {...register(`payment`, {
@@ -161,15 +162,15 @@ const CheckoutOrderArea = ({ checkoutData }) => {
           <label htmlFor="cod">Cash on Delivery</label>
           <ErrorMsg msg={errors?.payment?.message} />
         </div>
-      </div>
-
+      </div> */}
+      {/* !stripe || */}
       <div className="tp-checkout-btn-wrapper">
         <button
           type="submit"
-          disabled={!stripe || isCheckoutSubmit}
+          disabled={ isCheckoutSubmit}
           className="tp-checkout-btn w-100"
-        >
-          Place Order
+        > 
+          Đặt hàng
         </button>
       </div>
     </div>
