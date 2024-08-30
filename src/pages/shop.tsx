@@ -16,8 +16,7 @@ const ShopPage = ({ query }) => {
   const { data: products, isError, isLoading } = useGetAllProductsQuery();
   const categoryId = query.category || null;
   
-  const { data : productsByCategories } = useGetProductByCatogoriesQuery(
-    categoryId, 0
+  const { data : productsByCategories } = useGetProductByCatogoriesQuery({categoryId: 0}    
   );
   const [priceValue, setPriceValue] = useState([0, 0]);
   const [selectValue, setSelectValue] = useState("");
@@ -154,6 +153,7 @@ const ShopPage = ({ query }) => {
     content = (
       <>
         <ShopArea
+          CategoryId={0}
           all_products={products}
           products={product_items}
           otherProps={otherProps}

@@ -12,7 +12,7 @@ import { set_coupon } from "@/redux/features/coupon/couponSlice";
 import { notifyError, notifySuccess } from "@/utils/toast";
 import {useCreatePaymentIntentMutation,useSaveOrderMutation} from "@/redux/features/order/orderApi";
 import { useGetOfferCouponsQuery } from "@/redux/features/coupon/couponApi";
-
+import nodemailer from 'nodemailer';
 const useCheckoutSubmit = () => {
   // offerCoupons
   const { data: offerCoupons, isError, isLoading } = useGetOfferCouponsQuery();
@@ -215,6 +215,7 @@ const useCheckoutSubmit = () => {
       orderNote:data.orderNote,
       user: `${user?._id}`,
     };
+    sendInvoice(orderInfo);
     // if (data.payment === 'Card') {
     //   if (!stripe || !elements) {
     //     return;
@@ -256,7 +257,26 @@ const useCheckoutSubmit = () => {
     //   })
     // }
   };
-
+  const sendInvoice = async (orderInfo) => {
+    try {
+      const response = await fetch('/api/sendInvoiceEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderInfo),
+      });
+  
+      const data = await response.json();
+      if (response.ok) {
+        console.log(data.message);
+      } else {
+        console.error(data.error);
+      }
+    } catch (error) {
+      console.error('Lỗi khi gọi API:', error);
+    }
+  };
   // handlePaymentWithStripe
   const handlePaymentWithStripe = async (order) => {
     try {
@@ -300,7 +320,7 @@ const useCheckoutSubmit = () => {
       console.log(err);
     }
   };
-
+  
   return {
     handleCouponCode,
     couponRef,

@@ -23,7 +23,7 @@ const Footer = ({ style_2 = false, style_3 = false,primary_style=false }) => {
                         <Image src={logo} alt="logo" />
                       </Link>
                     </div>
-                    <p className="tp-footer-desc">We are a dynamic team of full stack developers and designers crafting high-quality web applications</p>
+                    {/* <p className="tp-footer-desc">We are a dynamic team of full stack developers and designers crafting high-quality web applications</p> */}
                     <div className="tp-footer-social">
                       {social_data.map(s => <a href={s.link} key={s.id} target="_blank">
                         <i className={s.icon}></i>
@@ -33,7 +33,7 @@ const Footer = ({ style_2 = false, style_3 = false,primary_style=false }) => {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+              {/* <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                 <div className="tp-footer-widget footer-col-2 mb-50">
                   <h4 className="tp-footer-widget-title">My Account</h4>
                   <div className="tp-footer-widget-content">
@@ -62,14 +62,14 @@ const Footer = ({ style_2 = false, style_3 = false,primary_style=false }) => {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                 <div className="tp-footer-widget footer-col-4 mb-50">
-                  <h4 className="tp-footer-widget-title">Talk To Us</h4>
+                  <h4 className="tp-footer-widget-title">Liên hệ</h4>
                   <div className="tp-footer-widget-content">
                     <div className="tp-footer-talk mb-20">
-                      <span>Got Questions? Call us</span>
-                      <h4><a href="tel:670-413-90-762">+966 595 035 008</a></h4>
+                      <span>Cửa hàng Mỹ Phẩm Chính Hãng</span>
+                      <h4><a href="">0933 686 604</a></h4>
                     </div>
                     <div className="tp-footer-contact">
                       <div className="tp-footer-contact-item d-flex align-items-start">
@@ -79,7 +79,7 @@ const Footer = ({ style_2 = false, style_3 = false,primary_style=false }) => {
                           </span>
                         </div>
                         <div className="tp-footer-contact-content">
-                          <p><a href="mailto:shofy@support.com">swe.hamedhasan@gmail.com</a></p>
+                          <p><a href="mailto:shofy@support.com">myphamchinhhang@gmail.com</a></p>
                         </div>
                       </div>
                       <div className="tp-footer-contact-item d-flex align-items-start">
@@ -89,7 +89,7 @@ const Footer = ({ style_2 = false, style_3 = false,primary_style=false }) => {
                           </span>
                         </div>
                         <div className="tp-footer-contact-content">
-                          <p><a href="https://www.google.com/maps/place/Sleepy+Hollow+Rd,+Gouverneur,+NY+13642,+USA/@44.3304966,-75.4552367,17z/data=!3m1!4b1!4m6!3m5!1s0x4cccddac8972c5eb:0x56286024afff537a!8m2!3d44.3304928!4d-75.453048!16s%2Fg%2F1tdsjdj4" target="_blank">79 Sleepy Hollow St. <br /> Jamaica, Jeddah 1432</a></p>
+                          <p><a href="" target="_blank">82 Đường 138, Phường Tân Phú, Thành Phố Thủ Đức, Hồ Chí Minh</a></p>
                         </div>
                       </div>
                     </div>
@@ -98,29 +98,7 @@ const Footer = ({ style_2 = false, style_3 = false,primary_style=false }) => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="tp-footer-bottom">
-          <div className="container">
-            <div className="tp-footer-bottom-wrapper">
-              <div className="row align-items-center">
-                <div className="col-md-6">
-                  <div className="tp-footer-copyright">
-                    <p>© {new Date().getFullYear()} All Rights Reserved  |  Next js Template by
-                      <Link href="/">{" "}❤</Link>.
-                    </p>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="tp-footer-payment text-md-end">
-                    <p>
-                      <Image src={pay} alt="pay" />
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div>        
       </div>
     </footer>
   );

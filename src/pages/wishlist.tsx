@@ -10,7 +10,7 @@ const WishlistPage = () => {
   return (
     <Wrapper>
       <HeaderTwo style_2={true} />
-      <CommonBreadcrumb name="Wishlist" subtitle="Wishlist" />
+      <CommonBreadcrumb name="Danh sách yêu thích" subtitle="Danh sách yêu thích" />
       <WishlistArea/>
       <Footer primary_style={true} />
     </Wrapper>

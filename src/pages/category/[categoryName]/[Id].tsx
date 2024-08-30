@@ -10,8 +10,19 @@ import ShopFilterOffCanvas from "@/components/common/shop-filter-offcanvas";
 import ShopLoader from "@/components/loader/shop/shop-loader";
 import { useGetCategoryQuery } from "@/redux/features/categoryApi";
 import { useRouter } from 'next/router';
+import { Metadata, ResolvingMetadata } from 'next';
 import base64 from 'base-64';
 import utf8 from 'utf8';
+import slugify from "slugify";
+
+async function fetchCategoryData(id: string) {
+  // You might need to call your API endpoint directly here
+  const response = await fetch(`https://app-api.selly.vn/product-categories/${id}`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch category data');
+  }
+  return response.json();
+}
 
 export function base64UrlEncode(payload) {
 
@@ -22,6 +33,48 @@ export function base64UrlEncode(payload) {
   const base64UrlString = base64String.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 
   return base64UrlString;
+}
+type Props = {
+  params: {
+    slug: string[];
+  };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { slug } = params;
+  // Nếu URL có ít nhất 2 phần, phần tử cuối cùng là ID
+  const id  = slug[slug.length - 1];
+  const restOfSlug = slug.slice(0, -1).join('/');
+  const { data: categoryInfo } = await fetchCategoryData(id);
+  console.log(categoryInfo);
+  const url = process.env.NEXT_PUBLIC_URL +`${categoryInfo.categoryId}/${slugify(categoryInfo.title, { lower: true })}/${categoryInfo.videoId}`
+  return {
+    title: categoryInfo.title,
+    description: categoryInfo.description,
+    keywords: categoryInfo.keywords,
+    openGraph: {
+      title: categoryInfo.title,
+      description: categoryInfo.description,
+      url,
+      images: [
+        {
+          url: categoryInfo.image,
+          width: 800,
+          height: 600,
+        }
+      ]
+    },
+    alternates: {
+      canonical: url
+    },
+    robots: {
+      index:true,
+      follow:true,
+    }
+  }
 }
 
 const CategoryPage = () => {
@@ -46,7 +99,6 @@ const CategoryPage = () => {
    // Update nextToken when products are loaded
    useEffect(() => {
     if (products?.data?.products?.length > 0 && !isLoading && !isError) {
-       console.log("length", products?.data?.products?.length);
        setNextTokenPage(products?.data?.nextPageToken || "");
     }
   }, [products, isLoading, isError]);

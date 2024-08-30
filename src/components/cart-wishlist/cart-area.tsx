@@ -17,7 +17,7 @@ const CartArea = () => {
           {cart_products.length === 0 &&
             <div className='text-center pt-50'>
               <h3>Không có sản phẩm trong giỏ hàng</h3>
-              <Link href="/shop" className="tp-cart-checkout-btn mt-20">Continue Shipping</Link>
+              <Link href="/shop" className="tp-cart-checkout-btn mt-20">Tiếp tục mua sắm</Link>
             </div>
           }
           {cart_products.length > 0 &&
@@ -60,7 +60,7 @@ const CartArea = () => {
                     </div>
                     <div className="col-xl-6 col-md-4">
                       <div className="tp-cart-update text-md-end mr-30">
-                        <button onClick={() => dispatch(clearCart())} type="button" className="tp-cart-update-btn">Clear Cart</button>
+                        <button onClick={() => dispatch(clearCart())} type="button" className="tp-cart-update-btn">Xóa giỏ hàng</button>
                       </div>
                     </div>
                   </div>

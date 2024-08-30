@@ -29,8 +29,8 @@ const slider_data = [
   {
     id: 1,
     bg: slider_bg_1,
-    subtitle: "Winter Collection 2023",
-    title: "Be your kind of beauty",
+    subtitle: "Bộ sưu tập mùa đông 2024",
+    title: "Hãy thể hiện vẻ đẹp theo cách của bạn.",
   },
   {
     id: 2,
@@ -88,7 +88,7 @@ const BeautyBanner = () => {
                     <div className="tp-slider-content-3">
                       <span>Winter Collection 2023</span>
                       <h3 className="tp-slider-title-3">
-                        Be your kind of beauty
+                         Hãy thể hiện vẻ đẹp theo cách của bạn.
                       </h3>
                       <div className="tp-slider-feature-3 d-flex flex-wrap align-items-center p-relative z-index-1 mb-15">
                         <FeatureItem icon={<Cosmetics />} title={<>High-end <br /> Cosmetics</>} />
@@ -97,10 +97,10 @@ const BeautyBanner = () => {
                       </div>
                       <div className="tp-slider-btn-3">
                         <Link
-                          href="/shop"
+                          href="/category"
                           className="tp-btn tp-btn-border tp-btn-border-white"
                         >
-                          Discover Now
+                          Shopping now
                         </Link>
                       </div>
                     </div>

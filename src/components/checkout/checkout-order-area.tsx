@@ -37,7 +37,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
           {cart_products.map((item) => (
             <li key={item._id} className="tp-order-info-list-desc">
               <p>
-                {item.title} <span> x {item.orderQuantity}</span>
+                {item.name} <span> x {item.orderQuantity}</span>
               </p>
               <span>{item.price.market.toLocaleString('vi-VN')}</span>
             </li>

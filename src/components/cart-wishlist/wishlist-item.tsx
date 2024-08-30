@@ -8,7 +8,7 @@ import {add_cart_product,quantityDecrement} from "@/redux/features/cartSlice";
 import { remove_wishlist_product } from "@/redux/features/wishlist-slice";
 import slugify from 'slugify';
 const WishlistItem = ({ product }) => {
-  const { _id, img, name, price } = product || {};
+  const { _id, shareImages , name, price } = product || {};
   const { cart_products } = useSelector((state) => state.cart);
   const isAddToCart = cart_products.find((item) => item._id === _id);
   console.log('name', name);
@@ -30,7 +30,7 @@ const WishlistItem = ({ product }) => {
     <tr>
       <td className="tp-cart-img">
         <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`}>
-          <Image src={img} alt="product img" width={70} height={100} />
+          <Image src={shareImages[0]} alt="product img" width={70} height={100} />
         </Link>
       </td>
       <td className="tp-cart-title">
