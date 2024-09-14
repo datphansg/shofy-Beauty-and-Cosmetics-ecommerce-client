@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
@@ -17,7 +18,7 @@ import { openCartMini } from '@/redux/features/cartSlice';
 const HeaderThree = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isOffCanvasOpen, setIsCanvasOpen] = useState(false);
-  const { wishlist } = useSelector((state) => state.wishlist);
+  const wishlist  = [] ; // useSelector((state) => state.wishlist);
   const { quantity } = useCartInfo();
   const { sticky } = useSticky();
   const dispatch = useDispatch();
@@ -57,7 +58,7 @@ const HeaderThree = () => {
                       </Link>
                     </div>
                     <div className="tp-header-action-item d-none d-sm-block">
-                      <button onClick={() => dispatch(openCartMini())} type="button" className="tp-header-action-btn cartmini-open-btn">
+                      <button onClick={() => dispatch(openCartMini({}))} type="button" className="tp-header-action-btn cartmini-open-btn">
                         <CartTwo />
                         <span className="tp-header-action-badge">{quantity}</span>
                       </button>
@@ -76,7 +77,7 @@ const HeaderThree = () => {
       </header>
 
       {/* search bar start */}
-      <SearchBar isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
+      {/* <SearchBar isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} /> */}
       {/* search bar end */}
 
       {/* cart mini sidebar start */}

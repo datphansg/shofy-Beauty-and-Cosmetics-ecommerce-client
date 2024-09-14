@@ -35,7 +35,7 @@ const JewelryShopBanner = () => {
       <section className="tp-banner-area">
         <div className="container">
           <div className="row">
-            <div className="col-xl-6 col-lg-7">
+            {/* <div className="col-xl-6 col-lg-7">
               <div className="row">
                 <div className="col-xl-12">
                   <BannerItem cls="mb-25" bg_clr="F3F7FF" bg={banner_bg_1} content="Collection" 
@@ -49,7 +49,7 @@ const JewelryShopBanner = () => {
                 <BannerItem cls="has-brown sm-banner" bg_clr="F8F1E6" bg={banner_bg_3} content="New Arrival" title="Gold Jewelry" />
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="col-xl-6 col-lg-5">
               <div className="tp-banner-full tp-banner-full-height fix p-relative z-index-1">
                 <div className="tp-banner-full-thumb include-bg black-bg transition-3" 

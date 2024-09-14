@@ -1,10 +1,11 @@
+'use client'
 import React from 'react';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import WishlistItem from './wishlist-item';
 
 const WishlistArea = () => {
-  const { wishlist } = useSelector((state) => state.wishlist);
+  const wishlist  = [] ; // useSelector((state) => state.wishlist);
   return (
     <>
       <section className="tp-cart-area pb-120">
@@ -22,7 +23,7 @@ const WishlistArea = () => {
                   <table className="table">
                     <thead>
                       <tr>
-                        <th colSpan="2" className="tp-cart-header-product">Sản phẩm</th>
+                        <th  className="tp-cart-header-product">Sản phẩm</th>
                         <th className="tp-cart-header-price">Giá</th>
                         <th className="tp-cart-header-quantity">Số lượng</th>
                         <th></th>

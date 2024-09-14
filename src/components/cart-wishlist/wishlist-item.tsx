@@ -9,9 +9,8 @@ import { remove_wishlist_product } from "@/redux/features/wishlist-slice";
 import slugify from 'slugify';
 const WishlistItem = ({ product }) => {
   const { _id, shareImages , name, price } = product || {};
-  const { cart_products } = useSelector((state) => state.cart);
+  const  cart_products = [] ; // useSelector((state) => state.cart);
   const isAddToCart = cart_products.find((item) => item._id === _id);
-  console.log('name', name);
   const dispatch = useDispatch();
   // handle add product
   const handleAddProduct = (prd) => {

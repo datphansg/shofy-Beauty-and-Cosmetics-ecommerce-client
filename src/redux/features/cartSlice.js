@@ -13,16 +13,15 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     add_cart_product: (state, { payload }) => {
-     
       const isExist = state.cart_products.some((i) => i._id === payload._id);
       if (!isExist) {
         const newItem = {
           ...payload,
           orderQuantity: state.orderQuantity,
         };
-        state.cart_products.push(newItem);
-        console.log('newItem',newItem);
-        notifySuccess(`${state.orderQuantity} ${payload.name} được thêm vào giỏ hàng`);
+        state.cart_products.push(newItem);        
+        notifySuccess(`${state.orderQuantity} ${payload.name} được thêm vào giỏ hàng 1`);
+        
       } else {
         state.cart_products.map((item) => {    
           if (item._id === payload._id) {
@@ -30,7 +29,7 @@ export const cartSlice = createSlice({
               state.orderQuantity !== 1
                 ? state.orderQuantity + item.orderQuantity
                 : item.orderQuantity + 1;
-            notifySuccess(`${state.orderQuantity} ${item.name} được thêm vào giỏ hàng`);
+            notifySuccess(`${state.orderQuantity} ${item.name} được thêm vào giỏ hàng 2`);
             // if (item.quantity >= item.orderQuantity + state.orderQuantity) {
             //   item.orderQuantity =
             //     state.orderQuantity !== 1

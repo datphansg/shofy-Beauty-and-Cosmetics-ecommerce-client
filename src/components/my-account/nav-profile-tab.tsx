@@ -1,12 +1,13 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 // internal
 import { Box, DeliveryTwo, Processing, Truck } from "@/svg";
 import { userLoggedOut } from "@/redux/features/auth/authSlice";
 
 const NavProfileTab = ({ orderData }) => {
-  const {user} = useSelector(state => state.auth)
+  // const {user} = useSelector(state => state.auth)
+  const user = null;
   const dispatch = useDispatch();
   const router = useRouter();
   // handle logout

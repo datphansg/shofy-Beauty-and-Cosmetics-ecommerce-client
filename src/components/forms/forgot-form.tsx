@@ -20,17 +20,17 @@ const ForgotForm = () => {
     });
     // onSubmit
     const onSubmit = (data) => {
-      resetPassword({
-        verifyEmail: data.email,
-      }).then((result) => {
-        if(result?.error){
-          notifyError(result?.error?.data?.message)
-        }
-        else {
-          notifySuccess(result.data?.message);
-        }
-      });
-      reset();
+      // resetPassword({
+      //   verifyEmail: data.email,
+      // }).then((result) => {
+      //   if(result?.error){
+      //     notifyError(result?.error?.data?.message)
+      //   }
+      //   else {
+      //     notifySuccess(result.data?.message);
+      //   }
+      // });
+      // reset();
     };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

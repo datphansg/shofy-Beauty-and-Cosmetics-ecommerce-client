@@ -8,7 +8,7 @@ import { add_cart_product } from "@/redux/features/cartSlice";
 import { remove_compare_product } from "@/redux/features/compareSlice";
 import slugify from 'slugify';
 const CompareArea = () => {
-  const { compareItems } = useSelector((state) => state.compare);
+  const compareItems = null ;//useSelector((state) => state.compare);
   const dispatch = useDispatch();
 
   // handle add product

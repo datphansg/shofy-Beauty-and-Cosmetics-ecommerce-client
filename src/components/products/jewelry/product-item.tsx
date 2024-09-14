@@ -10,8 +10,8 @@ import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 import slugify from 'slugify';
 const ProductItem = ({ product }) => {
   const { _id, shareImages, name, price, tags,status } = product || {};
-  const { cart_products } = useSelector((state) => state.cart);
-  const { wishlist } = useSelector((state) => state.wishlist);
+  const  cart_products = [] ; // useSelector((state) => state.cart);
+  const wishlist  = [] ; // useSelector((state) => state.wishlist);
   const isAddedToCart = cart_products.some((prd) => prd._id === _id);
   const isAddedToWishlist = wishlist.some((prd) => prd._id === _id);
   const dispatch = useDispatch();

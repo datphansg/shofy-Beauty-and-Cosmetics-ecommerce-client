@@ -8,7 +8,7 @@ import { useGetTopRatedProductsQuery } from '@/redux/features/productApi';
 import ShopTopRatedLoader from '@/components/loader/shop/top-rated-prd-loader';
 import slugify from 'slugify';
 const TopRatedProducts = () => {
-  const { data: products, isError, isLoading } = useGetTopRatedProductsQuery();
+  const { data: products, isError, isLoading } = useGetTopRatedProductsQuery({});
   // decide what to render
   let content = null;
 

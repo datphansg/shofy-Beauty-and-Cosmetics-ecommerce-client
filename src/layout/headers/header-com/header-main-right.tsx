@@ -8,8 +8,9 @@ import { CartTwo, Compare, Menu, User, Wishlist } from "@/svg";
 import { openCartMini } from "@/redux/features/cartSlice";
 
 const HeaderMainRight = ({ setIsCanvasOpen }) => {
-  const { user: userInfo } = useSelector((state) => state.auth);
-  const { wishlist } = useSelector((state) => state.wishlist);
+  // const { user: userInfo } = useSelector((state) => state.auth);
+  const userInfo = null;
+  const wishlist  = [] ; // useSelector((state) => state.wishlist);
   const { quantity } = useCartInfo();
   const dispatch = useDispatch()
   return (
@@ -66,7 +67,7 @@ const HeaderMainRight = ({ setIsCanvasOpen }) => {
         </div>
         <div className="tp-header-action-item">
           <button
-            onClick={() => dispatch(openCartMini())}
+            onClick={() => dispatch(openCartMini({}))}
             type="button"
             className="tp-header-action-btn cartmini-open-btn"
           >

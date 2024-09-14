@@ -10,8 +10,8 @@ import { notifyError } from "@/utils/toast";
 import slugify from 'slugify';
 const ProductSliderItem = ({ product }) => {
   const { _id, name, price, img,status } = product || {};
-  const { cart_products } = useSelector((state) => state.cart);
-  const { wishlist } = useSelector((state) => state.wishlist);
+  const  cart_products = [] ; // useSelector((state) => state.cart);
+  const wishlist  = [] ; // useSelector((state) => state.wishlist);
   const isAddedToCart = cart_products.some((prd) => prd._id === _id);
   const isAddedToWishlist = wishlist.some((prd) => prd._id === _id);
   const dispatch = useDispatch();

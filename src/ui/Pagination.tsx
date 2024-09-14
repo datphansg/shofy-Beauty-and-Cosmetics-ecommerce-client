@@ -1,29 +1,21 @@
-import { useEffect } from "react";
+'use client'
+
 import { PaginationNext, PaginationPrev } from "@/svg";
 
 const Pagination = ({
   totalItems = 12,
-  items = [],
   countOfPage = 12,
-  paginatedData,
   currPage,
-  setCurrPage,
+  onPageChange,
 }) => {
   const totalPage = Math.ceil(totalItems / countOfPage);
-  const pageStart = (currPage - 1) * countOfPage;
 
-  function setPage(idx) {
+  const setPage = (idx) => {
     if (idx <= 0 || idx > totalPage) {
       return;
     }
-    // setCurrPage(idx);
-    // window.scrollTo(0, 0);
-    paginatedData(idx);
-  }
-
-  // useEffect(() => {
-  //   paginatedData(items, pageStart, countOfPage);
-  // }, [items, pageStart, countOfPage]);
+    onPageChange(idx);
+  };
 
   return (
     <nav>

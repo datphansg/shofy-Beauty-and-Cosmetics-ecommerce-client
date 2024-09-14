@@ -8,8 +8,9 @@ import RenderCartProgress from './render-cart-progress';
 import empty_cart_img from '@assets/img/product/cartmini/empty-cart.png';
 import { closeCartMini, remove_product } from '@/redux/features/cartSlice';
 import slugify from 'slugify';
+import { RootState } from '@/redux/store';
 const CartMiniSidebar = () => {
-  const { cart_products, cartMiniOpen } = useSelector((state) => state.cart);
+  const { cart_products, cartMiniOpen } = useSelector((state: RootState) => state.cart );
   const { total } = useCartInfo();
   const dispatch = useDispatch();
 
@@ -20,7 +21,7 @@ const CartMiniSidebar = () => {
 
 // handle close cart mini 
 const handleCloseCartMini = () => {
-  dispatch(closeCartMini())
+  dispatch(closeCartMini({}))
 }
   return (
     <>
@@ -32,7 +33,7 @@ const handleCloseCartMini = () => {
                 <h4>Giỏ hàng</h4>
               </div>
               <div className="cartmini__close">
-                <button onClick={() => dispatch(closeCartMini())} type="button" className="cartmini__close-btn cartmini-close-btn">
+                <button onClick={() => dispatch(closeCartMini({}))} type="button" className="cartmini__close-btn cartmini-close-btn">
                   <i className="fal fa-times"></i>
                 </button>
               </div>

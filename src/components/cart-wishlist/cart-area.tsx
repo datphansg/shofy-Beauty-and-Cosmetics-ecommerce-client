@@ -6,9 +6,11 @@ import { clearCart } from '@/redux/features/cartSlice';
 import CartCheckout from './cart-checkout';
 import CartItem from './cart-item';
 import RenderCartProgress from '../common/render-cart-progress';
+import { RootState } from '@/redux/store'; // Ensure correct import of RootState
 
 const CartArea = () => {
-  const { cart_products } = useSelector((state) => state.cart);
+  const cart_products = useSelector((state: RootState) => state.cart.cart_products || []); // Access cart_products correctly
+
   const dispatch = useDispatch()
   return (
     <>
@@ -30,10 +32,12 @@ const CartArea = () => {
                   <table className="table">
                     <thead>
                       <tr>
-                        <th colSpan="2" className="tp-cart-header-product">Sản phẩm</th>
+                      <th className="tp-cart-header-product"></th>
+                        <th className="tp-cart-header-product">Sản phẩm</th>
                         <th className="tp-cart-header-price">Giá</th>
                         <th className="tp-cart-header-quantity">Số lượng</th>
-                        <th></th>
+                        <th className="tp-cart-header-price">Thành tiền</th>
+                        <th className="tp-cart-header-price"></th>
                       </tr>
                     </thead>
                     <tbody>

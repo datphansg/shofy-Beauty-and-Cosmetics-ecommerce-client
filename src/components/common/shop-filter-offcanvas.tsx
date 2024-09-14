@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CategoryFilter from "../shop/shop-filter/category-filter";
-import ColorFilter from "../shop/shop-filter/color-filter";
+
 import PriceFilter from "../shop/shop-filter/price-filter";
 import ProductBrand from "../shop/shop-filter/product-brand";
 import StatusFilter from "../shop/shop-filter/status-filter";
@@ -15,7 +15,8 @@ const ShopFilterOffCanvas = ({
   right_side = false,
 }) => {
   const { priceFilterValues, setCurrPage } = otherProps;
-  const { filterSidebar } = useSelector((state) => state.shopFilter);
+  //const { filterSidebar } = useSelector((state) => state.shopFilter);
+  const filterSidebar = null;
   const dispatch = useDispatch();
 
   // max price
@@ -34,7 +35,7 @@ const ShopFilterOffCanvas = ({
           <div className="tp-filter-offcanvas-close">
             <button
               type="button"
-              onClick={() => dispatch(handleFilterSidebarOpen())}
+              onClick={() => dispatch(handleFilterSidebarOpen({}))}
               className="tp-filter-offcanvas-close-btn filter-close-btn"
             >
               <i className="fa-solid fa-xmark"></i>
@@ -46,7 +47,7 @@ const ShopFilterOffCanvas = ({
 
       {/* overlay start */}
       <div
-        onClick={() => dispatch(handleFilterSidebarClose())}
+        onClick={() => dispatch(handleFilterSidebarClose({}))}
         className={`body-overlay ${filterSidebar ? "opened" : ""}`}
       ></div>
       {/* overlay end */}

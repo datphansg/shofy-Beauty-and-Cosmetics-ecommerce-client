@@ -17,7 +17,7 @@ const schema = Yup.object().shape({
 });
 
 const ReviewForm = ({product_id}) => {
-  const { user } = useSelector((state) => state.auth);
+  const  user  = null; // useSelector((state) => state.auth);
   const [rating, setRating] = useState(0);
   const [addReview, {}] = useAddReviewMutation();
 
@@ -37,18 +37,18 @@ const ReviewForm = ({product_id}) => {
       return;
     }
     else {
-      addReview({
-        userId: user?._id,
-        productId: product_id,
-        rating: rating,
-        comment: data.comment,
-      }).then((result) => {
-        if (result?.error) {
-          notifyError(result?.error?.data?.message);
-        } else {
-          notifySuccess(result?.data?.message);
-        }
-      });
+    //   addReview({
+    //     userId: user?._id,
+    //     productId: product_id,
+    //     rating: rating,
+    //     comment: data.comment,
+    //   }).then((result) => {
+    //     if (result?.error) {
+    //       notifyError(result?.error?.data?.message);
+    //     } else {
+    //       notifySuccess(result?.data?.message);
+    //     }
+    //   });
     }
     reset();
   };
@@ -74,7 +74,7 @@ const ReviewForm = ({product_id}) => {
           <div className="tp-product-details-review-input-title">
             <label htmlFor="msg">Your Review</label>
           </div>
-          <ErrorMsg msg={errors.name?.comment} />
+          {/* <ErrorMsg msg={errors.name?.comment} /> */}
         </div>
         <div className="tp-product-details-review-input-box">
           <div className="tp-product-details-review-input">
@@ -89,7 +89,7 @@ const ReviewForm = ({product_id}) => {
           <div className="tp-product-details-review-input-title">
             <label htmlFor="name">Your Name</label>
           </div>
-          <ErrorMsg msg={errors.name?.name} />
+          {/* <ErrorMsg msg={errors.name?.name} /> */}
         </div>
         <div className="tp-product-details-review-input-box">
           <div className="tp-product-details-review-input">
@@ -104,7 +104,7 @@ const ReviewForm = ({product_id}) => {
           <div className="tp-product-details-review-input-title">
             <label htmlFor="email">Your Email</label>
           </div>
-          <ErrorMsg msg={errors.name?.email} />
+          {/* <ErrorMsg msg={errors.name?.email} /> */}
         </div>
       </div>
       <div className="tp-product-details-review-btn-wrapper">

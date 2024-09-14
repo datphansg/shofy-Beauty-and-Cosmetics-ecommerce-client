@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
     "lib": [
       "dom",
@@ -19,13 +21,20 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/hooks/sendInvoiceEmail.js"  ],
+    "**/*.tsx",
+    "src/hooks/sendInvoiceEmail.js",
+    ".next/types/**/*.ts"
+, "src/hooks/use-checkout-submit.js"  ],
   "exclude": [
     "node_modules"
   ]

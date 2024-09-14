@@ -1,5 +1,6 @@
+"use client"
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoggedOut } from "@/redux/features/auth/authSlice";
@@ -61,7 +62,7 @@ function Currency({active,handleActive}) {
 
 // setting
 function ProfileSetting({active,handleActive}) {
-  const { user } = useSelector((state) => state.auth);
+  const  user  = null; // useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const router = useRouter();
   // handle logout

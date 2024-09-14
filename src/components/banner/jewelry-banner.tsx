@@ -62,12 +62,12 @@ const JewelryBanner = () => {
   const handleToggle = () => {
     if (play === false) {
       setPlay(true);
-      const videos = document.querySelectorAll('.tp-slider-video video');
-      videos.forEach((video) => video.play());
+      // const videos = document.querySelectorAll('.tp-slider-video video');
+      // videos.forEach((video) => video.play());
     } else {
       setPlay(false);
-      const videos = document.querySelectorAll('.tp-slider-video video');
-      videos.forEach((video) => video.pause());
+      // const videos = document.querySelectorAll('.tp-slider-video video');
+      // videos.forEach((video) => video.pause());
     }
   };
   return (

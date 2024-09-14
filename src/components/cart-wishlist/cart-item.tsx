@@ -39,7 +39,7 @@ const CartItem = ({product}) => {
       </td>
       {/* price */}
       <td className="tp-cart-price">
-        <span>{(price.market * orderQuantity).toLocaleString('vi-VN')}</span>
+        <span>{(price.market).toLocaleString('vi-VN')}</span>
       </td>
       {/* quantity */}
       <td className="tp-cart-quantity">
@@ -52,6 +52,9 @@ const CartItem = ({product}) => {
             <Plus />
           </span>
         </div>
+      </td>
+      <td className="tp-cart-price">
+        <span>{(price.market * orderQuantity).toLocaleString('vi-VN')}</span>
       </td>
       {/* action */}
       <td className="tp-cart-action">

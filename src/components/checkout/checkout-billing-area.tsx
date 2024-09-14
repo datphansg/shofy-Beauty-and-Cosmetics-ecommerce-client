@@ -3,7 +3,7 @@ import ErrorMsg from "../common/error-msg";
 import { useSelector } from "react-redux";
 
 const CheckoutBillingArea = ({ register, errors }) => {
-  const { user } = useSelector((state) => state.auth);
+  const  user  = null; // useSelector((state) => state.auth);
 
   return (
     <div className="tp-checkout-bill-area">

@@ -11,7 +11,7 @@ const RenderCartProgress = () => {
       <>
         <p>Miễn phí vận chuyển</p>
         <div className="progress">
-          <div
+          {/* <div
             className="progress-bar progress-bar-striped progress-bar-animated"
             role="progressbar"
             data-width={`${progress}%`}
@@ -19,7 +19,7 @@ const RenderCartProgress = () => {
             aria-valuemin="0"
             aria-valuemax="100"
             style={{ width: `${progress}%` }}
-          ></div>
+          ></div> */}
         </div>
       </>
     );
@@ -28,7 +28,7 @@ const RenderCartProgress = () => {
     <>
       {/* <p> You are eligible for free shipping</p> */}
       <div className="progress">
-        <div
+        {/* <div
           className="progress-bar progress-bar-striped progress-bar-animated"
           role="progressbar"
           data-width={`${progress}%`}
@@ -36,7 +36,7 @@ const RenderCartProgress = () => {
           aria-valuemin="0"
           aria-valuemax="100"
           style={{ width: `${progress}%` }}
-        ></div>
+        ></div> */}
       </div>
     </>
   );

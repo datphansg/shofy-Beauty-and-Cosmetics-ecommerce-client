@@ -1,6 +1,7 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 // internal
 import ErrorMsg from '../common/error-msg';
 import { useGetProductTypeCategoryQuery } from '@/redux/features/categoryApi';

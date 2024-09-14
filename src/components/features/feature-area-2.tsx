@@ -4,25 +4,25 @@ import { Delivery, Discount, Refund, Support } from '@/svg';
 export const feature_data = [
   {
     icon: <Delivery />,
-    title: 'Free Delivery',
-    subtitle: 'Orders from all item'
+    title: 'Giao hàng miễn phí',
+    subtitle: 'Áp dụng cho mọi đơn hàng'
   },
   {
     icon: <Refund />,
-    title: 'Return & Refund',
-    subtitle: 'Money back guarantee'
+    title: 'Hoàn trả & Hoàn tiền',
+    subtitle: 'Đảm bảo hoàn tiền'
   },
   {
     icon: <Discount />,
-    title: 'Member Discount',
-    subtitle: 'Onevery order over $140.00'
+    title: 'Giảm giá cho thành viên',
   },
   {
     icon: <Support />,
-    title: 'Support 24/7',
-    subtitle: 'Contact us 24 hours a day'
+    title: 'Hỗ trợ 24/7',
+    subtitle: 'Liên hệ với chúng tôi 0933 686 604'
   },
 ]
+
 
 
 const FeatureAreaTwo = () => {

@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 // internal
-import featured_1 from '@assets/img/product/featured/featured-1.png';
-import featured_2 from '@assets/img/product/featured/featured-2.png';
-import featured_3 from '@assets/img/product/featured/featured-3.png';
+import featured_1 from '@assets/img/product/featured/categorybanner_1_img.jpg';
+import featured_2 from '@assets/img/product/featured/categorybanner_2_img.jpg';
+import featured_3 from '@assets/img/product/featured/categorybanner_3_img.jpg';
 
 
 
@@ -30,7 +30,7 @@ const featured_data = [
     title: <>Mega Waterproof <br /> Concealer  - 125 Bisque</>,
     subtitle: 'Molestias internos et commodi tempora dolores sapiente sed iste.',
     save: 133,
-  },
+  }
 ]
 
 const BeautyFeatured = () => {
@@ -41,9 +41,10 @@ const BeautyFeatured = () => {
           <div className="row gx-0">
             {featured_data.map(item => (
               <div key={item.id} className="col-lg-4 col-md-6">
-                <div className="tp-featured-item-3 text-center">
+                <Image src={item.img} alt="featured image" width={320} height={123}/>
+                {/* <div className="tp-featured-item-3 text-center">
                   <div className="tp-featured-thumb-3 d-flex align-items-end justify-content-center">
-                    <Image src={item.img} alt="featured image" />
+                    <Image src={item.img} alt="featured image" width={320} height={123}/>
                   </div>
                   <div className="tp-featured-content-3">
                     <h3 className="tp-featured-title-3">
@@ -54,7 +55,7 @@ const BeautyFeatured = () => {
                       <span>Save ${item.save}</span>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>

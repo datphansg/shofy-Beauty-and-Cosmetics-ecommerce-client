@@ -53,7 +53,6 @@ const RelatedProducts = ({id}) => {
   }
   if (!isLoading && !isError && products?.data?.products?.length > 0) {
     const product_items = products.data.products;
-    console.log('product_items', product_items);
     content = (
       <Swiper
         {...slider_setting}

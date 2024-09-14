@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { handleFilterSidebarClose } from "@/redux/features/shop-filter-slice";
 
@@ -18,7 +18,7 @@ const StatusFilter = ({setCurrPage,shop_right=false}) => {
         .split(" ")
         .join("-")}`
         )
-      dispatch(handleFilterSidebarClose())
+      dispatch(handleFilterSidebarClose({}))
   }
   return (
     <div className="tp-shop-widget mb-50">
@@ -28,7 +28,7 @@ const StatusFilter = ({setCurrPage,shop_right=false}) => {
           <ul className="filter-items filter-checkbox">
             {status.map((s, i) => (
               <li key={i} className="filter-item checkbox">
-                <input
+                {/* <input
                   id={s}
                   type="checkbox"
                   checked={
@@ -38,7 +38,7 @@ const StatusFilter = ({setCurrPage,shop_right=false}) => {
                       : false
                   }
                   readOnly
-                />
+                /> */}
                 <label
                   onClick={() => handleStatusRoute(s)}
                   htmlFor={s}

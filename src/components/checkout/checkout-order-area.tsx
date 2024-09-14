@@ -19,7 +19,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
     shippingCost,
     discountAmount
   } = checkoutData;
-  const { cart_products } = useSelector((state) => state.cart);
+  const  cart_products = [] ; // useSelector((state) => state.cart);
   const { total } = useCartInfo();
   return (
     <div className="tp-checkout-place white-bg">
@@ -106,7 +106,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
           {/* total */}
           <li className="tp-order-info-list-total">
             <span>Tổng tiền</span>
-            <span>${parseFloat(cartTotal).toLocaleString('vi-VN')}</span>
+            <span>{parseFloat(cartTotal).toLocaleString('vi-VN')}</span>
           </li>
         </ul>
       </div>

@@ -54,9 +54,9 @@ const ProductAreaTwo = () => {
     if (activeTab === "All Collection") {
       product_items = products.data;
     } else if (activeTab === "Trending") {
-      product_items = products.data
-        .slice()
-        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      // product_items = products.data
+      //   .slice()
+      //   .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     } else if (activeTab === "Beauty") {
       product_items = products.data.filter(
         (p) => p.category.name === "Discover Skincare"

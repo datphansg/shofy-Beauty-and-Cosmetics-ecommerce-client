@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 // internal
 import { CloseEye, OpenEye } from "@/svg";
 import ErrorMsg from "../common/error-msg";
@@ -23,25 +23,25 @@ const RegisterForm = () => {
   const [showPass, setShowPass] = useState(false);
   const [registerUser, {}] = useRegisterUserMutation();
   const router = useRouter();
-  const { redirect } = router.query;
+  const redirect  = null; //router.query;
   // react hook form
   const {register,handleSubmit,formState: { errors },reset} = useForm({
     resolver: yupResolver(schema),
   });
   // on submit
   const onSubmit = (data) => {
-    registerUser({
-      name: data.name,
-      email: data.email,
-      password: data.password,
-    }).then((result) => {
-      if (result?.error) {
-        notifyError("Register Failed");
-      } else {
-        notifySuccess(result?.data?.message);
-        // router.push(redirect || "/");
-      }
-    });
+    // registerUser({
+    //   name: data.name,
+    //   email: data.email,
+    //   password: data.password,
+    // }).then((result) => {
+    //   if (result?.error) {
+    //     notifyError("Register Failed");
+    //   } else {
+    //     notifySuccess(result?.data?.message);
+    //     // router.push(redirect || "/");
+    //   }
+    // });
     reset();
   };
   return (

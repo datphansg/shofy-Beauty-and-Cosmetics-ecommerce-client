@@ -19,7 +19,7 @@ const schema = Yup.object().shape({
 });
 
 const ProfileInfo = () => {
-  const { user } = useSelector((state) => state.auth);
+  const  user  = null; // useSelector((state) => state.auth);
 
   const [updateProfile, {}] = useUpdateProfileMutation();
   // react hook form
@@ -36,12 +36,12 @@ const ProfileInfo = () => {
       address:data.address,
       bio:data.bio,
     }).then((result) => {
-      if(result?.error){
-        notifyError(result?.error?.data?.message);
-      }
-      else {
-        notifySuccess(result?.data?.message);
-      }
+      // if(result?.error){
+      //   notifyError(result?.error?.data?.message);
+      // }
+      // else {
+      //   notifySuccess(result?.data?.message);
+      // }
     })
     reset();
   };

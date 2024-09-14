@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,7 +16,7 @@ import useSearchFormSubmit from '@/hooks/use-search-form-submit';
 import OffCanvas from '@/components/common/off-canvas';
 
 const HeaderTwo = ({ style_2 = false }) => {
-  const { wishlist } = useSelector((state) => state.wishlist);
+  const wishlist  = [] ; // useSelector((state) => state.wishlist);
   const [isOffCanvasOpen, setIsCanvasOpen] = useState(false);
   const { setSearchText, handleSubmit, searchText } = useSearchFormSubmit();
   const { quantity } = useCartInfo();
@@ -100,7 +101,7 @@ const HeaderTwo = ({ style_2 = false }) => {
                           </Link>
                         </div> */}
                         <div className="tp-header-action-item">
-                          <button onClick={() => dispatch(openCartMini())} className="tp-header-action-btn cartmini-open-btn" >
+                          <button onClick={() => dispatch(openCartMini({}))} className="tp-header-action-btn cartmini-open-btn" >
                             <CartTwo />
                             <span className="tp-header-action-badge">{quantity}</span>
                           </button>

@@ -10,7 +10,7 @@ const ShopTopRight = ({selectHandleFilter}) => {
   return (
     <div className="tp-shop-top-right d-sm-flex align-items-center justify-content-xl-end">
       <div className="tp-shop-top-select">
-        <NiceSelect
+        {/* <NiceSelect
           options={[
             { value: "Default Sorting", text: "Default Sorting" },
             { value: "Low to High", text: "Low to High" },
@@ -21,10 +21,10 @@ const ShopTopRight = ({selectHandleFilter}) => {
           defaultCurrent={0}
           onChange={selectHandleFilter}
           name="Default Sorting"
-        />
+        /> */}
       </div>
       <div className="tp-shop-top-filter">
-        <button onClick={()=> dispatch(handleFilterSidebarOpen())} type="button" className="tp-filter-btn">
+        <button onClick={()=> dispatch(handleFilterSidebarOpen({}))} type="button" className="tp-filter-btn">
           <span>
             <Filter />
           </span>

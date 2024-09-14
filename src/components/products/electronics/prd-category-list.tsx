@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 // internal
 import ErrorMsg from "@/components/common/error-msg";
 import { useGetProductTypeCategoryQuery } from "@/redux/features/categoryApi";

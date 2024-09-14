@@ -1,12 +1,12 @@
+"use client"
 import React from "react";
 import ErrorMsg from "../common/error-msg";
 import { useGetShowCategoryQuery } from "@/redux/features/categoryApi";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import ShopCategoryLoader from "../loader/shop/shop-category-loader";
 import slugify from 'slugify';
 const ShopCategoryArea = () => {
-  const { data: categories, isLoading, isError } = useGetShowCategoryQuery();
-  console.log(categories);
+  const { data: categories, isLoading, isError } = useGetShowCategoryQuery({});
   const router = useRouter();
   // handle category route
   const handleCategoryRoute = (name,id) => {

@@ -1,7 +1,8 @@
+"use client"
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 // internal
 import BackToTopCom from "@/components/common/back-to-top";
 import ProductModal from "@/components/common/product-modal";
@@ -15,15 +16,15 @@ import useAuthCheck from "@/hooks/use-auth-check";
 import Loader from "@/components/loader/loader";
 
 const Wrapper = ({ children }) => {
-  const { productItem } = useSelector((state) => state.productModal);
+  const  productItem  = null;//useSelector((state) => state.productModal);
   const dispatch = useDispatch();
   const authChecked = useAuthCheck();
 
   useEffect(() => {
-    dispatch(get_cart_products());
-    dispatch(get_wishlist_products());
-    dispatch(get_compare_products());
-    dispatch(initialOrderQuantity());
+    dispatch(get_cart_products({}));
+    dispatch(get_wishlist_products({}));
+    dispatch(get_compare_products({}));
+    dispatch(initialOrderQuantity({}));
   }, [dispatch]);
 
   return !authChecked ? (
@@ -36,7 +37,7 @@ const Wrapper = ({ children }) => {
   ) : (
     <div id="wrapper">
       {children}
-      <BackToTopCom />
+      {/* <BackToTopCom /> */}
       <ToastContainer />
       {/* product modal start */}
       {productItem && <ProductModal />}

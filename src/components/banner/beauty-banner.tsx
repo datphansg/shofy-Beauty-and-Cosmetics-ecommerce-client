@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -86,11 +87,11 @@ const BeautyBanner = () => {
                 <div className="row align-items-center">
                   <div className="col-xl-6 col-lg-6 col-md-8">
                     <div className="tp-slider-content-3">
-                      <span>Winter Collection 2023</span>
+                      {/* <span>Winter Collection 2023</span>
                       <h3 className="tp-slider-title-3">
                          Hãy thể hiện vẻ đẹp theo cách của bạn.
-                      </h3>
-                      <div className="tp-slider-feature-3 d-flex flex-wrap align-items-center p-relative z-index-1 mb-15">
+                      </h3> */}
+                      {/* <div className="tp-slider-feature-3 d-flex flex-wrap align-items-center p-relative z-index-1 mb-15">
                         <FeatureItem icon={<Cosmetics />} title={<>High-end <br /> Cosmetics</>} />
                         <FeatureItem icon={<VeganProduct />} title={<>Vegan <br /> Product</>} />
                         <FeatureItem icon={<Meckoup />} title={<>Express <br /> Make-up</>} />
@@ -102,7 +103,7 @@ const BeautyBanner = () => {
                         >
                           Shopping now
                         </Link>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>

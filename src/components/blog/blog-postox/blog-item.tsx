@@ -27,7 +27,7 @@ const BlogItem = ({ item = {} }) => {
       <article
         className="tp-postbox-item format-image mb-50 transition-3"
       >
-        {!item.blockquote &&
+        {/* {!item.blockquote &&
           !item.video &&
           !item.audio &&
           !item.slider && (
@@ -36,8 +36,8 @@ const BlogItem = ({ item = {} }) => {
                 <Image src={item.img} alt="blog img" />
               </Link>
             </div>
-          )}
-        {item.video && (
+          )} */}
+        {/* {item.video && (
           <div className="tp-postbox-thumb tp-postbox-video w-img p-relative">
             <Link href={`/blog-details/${item.id}`}>
               <Image src={item.img} alt="blog img" />
@@ -49,16 +49,16 @@ const BlogItem = ({ item = {} }) => {
               <i className="fas fa-play"></i>
             </a>
           </div>
-        )}
-        {item.audio && (
+        )} */}
+        {/* {item.audio && (
           <div className="tp-postbox-thumb tp-postbox-audio w-img p-relative">
             <iframe
               allow="autoplay"
               src={item.audio_id}
             ></iframe>
           </div>
-        )}
-        {item.slider && (
+        )} */}
+        {/* {item.slider && (
           <Swiper {...slider_setting} modules={[Navigation, Autoplay]} className="tp-postbox-thumb tp-postbox-slider swiper-container w-img p-relative">
             {item.slider_images.map((img, i) => (
               <SwiperSlide key={i} className="tp-postbox-slider-item">
@@ -74,8 +74,8 @@ const BlogItem = ({ item = {} }) => {
               </button>
             </div>
           </Swiper>
-        )}
-        {!item.blockquote && (
+        )} */}
+        {/* {!item.blockquote && (
           <div className="tp-postbox-content">
             <div className="tp-postbox-meta">
               <span>
@@ -109,8 +109,8 @@ const BlogItem = ({ item = {} }) => {
               </Link>
             </div>
           </div>
-        )}
-        {item.blockquote && (
+        )} */}
+        {/* {item.blockquote && (
           <div className="tp-postbox-quote">
             <blockquote>
               <p>
@@ -119,17 +119,17 @@ const BlogItem = ({ item = {} }) => {
               </p>
             </blockquote>
           </div>
-        )}
+        )} */}
       </article>
 
       {/* modal popup start */}
-      {item.video && (
+      {/* {item.video && (
         <PopupVideo
           isVideoOpen={isVideoOpen}
           setIsVideoOpen={setIsVideoOpen}
           videoId={item.video_id}
         />
-      )}
+      )} */}
       {/* modal popup end */}
     </>
   );

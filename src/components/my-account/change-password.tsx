@@ -27,7 +27,7 @@ const schemaTwo = Yup.object().shape({
 });
 
 const ChangePassword = () => {
-  const { user } = useSelector((state) => state.auth);
+  const  user  = null; // useSelector((state) => state.auth);
   const [changePassword, {}] = useChangePasswordMutation();
   // react hook form
   const {
@@ -41,25 +41,25 @@ const ChangePassword = () => {
 
   // on submit
   const onSubmit = (data) => {
-    changePassword({
-      email: user?.email,
-      password: data.password,
-      newPassword: data.newPassword,
-      googleSignIn: user?.googleSignIn,
-    }).then((result) => {
-      if (result?.error) {
-        notifyError(result?.error?.data?.message);
-      } else {
-        notifySuccess(result?.data?.message);
-      }
-    });
+    // changePassword({
+    //   email: user?.email,
+    //   password: data.password,
+    //   newPassword: data.newPassword,
+    //   googleSignIn: user?.googleSignIn,
+    // }).then((result) => {
+    //   if (result?.error) {
+    //     notifyError(result?.error?.data?.message);
+    //   } else {
+    //     notifySuccess(result?.data?.message);
+    //   }
+    // });
     reset();
   };
   return (
     <div className="profile__password">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="row">
-          {!user?.googleSignIn && (
+          {/* {!user?.googleSignIn && (
             <div className="col-xxl-12">
               <div className="tp-profile-input-box">
                 <div className="tp-contact-input">
@@ -78,7 +78,7 @@ const ChangePassword = () => {
                 <ErrorMsg msg={errors.password?.message} />
               </div>
             </div>
-          )}
+          )} */}
           <div className="col-xxl-6 col-md-6">
             <div className="tp-profile-input-box">
               <div className="tp-profile-input">

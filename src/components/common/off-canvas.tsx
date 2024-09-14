@@ -42,10 +42,10 @@ const OffCanvas = ({ isOffCanvasOpen, setIsCanvasOpen,categoryType = "electronic
               </div>
             </div>
             <div className="offcanvas__category pb-40">
-              <button onClick={() => setIsCategoryActive(!isCategoryActive)} className="tp-offcanvas-category-toggle">
+              {/* <button onClick={() => setIsCategoryActive(!isCategoryActive)} className="tp-offcanvas-category-toggle">
                 <i className="fa-solid fa-bars"></i>
                 All Categories
-              </button>
+              </button> */}
               <div className="tp-category-mobile-menu">
                 <nav className={`tp-category-menu-content ${isCategoryActive ? "active" : ""}`}>
                   <MobileCategory categoryType={categoryType} isCategoryActive={isCategoryActive} />

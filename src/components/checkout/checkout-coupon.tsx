@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const CheckoutCoupon = ({ handleCouponCode, couponRef,couponApplyMsg }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { coupon_info } = useSelector((state) => state.coupon);
+  const  coupon_info = null ;// useSelector((state) => state.coupon);
   return (
     <div className="tp-checkout-verify-item">
       {/* <p className="tp-checkout-verify-reveal">

@@ -57,7 +57,7 @@ const ShopHiddenSidebarArea = ({
                         id="grid-tab-pane"
                         role="tabpanel"
                         aria-labelledby="grid-tab"
-                        tabIndex="0"
+                       
                       >
                         <div className="row">
                           {filteredRows
@@ -77,7 +77,7 @@ const ShopHiddenSidebarArea = ({
                         id="list-tab-pane"
                         role="tabpanel"
                         aria-labelledby="list-tab"
-                        tabIndex="0"
+                       
                       >
                         <div className="tp-shop-list-wrapper tp-shop-item-primary mb-70">
                           <div className="row">
@@ -97,13 +97,7 @@ const ShopHiddenSidebarArea = ({
                 {products.length > 0 && (
                   <div className="tp-shop-pagination mt-20">
                     <div className="tp-pagination">
-                      <Pagination
-                        items={products}
-                        countOfPage={12}
-                        paginatedData={paginatedData}
-                        currPage={currPage}
-                        setCurrPage={setCurrPage}
-                      />
+                     
                     </div>
                   </div>
                 )}

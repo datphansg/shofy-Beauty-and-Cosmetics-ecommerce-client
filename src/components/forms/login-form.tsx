@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 // internal
 import { CloseEye, OpenEye } from '@/svg';
@@ -20,7 +20,7 @@ const LoginForm = () => {
   const [showPass, setShowPass] = useState(false);
   const [loginUser, { }] = useLoginUserMutation();
   const router = useRouter();
-  const { redirect } = router.query;
+  const redirect  = null; //router.query;
   // react hook form
   const {
     register,
@@ -32,19 +32,19 @@ const LoginForm = () => {
   });
   // onSubmit
   const onSubmit = (data) => {
-    loginUser({
-      email: data.email,
-      password: data.password,
-    })
-      .then((data) => {
-        if (data?.data) {
-          notifySuccess("Login successfully");
-          router.push(redirect || "/");
-        }
-        else {
-          notifyError(data?.error?.data?.error)
-        }
-      })
+    // loginUser({
+    //   email: data.email,
+    //   password: data.password,
+    // })
+    //   .then((data) => {
+    //     if (data?.data) {
+    //       notifySuccess("Login successfully");
+    //       router.push(redirect || "/");
+    //     }
+    //     else {
+    //       notifyError(data?.error?.data?.error)
+    //     }
+    //   })
     reset();
   };
   return (

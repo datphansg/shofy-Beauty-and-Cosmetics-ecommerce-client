@@ -48,7 +48,7 @@ const BlogGridArea = ({ list_area = false }) => {
                 </div>
 
                 <div className="tab-content" id="nav-tabContent">
-                  <div className={`tab-pane fade ${list_area ? '' : 'show active'}`} id="nav-grid" role="tabpanel" aria-labelledby="nav-grid-tab" tabIndex="0">
+                  <div className={`tab-pane fade ${list_area ? '' : 'show active'}`} id="nav-grid" role="tabpanel" aria-labelledby="nav-grid-tab" >
                     {/*  blog grid item wrapper */}
                     <div className="tp-blog-grid-item-wrapper">
                       <div className="row tp-gx-30">
@@ -60,7 +60,7 @@ const BlogGridArea = ({ list_area = false }) => {
                       </div>
                     </div>
                   </div>
-                  <div className={`tab-pane fade ${list_area ? 'show active' : ''}`} id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab" tabIndex="0">
+                  <div className={`tab-pane fade ${list_area ? 'show active' : ''}`} id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab" >
                     {/* blog list wrapper */}
                     <div className="tp-blog-list-item-wrapper">
                       {filteredRows.slice(pageStart, pageStart + countOfPage).map((blog, i) => (
@@ -72,13 +72,12 @@ const BlogGridArea = ({ list_area = false }) => {
                     <div className="col-xl-12">
                       <div className="tp-blog-pagination mt-30">
                         <div className="tp-pagination">
-                          <Pagination
-                            items={blog_items}
+                          {/* <Pagination
                             countOfPage={6}
                             paginatedData={paginatedData}
                             currPage={currPage}
                             setCurrPage={setCurrPage}
-                          />
+                          /> */}
                         </div>
                       </div>
                     </div>

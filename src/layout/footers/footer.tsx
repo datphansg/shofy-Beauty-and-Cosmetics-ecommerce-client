@@ -69,7 +69,9 @@ const Footer = ({ style_2 = false, style_3 = false,primary_style=false }) => {
                   <div className="tp-footer-widget-content">
                     <div className="tp-footer-talk mb-20">
                       <span>Cửa hàng Mỹ Phẩm Chính Hãng</span>
-                      <h4><a href="">0933 686 604</a></h4>
+                      <h6><a href="">Hương Thị 0933 686 604</a></h6>
+                      <h6><a href="">M.O.I Cosmetics 0907 986 604</a></h6>
+                      <h6><a href="">Laura Sunshine 0363 500 604</a></h6>
                     </div>
                     <div className="tp-footer-contact">
                       <div className="tp-footer-contact-item d-flex align-items-start">

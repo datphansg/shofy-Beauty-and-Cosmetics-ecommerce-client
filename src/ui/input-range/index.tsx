@@ -34,8 +34,7 @@ const InputRange = ({ STEP, MIN, MAX, values, handleChanges }) => {
               ...props.style,
               height: '17px',
               width: '5px',
-              backgroundColor: '#0989FF',
-              backgroundColor: isDragged ? "#0989FF" : "#0989FF"
+              backgroundColor: '#0989FF'              
             }}
           />
         )}

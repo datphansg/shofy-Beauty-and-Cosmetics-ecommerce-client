@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Image from "next/image";
@@ -13,18 +14,6 @@ import slugify from 'slugify';
 const ShopListItem = ({ product }) => {
   const { _id, shareImages, category, name, reviews, price, discount, tags, shareDesc } = product || {};
   const dispatch = useDispatch()
-  const [ratingVal, setRatingVal] = useState(0);
-  useEffect(() => {
-    // if (reviews && reviews.length > 0) {
-    //   const rating =
-    //     reviews.reduce((acc, review) => acc + review.rating, 0) /
-    //     reviews.length;
-    //   setRatingVal(rating);
-    // } else {
-    //   setRatingVal(0);
-    // }
-  }, [reviews]);
-
   // handle add product
   const handleAddProduct = (prd) => {
     dispatch(add_cart_product(prd));

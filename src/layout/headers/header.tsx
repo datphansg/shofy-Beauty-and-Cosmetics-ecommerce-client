@@ -17,7 +17,7 @@ import HeaderSearchForm from "@/components/forms/header-search-form";
 import { CartTwo, CategoryMenu, Compare, Menu, Phone, ShippingCar, Wishlist } from "@/svg";
 
 const Header = () => {
-  const { wishlist } = useSelector((state) => state.wishlist);
+  const wishlist  = [] ; // useSelector((state) => state.wishlist);
   const [isOffCanvasOpen, setIsCanvasOpen] = useState(false);
   const [isCategoryActive, setIsCategoryActive] = useState(false);
   const { quantity } = useCartInfo();
@@ -156,7 +156,7 @@ const Header = () => {
                     </Link>
                   </div>
                   <div className="tp-header-action-item">
-                    <button onClick={() => dispatch(openCartMini())} type="button" className="tp-header-action-btn cartmini-open-btn">
+                    <button onClick={() => dispatch(openCartMini({}))} type="button" className="tp-header-action-btn cartmini-open-btn">
                       <CartTwo />
                       <span className="tp-header-action-badge">{quantity}</span>
                     </button>

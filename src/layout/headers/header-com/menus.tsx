@@ -9,18 +9,19 @@ import ErrorMsg from "@/components/common/error-msg";
 import ProductItem from "@/components/products/electronics/product-item";
 
 // internal
-import insta_1 from "@assets/img/instagram/3/instagram-1.jpg";
-import insta_3 from "@assets/img/instagram/3/instagram-3.jpg";
-import insta_5 from "@assets/img/instagram/3/instagram-5.jpg";
-import insta_6 from "@assets/img/instagram/3/instagram-6.jpg";
+import insta_1 from "@assets/img/brand/huongthi.jpg";
+import insta_2 from "@assets/img/brand/laurasunshine.jpg";
+import insta_3 from "@assets/img/brand/moi.jpg";
+import insta_4 from "@assets/img/instagram/2/insta-4.jpg";
+import insta_icon from "@assets/img/instagram/2/insta-icon.png";
 
 // instagram data
 const instagram_data = [
-  { id: 1, link: "https://www.instagram.com/", img: insta_1 },
-  { id: 2, link: "https://www.instagram.com/", img: insta_3 },
-  { id: 3, link: "https://www.instagram.com/", img: insta_5 },
-  { id: 4, link: "https://www.instagram.com/", img: insta_6 },
+  { id: 1, link: "https://www.facebook.com/dailymypham.dungnguyen/", img: insta_1 },
+  { id: 2, link: "https://www.facebook.com/profile.php?id=61563722140431", img: insta_2 },
+  { id: 3, link: "https://www.facebook.com/myphammoi.hongocha.hcm", img: insta_3 },
 ];
+
 const Menus = () => {
   const { data: products, isError, isLoading } = useGetProductTypeQuery({
     type: 'electronics',
@@ -77,7 +78,7 @@ const Menus = () => {
                   <Image src={item.img} alt="instagram img" style={{width:'100%',height:'100%'}} />
                   <div className="tp-instagram-icon-2">
                     <a href={item.link} target="_blank" className="popup-image">
-                      <i className="fa-brands fa-instagram"></i>
+                      <i className="fa-brands fa-facebook"></i>
                     </a>
                   </div>
                 </div>

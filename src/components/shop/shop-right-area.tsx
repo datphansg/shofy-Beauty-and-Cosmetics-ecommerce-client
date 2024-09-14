@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Pagination from "@/ui/Pagination";
 import ProductItem from "../products/fashion/product-item";
 import CategoryFilter from "./shop-filter/category-filter";
-import ColorFilter from "./shop-filter/color-filter";
+
 import PriceFilter from "./shop-filter/price-filter";
 import ProductBrand from "./shop-filter/product-brand";
 import StatusFilter from "./shop-filter/status-filter";
@@ -66,7 +66,7 @@ const ShopRightArea = ({
                         id="grid-tab-pane"
                         role="tabpanel"
                         aria-labelledby="grid-tab"
-                        tabIndex="0"
+                       
                       >
                         <div className="row">
                           {filteredRows
@@ -86,7 +86,7 @@ const ShopRightArea = ({
                         id="list-tab-pane"
                         role="tabpanel"
                         aria-labelledby="list-tab"
-                        tabIndex="0"
+                       
                       >
                         <div className="tp-shop-list-wrapper tp-shop-item-primary mb-70">
                           <div className="row">
@@ -106,13 +106,12 @@ const ShopRightArea = ({
                 {products.length > 0 && (
                   <div className="tp-shop-pagination mt-20">
                     <div className="tp-pagination">
-                      <Pagination
-                        items={products}
+                      {/* <Pagination
                         countOfPage={12}
                         paginatedData={paginatedData}
                         currPage={currPage}
                         setCurrPage={setCurrPage}
-                      />
+                      /> */}
                     </div>
                   </div>
                 )}

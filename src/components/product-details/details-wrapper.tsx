@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
 import { useDispatch } from 'react-redux';
@@ -111,7 +112,7 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
             <button onClick={() => handleAddProduct(productItem)} disabled={status === 'out-of-stock'} className="tp-product-details-add-to-cart-btn w-100">Thêm vào giỏ hàng</button>
           </div>
         </div>
-        <Link href="/cart" onClick={() => dispatch(handleModalClose())}>
+        <Link href="/cart" onClick={() => handleAddProduct(productItem)}>
           <button className="tp-product-details-buy-now-btn w-100">Mua ngay</button>
         </Link>
       </div>

@@ -17,7 +17,7 @@ const OfferCouponArea = () => {
     }, 3000);
   };
 
-  const { data: offerCoupons, isError, isLoading } = useGetOfferCouponsQuery();
+  const { data: offerCoupons, isError, isLoading } = useGetOfferCouponsQuery({});
   // decide what to render
   let content = null;
 

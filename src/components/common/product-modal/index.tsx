@@ -20,9 +20,12 @@ const customStyles = {
 };
 
 const ProductModal = () => {
-  const { productItem, isModalOpen } = useSelector(
-    (state) => state.productModal
-  );
+  // const { productItem, isModalOpen } = useSelector(
+  //   (state) => state.productModal
+  // );
+  const productItem = null;
+  const isModalOpen = false;
+
   const { img, imageURLs,status } = productItem || {};
   const [activeImg, setActiveImg] = useState(img);
   const [loading,setLoading] = useState(false);
@@ -30,7 +33,7 @@ const ProductModal = () => {
   // active image change when img change
   useEffect(() => {
     setActiveImg(img);
-    dispatch(initialOrderQuantity())
+    dispatch(initialOrderQuantity({}))
     setLoading(false)
   }, [img,dispatch]);
 
@@ -44,14 +47,14 @@ const ProductModal = () => {
     <div>
       <ReactModal
         isOpen={isModalOpen}
-        onRequestClose={() => dispatch(handleModalClose())}
+        onRequestClose={() => dispatch( handleModalClose({}))}
         style={customStyles}
         contentLabel="Product Modal"
       >
         <div className="tp-product-modal">
           <div className="tp-product-modal-content d-lg-flex">
             <button
-              onClick={() => dispatch(handleModalClose())}
+              onClick={() => dispatch( handleModalClose({}))}
               type="button"
               className="tp-product-modal-close-btn"
             >
@@ -64,7 +67,6 @@ const ProductModal = () => {
               imageURLs={imageURLs}
               imgWidth={416}
               imgHeight={480}
-              loading={loading}
               status={status}
             />
             {/* product-details-thumb-wrapper end */}

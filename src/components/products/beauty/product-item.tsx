@@ -11,10 +11,10 @@ import slugify from 'slugify';
 
 const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
   const { _id, img, name, discount, price, tags,status, shareImages } = product || {};
-  const { cart_products } = useSelector((state) => state.cart);
-  const { wishlist } = useSelector((state) => state.wishlist);
-  const isAddedToCart = cart_products.some((prd) => prd._id === _id);
-  const isAddedToWishlist = wishlist.some((prd) => prd._id === _id);
+  // const  cart_products = [] ; // useSelector((state) => state.cart);
+  // const wishlist  = [] ; // useSelector((state) => state.wishlist);
+  const isAddedToCart = true;//cart_products.some((prd) => prd._id === _id);
+  const isAddedToWishlist = true;//wishlist.some((prd) => prd._id === _id);
   const dispatch = useDispatch();
 
   // handle add product
@@ -40,7 +40,7 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
         </div>
 
         {/* product action */}
-        <div className="tp-product-action-3 tp-product-action-blackStyle">
+        {/* <div className="tp-product-action-3 tp-product-action-blackStyle">
           <div className="tp-product-action-item-3 d-flex flex-column">
             {isAddedToCart ? (
               <Link
@@ -76,9 +76,9 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
             </button>
 
           </div>
-        </div>
+        </div> */}
 
-        <div className="tp-product-add-cart-btn-large-wrapper">
+        {/* <div className="tp-product-add-cart-btn-large-wrapper">
           {isAddedToCart ? (
             <Link
               href="/cart"
@@ -96,7 +96,7 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
               Thêm vào giỏ hàng
             </button>
           )}
-        </div>
+        </div> */}
       </div>
       <div className="tp-product-content-3">
         <div className="tp-product-tag-3">

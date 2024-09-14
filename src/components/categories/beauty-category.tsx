@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Link from "next/link";
 // internal
@@ -5,7 +6,7 @@ import ErrorMsg from "../common/error-msg";
 import { ArrowRightSm, ArrowRightSmTwo } from "@/svg";
 import { useGetProductTypeCategoryQuery } from "@/redux/features/categoryApi";
 import { HomeThreeCategoryLoader } from "../loader";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 const BeautyCategory = () => {
   const router = useRouter();
   const {
@@ -79,20 +80,21 @@ const BeautyCategory = () => {
             <div className="col-lg-6 col-md-8">
               <div className="tp-section-title-wrapper-3 mb-45">
                 <span className="tp-section-title-pre-3">
-                  Product Collection
+                  Bộ sưu tập
                 </span>
-                <h3 className="tp-section-title-3">Discover our products</h3>
+                <h3 className="tp-section-title-3">M.O.I Cosmetics</h3>
+                <h5>Zalo 0907 986 604</h5>
               </div>
             </div>
-            <div className="col-lg-6 col-md-4">
+            {/* <div className="col-lg-6 col-md-4">
               <div className="tp-category-more-3 text-md-end mb-55">
                 <Link href="/shop" className="tp-btn">
                   Shop All Products <ArrowRightSmTwo />
                 </Link>
               </div>
-            </div>
+            </div> */}
           </div>
-          <div className="row">{content}</div>
+          {/* <div className="row">{content}</div> */}
         </div>
       </section>
     </>

@@ -1,5 +1,6 @@
+"use client"
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Rating } from "react-simple-star-rating";
 import Link from "next/link";
@@ -13,38 +14,25 @@ import slugify from 'slugify';
 
 const ProductItem = ({ product, style_2 = false }) => {
   const { _id, shareImages, category, name, reviews, price, discount, tags, status } = product || {};
-  const [ratingVal, setRatingVal] = useState(0);
-  const { cart_products } = useSelector((state) => state.cart);
-  const { wishlist } = useSelector((state) => state.wishlist);
-  const isAddedToCart = cart_products.some((prd) => prd._id === _id);
-  const isAddedToWishlist = wishlist.some((prd) => prd._id === _id);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    // if (reviews && reviews.length > 0) {
-    //   const rating =
-    //     reviews.reduce((acc, review) => acc + review.rating, 0) /
-    //     reviews.length;
-    //   setRatingVal(rating);
-    // } else {
-    //   setRatingVal(0);
-    // }
-  }, [reviews]);
-
+  // const  cart_products = [] ; // useSelector((state) => state.cart);
+  // const wishlist  = [] ; // useSelector((state) => state.wishlist);
+  const isAddedToCart = true;// cart_products.some((prd) => prd._id === _id);
+  const isAddedToWishlist = true;//wishlist.some((prd) => prd._id === _id);
+  //const dispatch = useDispatch();
+  
   // handle add product
   const handleAddProduct = (prd) => {
-    dispatch(add_cart_product(prd));
+    //dispatch(add_cart_product(prd));
   };
   // handle wishlist product
   const handleWishlistProduct = (prd) => {
-    dispatch(add_to_wishlist(prd));
+   // dispatch(add_to_wishlist(prd));
   };
 
   // handle compare product
   const handleCompareProduct = (prd) => {
-    dispatch(add_to_compare(prd));
+    //dispatch(add_to_compare(prd));
   };
-
 
   return (
     <div className={`tp-product-item-2 ${style_2 ? "" : "mb-40"}`}>
@@ -61,7 +49,7 @@ const ProductItem = ({ product, style_2 = false }) => {
           {status === 'out-of-stock' && <span className="product-hot">out-stock</span>}
         </div>
         {/* product action */}
-        <div className="tp-product-action-2 tp-product-action-blackStyle">
+        {/* <div className="tp-product-action-2 tp-product-action-blackStyle">
           <div className="tp-product-action-item-2 d-flex flex-column">
             {isAddedToCart ? (
               <Link
@@ -108,23 +96,12 @@ const ProductItem = ({ product, style_2 = false }) => {
               </span>
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="tp-product-content-2 pt-15">
-        {/* <div className="tp-product-tag-2">
-          {tags.map((t, i) => (
-            <a key={i} href="#">
-              {t}
-              {i < tags.length - 1 && ","}
-            </a>
-          ))}
-        </div> */}
         <h3 className="tp-product-title-2">
           <Link href={`/product-details/${slugify(name  || "default-name", { lower: true })}/${_id}`}>{name}</Link>
         </h3>
-        {/* <div className="tp-product-rating-icon tp-product-rating-icon-2">
-          <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />
-        </div> */}
         <div className="tp-product-price-wrapper-2">
           {discount > 0 ? (
             <>
