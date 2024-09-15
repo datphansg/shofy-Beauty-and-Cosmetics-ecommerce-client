@@ -24,18 +24,18 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { slug } = params;
   let brandId = slug[slug.length - 1]; // Lấy category ID từ slug
-  const brandInfo = await getProductQuery(brandId);
-  const title =brandInfo.data.product.categories[0].name +' - Giá Chỉ '+  brandInfo.data.product.price.minimum.toLocaleString('vi-VN') + ' - ' +  brandInfo.data.product.name ;
-  const url = `/product-details/${slugify(brandInfo.data.product.name  || "default-name", { lower: true })}/${brandInfo.data.product._id}`;
+  const productInfo = await getProductQuery(brandId);
+  const title =productInfo.data.product.categories[0].name +' - Giá Chỉ '+  productInfo.data.product.price.minimum.toLocaleString('vi-VN') + ' - ' +  productInfo.data.product.name ;
+  const url = `/product-details/${slugify(productInfo.data.product.name  || "default-name", { lower: true })}/${productInfo.data.product._id}`;
   return {
     title: title,
-    description: brandInfo.data.product.shareDesc,
+    description: productInfo.data.product.shareDesc,
     openGraph: {
       title: title,
-      description: brandInfo.data.product.shareDesc,
+      description: productInfo.data.product.shareDesc,
       images: [
         {
-          url: brandInfo.data.product.shareImages[0],
+          url: productInfo.data.product.shareImages[0],
           width: 800,
           height: 600,
         }

@@ -195,7 +195,6 @@ const useCheckoutSubmit = () => {
 
   // submitHandler
   const submitHandler = async (data) => {
-    console.log(data);
     dispatch(set_shipping(data));
     setIsCheckoutSubmit(true);
 

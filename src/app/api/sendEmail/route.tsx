@@ -96,16 +96,16 @@ export async function POST(req: Request) {
                 const minutes = String(now.getMinutes()).padStart(2, '0');
                 const seconds = String(now.getSeconds()).padStart(2, '0');
 
-                // Lấy thời gian hiện tại tính bằng milliseconds và nanoseconds
-                const hrTime = process.hrtime();
-                const ticks = BigInt(Date.now()) + BigInt(hrTime[1] / 100); // Kết hợp milliseconds với nanoseconds
+                // Lấy thời gian hiện tại tính bằng milliseconds (Không dùng BigInt)
+                const ticks = Date.now(); // Chỉ sử dụng milliseconds
 
                 // Chuỗi theo định dạng yêu cầu
                 const formattedDate = `${ticks}-${day}${month}${year}`;
                 const formattedTime = `${hours}:${minutes}:${seconds}`; // Giờ thêm vào ngày
+
                 // Tạo thông điệp hoàn chỉnh
                 const msg = `Hóa Đơn Số ${formattedDate} Ngày ${day}/${month}/${year} lúc ${formattedTime}`;
-                console.log(msg);
+
                 await transporter.sendMail({
                     from: "myphamchinhhang@gmail.com",
                     to: "duyphan13062012@gmail.com",

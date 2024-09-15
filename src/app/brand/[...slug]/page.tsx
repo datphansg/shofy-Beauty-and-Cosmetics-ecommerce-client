@@ -10,6 +10,15 @@ import { Metadata, ResolvingMetadata } from 'next';
 import slugify from "slugify";
 import { Slide } from "react-toastify";
 // Hàm fetch thông tin danh mục
+async function fetchCategoryData(id: string) {
+  const response = await fetch(`https://app-api.selly.vn/product-categories/${id}`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch category data');
+  }
+  return response.json();
+}
+
+
 async function fetchBrandData(id: string) {
   const response = await fetch(`https://app-api.selly.vn/brands/${id}`);
   if (!response.ok) {
@@ -31,13 +40,14 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { slug } = params;
   let brandId = slug[slug.length - 1]; // Lấy category ID từ slug
+  let url = '';
   if(slug.length === 3)
   {
     brandId = slug[slug.length - 2]; 
   }
+  
   const brandInfo = await fetchBrandData(brandId);
-
-  const url = `/brand/${slugify(brandInfo.data.brand.name  || "default-name", { lower: true })}/${brandInfo.data.brand._id}`;
+  url = `/brand/${slugify(brandInfo.data.brand.name  || "default-name", { lower: true })}/${brandInfo.data.brand._id}`;
  
   return {
     title: brandInfo.data.brand.name,
